@@ -33,6 +33,8 @@ class Timing:
         return self.get_beat_time_ms(self.end_beat_index)
 
     def number_of_repeats(self):
+        if not self.cycle:
+            return 1
         return self.number_of_beats() / self.cycle
 
     def number_of_beats(self):
@@ -43,3 +45,26 @@ class Timing:
 
     def __get_beats_per_second(self):
         return 60.0 / self.bpm
+
+
+class TimingFactory:
+
+    def __init__(self, bpm, beats_per_episode):
+        self.beats_per_episode = beats_per_episode
+        self.bpm = bpm
+
+    def from_beat(self, beat_start_index, beat_end_index, cycle):
+        return Timing(self.bpm, beat_start_index, beat_end_index, cycle)
+
+    def episodes_length(self, episode_start_index, num_of_episodes, beats_per_cycle = 1):
+        start_beat = episode_start_index * self.beats_per_episode
+        num_of_beats = num_of_episodes * self.beats_per_episode
+        return Timing(self.bpm, start_beat, num_of_beats, beats_per_cycle)
+
+    def episodes_index(self, episode_start_index, episode_end_index, beats_per_cycle = 1):
+        start_beat = episode_start_index * self.beats_per_episode
+        num_of_beats = (episode_end_index - episode_start_index) * self.beats_per_episode
+        return Timing(self.bpm, start_beat, num_of_beats, beats_per_cycle)
+
+    def single_episode(self, episode_index, beats_per_cycle = 1):
+        return self.episodes_length(episode_index, 1, beats_per_cycle)
