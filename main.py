@@ -8,6 +8,7 @@ import animations.rainbow as rainbow
 import animations.const_color as const_color
 import animations.hue_shift as hue_shift
 import animations.brightness as brightness
+import animations.alternate as alternate
 
 an_list = []
 
@@ -26,11 +27,14 @@ an_list.append(rainbow.monochrome_to_colorful(Timing(bpm=123, start_beat_index=6
 an_list.append(rainbow.very_colorful(Timing(bpm=123, start_beat_index=96, number_of_beats=32, cycle=4)))
 
 # 128 - 160
-an_list.append(rainbow.static_full_rainbow(Timing(bpm=123, start_beat_index=128, number_of_beats=32, cycle=4)))
-an_list.append(brightness.on_cycle_sin(Timing(bpm=123, start_beat_index=128, number_of_beats=32, cycle=4)))
+timing = Timing(bpm=123, start_beat_index=128, number_of_beats=32, cycle=4)
+an_list.append(rainbow.static_full_rainbow(timing))
+an_list.append(brightness.on_cycle_sin(timing))
 
 # 160 - 192
-const_red_animation = const_color.const_color_by_name(Timing(bpm=123, start_beat_index=160, number_of_beats=32, cycle=4), colors.red)
+timing = Timing(bpm=123, start_beat_index=160, number_of_beats=32, cycle=2)
+an_list.append(const_color.const_color_by_name(timing, colors.red))
+an_list.append(alternate.change_on_cycle_adjacent_hues(timing))
 
 #hue_shift_animation = hue_shift.hue_shift_smooth(Timing(bpm=123, start_beat_index=0, number_of_beats=512, cycle=16))
 hue_shift_animation = hue_shift.hue_shift_jump_on_cycle(Timing(bpm=123, start_beat_index=0, number_of_beats=512, cycle=1), 2)
