@@ -1,6 +1,10 @@
 import paho.mqtt.client as mqtt
 import json
 
+from led_objects.cabbages import Cabbage1
+from led_objects.coral_flowers import CoralFlower1
+from led_objects.led_objects import AllObjects
+from thing_to_obj_map import obj_to_thing
 from timing import Timing, TimingFactory
 
 import colors
@@ -12,31 +16,29 @@ import animations.alternate as alternate
 
 tf = TimingFactory(123, 32)
 
-an_list = []
-
 # 0 - 32
-an_list.append(rainbow.slow_colors_mess(tf.single_episode(episode_index=0, beats_per_cycle=4)))
-an_list.append(brightness.fade_in(tf.single_episode(episode_index=0, beats_per_cycle=None)))
+CoralFlower1.add_animation(rainbow.slow_colors_mess(tf.single_episode(episode_index=0, beats_per_cycle=4)))
+CoralFlower1.add_animation(brightness.fade_in(tf.single_episode(episode_index=0, beats_per_cycle=None)))
 
 # 32 - 64
-an_list.append(rainbow.moving_full_rainbow(tf.single_episode(episode_index=1, beats_per_cycle=8)))
-an_list.append(hue_shift.hue_shift_jump_on_cycle(tf.single_episode(episode_index=1, beats_per_cycle=1), 2))
+AllObjects.add_animation(rainbow.moving_full_rainbow(tf.single_episode(episode_index=1, beats_per_cycle=8)))
+AllObjects.add_animation(hue_shift.hue_shift_jump_on_cycle(tf.single_episode(episode_index=1, beats_per_cycle=1), 2))
 
 # 64 - 96
-an_list.append(rainbow.monochrome_to_colorful(tf.single_episode(episode_index=2, beats_per_cycle=4), hue=0.0, amp=0.5))
+Cabbage1.add_animation(rainbow.monochrome_to_colorful(tf.single_episode(episode_index=2, beats_per_cycle=4), hue=0.0, amp=0.5))
 
 # 96 - 128
-an_list.append(rainbow.very_colorful(tf.single_episode(episode_index=3, beats_per_cycle=4)))
+CoralFlower1.add_animation(rainbow.very_colorful(tf.single_episode(episode_index=3, beats_per_cycle=4)))
 
 # 128 - 160
 timing = tf.single_episode(episode_index=4, beats_per_cycle=4)
-an_list.append(rainbow.static_full_rainbow(timing))
-an_list.append(brightness.on_cycle_sin(timing))
+AllObjects.add_animation(rainbow.static_full_rainbow(timing))
+AllObjects.add_animation(brightness.on_cycle_sin(timing))
 
 # 160 - 192
-timing = tf.single_episode(episode_index=5, beats_per_cycle=2)
-an_list.append(const_color.const_color_by_name(timing, colors.red))
-an_list.append(alternate.change_on_cycle_adjacent_hues(timing))
+timing = tf.single_episode(episode_index=5, beats_per_cycle=1)
+Cabbage1.add_animation(const_color.const_color_by_name(timing, colors.red))
+Cabbage1.add_animation(alternate.change_on_cycle_adjacent_hues(timing))
 
 steps_on_beat_0_1 = {
     "type": "repeate",
@@ -99,17 +101,11 @@ animation_fill = {
 #animations = [rainbow_animation.to_json_obj()]
 
 host_name = "10.0.0.200"
-# thing_name = "bigler"
-thing_name = "amir"
-
-animations_json = [an.to_json_obj() for an in an_list]
-
-
 client = mqtt.Client("leds-seq-creator")
 client.connect(host_name)
 
-json_str = json.dumps(animations_json, separators=(',',':')) + '\0'
-print(len(json_str))
-print(json_str)
-
-client.publish("animations/{}/alterego".format(thing_name), json_str)
+for led_object, thing_name in obj_to_thing.items():
+    animations_json = [an.to_json_obj() for an in led_object.animations]
+    json_str = json.dumps(animations_json, separators=(',',':')) + '\0'
+    print("sending json of size {} to thing {}".format(len(json_str), thing_name))
+    client.publish("animations/{}/alterego".format(thing_name), json_str)
