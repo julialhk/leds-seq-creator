@@ -7,6 +7,7 @@ import colors
 import animations.rainbow as rainbow
 import animations.const_color as const_color
 import animations.hue_shift as hue_shift
+import animations.brightness as brightness
 
 an_list = []
 
@@ -22,6 +23,11 @@ an_list.append(rainbow.monochrome_to_colorful(Timing(bpm=123, start_beat_index=6
 
 # 96 - 128
 an_list.append(rainbow.very_colorful(Timing(bpm=123, start_beat_index=96, number_of_beats=32, cycle=4)))
+
+# 128 - 160
+an_list.append(rainbow.static_full_rainbow(Timing(bpm=123, start_beat_index=128, number_of_beats=32, cycle=4)))
+an_list.append(brightness.on_cycle_sin(Timing(bpm=123, start_beat_index=128, number_of_beats=32, cycle=4)))
+
 
 #rainbow_animation = rainbow.monochrome_to_colorful(Timing(bpm=123, start_beat_index=0, number_of_beats=512, cycle=4), hue=0.0, amp=0.1)
 # rainbow_animation = rainbow.static_full_rainbow(Timing(bpm=123, start_beat_index=0, number_of_beats=512, cycle=4))
@@ -146,7 +152,8 @@ animations_json = [an.to_json_obj() for an in an_list]
 client = mqtt.Client("leds-seq-creator")
 client.connect(host_name)
 
-json_str = json.dumps(animations_json) + '\0'
+json_str = json.dumps(animations_json, separators=(',',':')) + '\0'
 print(len(json_str))
+print(json_str)
 
 client.publish("animations/{}/alterego".format(thing_name), json_str)
