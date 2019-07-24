@@ -15,8 +15,8 @@ class BrightnessAnimation(Animation):
         return {"brightness": self.brightness_func.to_json_obj() }
 
 
-def on_cycle_sin(timing, hue = 0.0, sat = 1.0, val = 1.0):
-    return BrightnessAnimation(timing, SinFloatFunc.from_timing(timing, 0.0, 1.0, 0.25))
+def on_cycle_sin(timing, phase = 0.25):
+    return BrightnessAnimation(timing, SinFloatFunc.from_timing(timing, 0.0, 1.0, phase))
 
 def fade_in(timing):
     return BrightnessAnimation(timing, LinearFloatFunc(0.0, 1.0))

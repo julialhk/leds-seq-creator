@@ -16,29 +16,37 @@ import animations.alternate as alternate
 
 tf = TimingFactory(123, 32)
 
-# 0 - 32
 CoralFlower1.add_animation(rainbow.slow_colors_mess(tf.single_episode(episode_index=0, beats_per_cycle=4)))
 CoralFlower1.add_animation(brightness.fade_in(tf.single_episode(episode_index=0, beats_per_cycle=None)))
 
-# 32 - 64
 AllObjects.add_animation(rainbow.moving_full_rainbow(tf.single_episode(episode_index=1, beats_per_cycle=8)))
 AllObjects.add_animation(hue_shift.hue_shift_jump_on_cycle(tf.single_episode(episode_index=1, beats_per_cycle=1), 2))
 
-# 64 - 96
-Cabbage1.add_animation(rainbow.monochrome_to_colorful(tf.single_episode(episode_index=2, beats_per_cycle=4), hue=0.0, amp=0.5))
+CoralFlower1.add_animation(rainbow.monochrome_to_colorful(tf.single_episode(episode_index=2, beats_per_cycle=4), hue=0.0, amp=0.5))
 
-# 96 - 128
 CoralFlower1.add_animation(rainbow.very_colorful(tf.single_episode(episode_index=3, beats_per_cycle=4)))
 
-# 128 - 160
 timing = tf.single_episode(episode_index=4, beats_per_cycle=4)
-AllObjects.add_animation(rainbow.static_full_rainbow(timing))
-AllObjects.add_animation(brightness.on_cycle_sin(timing))
+Cabbage1.add_animation(rainbow.static_full_rainbow(timing))
+Cabbage1.add_animation(brightness.on_cycle_sin(timing))
 
-# 160 - 192
 timing = tf.single_episode(episode_index=5, beats_per_cycle=1)
-Cabbage1.add_animation(const_color.const_color_by_name(timing, colors.red))
-Cabbage1.add_animation(alternate.change_on_cycle_adjacent_hues(timing))
+AllObjects.add_animation(const_color.const_color_by_name(timing, colors.red))
+AllObjects.add_animation(alternate.change_on_cycle_adjacent_hues(timing))
+
+timing = tf.single_episode(episode_index=6, beats_per_cycle=1)
+CoralFlower1.add_animation(const_color.const_color_by_name(timing, colors.blue))
+CoralFlower1.add_animation(alternate.colors_colide(timing))
+
+timing = tf.single_episode(episode_index=7, beats_per_cycle=4)
+CoralFlower1.add_animation(const_color.const_color_by_name(timing, colors.blue))
+CoralFlower1.add_animation(alternate.alternate_color_move(timing))
+
+timing = tf.single_episode(episode_index=8, beats_per_cycle=4)
+CoralFlower1.add_animation(const_color.const_color_by_name(timing, colors.blue))
+CoralFlower1.add_animation(hue_shift.hue_shift_jump_on_cycle(timing))
+CoralFlower1.add_animation(brightness.on_cycle_sin(timing, -0.25))
+
 
 steps_on_beat_0_1 = {
     "type": "repeate",
