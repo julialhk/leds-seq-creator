@@ -1,21 +1,23 @@
-import cycle
-import painting
-from animations.snake import SnakeAnimation
-from boolean_func.const import ConstBooleanFunc
-from float_func.const import ConstFloatFunc
-from led_objects.cabbages import Cabbage1
-from led_objects.coral_flowers import CoralFlower1
+
 from led_objects.led_objects import AllObjects
 from send_to_mqtt import send_to_mqtt
 from timing import song_settings, frame
 
+AllObjects.init()
+
 song_settings(bpm=123, beats_per_episode=32)
 
 frame(0, 50)
-AllObjects.add_animation(painting.gradient(0.3, 0.4))
+AllObjects.color.gradient(color.red, color.orange)
+frame(1, 2)
+AllObjects.color.uniform(0.0)
+
+
+
+#AllObjects.add_animation(painting.color(0.0, 0.7))
 # AllObjects.add_animation(cycle.snake(4, cycle.BeatFell.no_beat, 1.0))
 # CoralFlower1.add_animation(painting.color(tf0, 0.8, 0.8))
-CoralFlower1.add_animation(cycle.brightness(2, cycle.BeatFell.pair_beat, 0.5))
+#CoralFlower1.add_animation(cycle.brightness(2, cycle.BeatFell.pair_beat, 0.5))
 # Coral_1.add_brightness(tf0, 2, pair_beat, 0.5)
 
 # CoralFlower1.add_animation(cycle.brightness(2, tf0, cycle.BeatFell.pair_beat, 0.5))
