@@ -1,6 +1,5 @@
 import cycle
 import painting
-import timing
 from animations.snake import SnakeAnimation
 from boolean_func.const import ConstBooleanFunc
 from float_func.const import ConstFloatFunc
@@ -8,11 +7,11 @@ from led_objects.cabbages import Cabbage1
 from led_objects.coral_flowers import CoralFlower1
 from led_objects.led_objects import AllObjects
 from send_to_mqtt import send_to_mqtt
-from timing import TimeFrameFactory, tf_global
+from timing import song_settings, frame
 
-tf = TimeFrameFactory(123, 32)
+song_settings(bpm=123, beats_per_episode=32)
 
-tf.episodes_length(0, 50)
+frame(0, 50)
 AllObjects.add_animation(painting.gradient(0.3, 0.4))
 # AllObjects.add_animation(cycle.snake(4, cycle.BeatFell.no_beat, 1.0))
 # CoralFlower1.add_animation(painting.color(tf0, 0.8, 0.8))

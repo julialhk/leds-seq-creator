@@ -3,6 +3,7 @@
 import copy
 
 tf_global = None
+time_frame_factory = None
 
 def get_timing():
     global tf_global
@@ -55,3 +56,12 @@ class TimeFrameFactory:
     def single_episode(self, episode_index):
         global tf_global
         tf_global = self.episodes_length(episode_index, 1)
+
+
+def song_settings(bpm, beats_per_episode):
+    global time_frame_factory
+    time_frame_factory = TimeFrameFactory(bpm, beats_per_episode)
+
+def frame(episode_start_index, episode_end_index):
+    global time_frame_factory
+    time_frame_factory.episodes_index(episode_start_index, episode_end_index)
