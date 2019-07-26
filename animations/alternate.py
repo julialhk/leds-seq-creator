@@ -3,7 +3,7 @@ from animations.animation import Animation
 import boolean_func.equal_spreads as equal_spreads
 from float_func.const import ConstFloatFunc
 from float_func.linear import LinearFloatFunc
-from float_func.repeate import RepeateFloatFunc
+from float_func.repeat import RepeatFloatFunc
 from float_func.sin import SinFloatFunc
 
 
@@ -33,7 +33,7 @@ def change_on_cycle_oppsite_hues(timing, number_of_pixels = 3):
 
 def colors_colide(timing, number_of_pixels = 3, cycles_for_colide = 4):
     liner_drop = LinearFloatFunc(0.8, 0.0)
-    saw_tooth = RepeateFloatFunc.from_timing(timing, cycles_for_colide, liner_drop)
+    saw_tooth = RepeatFloatFunc.from_timing(timing, cycles_for_colide, liner_drop)
     return AlternateAnimation(timing, number_of_pixels, equal_spreads.change_on_cycle(timing), saw_tooth)
 
 def alternate_color_move(timing, number_of_pixels = 3):

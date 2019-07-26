@@ -9,8 +9,9 @@ class SinFloatFunc:
         self.repeats = repeats
 
     @classmethod
-    def from_timing(cls, timing, min_value, max_value, phase):
-        return cls(min_value, max_value, phase, timing.number_of_repeats())
+    def from_timing(cls, timing, beats_per_cycle, min_value, max_value, phase):
+        num_of_cycles = timing.number_of_beats() / beats_per_cycle
+        return cls(min_value, max_value, phase, num_of_cycles)
 
     def to_json_obj(self):
         return {
