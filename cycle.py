@@ -1,5 +1,7 @@
 from animations.brightness import BrightnessAnimation
 from animations.hue_shift import HueShiftAnimation
+from animations.snake import SnakeAnimation
+from boolean_func.const import ConstBooleanFunc
 from float_func.comb2 import Comb2FloatFunc
 from float_func.const import ConstFloatFunc
 from float_func.half import HalfFloatFunc
@@ -60,10 +62,21 @@ def hue_shift(beats_per_cycle, timing, beat_feel, energy = 1.0):
         return HueShiftAnimation(timing, RepeatFloatFunc.from_timing(timing, beats_per_cycle, zigzag))
 
     elif beat_feel == BeatFell.drama_beat:
-        return HueShiftAnimation(timing, RepeatFloatFunc.from_timing(timing, beats_per_cycle, LinearFloatFunc(energy, 0.0)))
+        return HueShiftAnimation(timing, RepeatFloatFunc.from_timing(timing, beats_per_cycle, LinearFloatFunc(energy * 0.5, 0.0)))
 
     elif beat_feel == BeatFell.pair_beat:
         on_off = HalfFloatFunc(ConstFloatFunc(0.0), ConstFloatFunc(energy * 0.5))
         return HueShiftAnimation(timing, RepeatFloatFunc.from_timing(timing, beats_per_cycle, on_off))
+
+    raise Exception("cannot handle beat feel with value ", beat_feel)
+
+
+def snake(beats_per_cycle, timing, beat_feel, energy = 1.0):
+
+    tail_length = energy * 8.0
+    head = RepeatFloatFunc.from_timing(timing, beats_per_cycle, LinearFloatFunc(0.0, 1.0 + tail_length))
+
+    if beat_feel == BeatFell.no_beat:
+        return SnakeAnimation(timing, head, ConstFloatFunc(tail_length), ConstBooleanFunc())
 
     raise Exception("cannot handle beat feel with value ", beat_feel)
