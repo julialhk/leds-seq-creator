@@ -1,5 +1,12 @@
-from copy import deepcopy
 
+""" global object - accessed from other modules """
+import copy
+
+tf_global = None
+
+def get_timing():
+    global tf_global
+    return copy.deepcopy(tf_global)
 
 class TimeFrame:
 
@@ -23,7 +30,6 @@ class TimeFrame:
     def __get_beats_per_second(self):
         return 60.0 / self.bpm
 
-
 class TimeFrameFactory:
 
     def __init__(self, bpm, beats_per_episode):
@@ -31,17 +37,21 @@ class TimeFrameFactory:
         self.bpm = bpm
 
     def from_beat(self, beat_start_index, beat_end_index):
-        return TimeFrame(self.bpm, beat_start_index, beat_end_index)
+        global tf_global
+        tf_global = TimeFrame(self.bpm, beat_start_index, beat_end_index)
 
     def episodes_length(self, episode_start_index, num_of_episodes):
+        global tf_global
         start_beat = episode_start_index * self.beats_per_episode
         num_of_beats = num_of_episodes * self.beats_per_episode
-        return TimeFrame(self.bpm, start_beat, num_of_beats)
+        tf_global = TimeFrame(self.bpm, start_beat, num_of_beats)
 
     def episodes_index(self, episode_start_index, episode_end_index):
+        global tf_global
         start_beat = episode_start_index * self.beats_per_episode
         num_of_beats = (episode_end_index - episode_start_index) * self.beats_per_episode
-        return TimeFrame(self.bpm, start_beat, num_of_beats)
+        tf_global = TimeFrame(self.bpm, start_beat, num_of_beats)
 
-    def single_episode(self, episode_index, beats_per_cycle = 1):
-        return self.episodes_length(episode_index, 1)
+    def single_episode(self, episode_index):
+        global tf_global
+        tf_global = self.episodes_length(episode_index, 1)
