@@ -1,7 +1,6 @@
 
 
 class CoralFlower1:
-    name = "coral-flower-1"
     total_pixels = 50
     mapping = {
         "rand": list(range(50))
