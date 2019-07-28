@@ -1,9 +1,11 @@
 from led_objects.cabbages import Cabbage1
-from led_objects.coral_flowers import CoralFlower1
+from led_objects.flowers import flower1
+from led_objects.sticks import sticks1
 
 obj_to_thing = {
-    CoralFlower1: "amir",
-    Cabbage1: "bigler"
+    flower1: "amit",
+    # Cabbage1: "bigler",
+    sticks1: "bigler"
 }
 
 all_objects = obj_to_thing.keys()

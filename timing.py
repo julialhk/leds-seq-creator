@@ -38,30 +38,27 @@ class TimeFrameFactory:
         self.bpm = bpm
 
     def from_beat(self, beat_start_index, beat_end_index):
-        global tf_global
-        tf_global = TimeFrame(self.bpm, beat_start_index, beat_end_index)
+        return TimeFrame(self.bpm, beat_start_index, beat_end_index)
 
     def episodes_length(self, episode_start_index, num_of_episodes):
-        global tf_global
         start_beat = episode_start_index * self.beats_per_episode
         num_of_beats = num_of_episodes * self.beats_per_episode
-        tf_global = TimeFrame(self.bpm, start_beat, num_of_beats)
+        return TimeFrame(self.bpm, start_beat, num_of_beats)
 
     def episodes_index(self, episode_start_index, episode_end_index):
-        global tf_global
         start_beat = episode_start_index * self.beats_per_episode
         num_of_beats = (episode_end_index - episode_start_index) * self.beats_per_episode
-        tf_global = TimeFrame(self.bpm, start_beat, num_of_beats)
+        return TimeFrame(self.bpm, start_beat, num_of_beats)
 
     def single_episode(self, episode_index):
-        global tf_global
-        tf_global = self.episodes_length(episode_index, 1)
+        return self.episodes_length(episode_index, 1)
 
 
 def song_settings(bpm, beats_per_episode):
     global time_frame_factory
     time_frame_factory = TimeFrameFactory(bpm, beats_per_episode)
 
-def frame(episode_start_index, episode_end_index):
+def episodes(episode_start_index, episode_end_index):
     global time_frame_factory
-    time_frame_factory.episodes_index(episode_start_index, episode_end_index)
+    global  tf_global
+    tf_global = time_frame_factory.episodes_index(episode_start_index, episode_end_index)

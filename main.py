@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import json
 
 from led_objects.cabbages import Cabbage1
-from led_objects.coral_flowers import CoralFlower1
+from led_objects.flowers import CoralFlower1
 from led_objects.led_objects import AllObjects
 from thing_to_obj_map import obj_to_thing
 from timing import Timing, TimingFactory

@@ -14,4 +14,5 @@ def send_to_mqtt(filename):
         animations_json = [an.to_json_obj() for an in led_object.animations]
         json_str = json.dumps(animations_json, separators=(',', ':')) + '\0'
         print("sending json of size {} to thing {}".format(len(json_str), thing_name))
-        client.publish("animations/{}/{}".format(thing_name, filename), json_str)
+        print(json_str)
+        client.publish("animations/{}/{}".format(thing_name, filename), json_str, qos=1)
