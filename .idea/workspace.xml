@@ -2,26 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f805e36-06ad-4fbb-a9f9-0221b45fea6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/animations/alternate_coloring.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/animations/animations_common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/animations_factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/led_objects/led_object.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/led_objects/objects_selector.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/led_objects/sticks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs/millenium.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_load.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_send_animations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animations/const_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/animations/const_color.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/colors.py" beforeDir="false" afterPath="$PROJECT_DIR$/colors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cycle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/led_objects/coral_flowers.py" beforeDir="false" afterPath="$PROJECT_DIR$/led_objects/flowers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/painting.py" beforeDir="false" afterPath="$PROJECT_DIR$/painting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/send_to_mqtt.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_to_mqtt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/led_objects/cabbages.py" beforeDir="false" afterPath="$PROJECT_DIR$/led_objects/cabbages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/led_objects/flowers.py" beforeDir="false" afterPath="$PROJECT_DIR$/led_objects/flowers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/songs/alterego.py" beforeDir="false" afterPath="$PROJECT_DIR$/songs/alterego.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_load.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thing_to_obj_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/thing_to_obj_map.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timing.py" beforeDir="false" afterPath="$PROJECT_DIR$/timing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.alterego">
+  <component name="RunManager" selected="Python.test_load">
     <configuration name="alterego" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="leds-seq-creator" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -178,10 +164,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_load" />
         <item itemvalue="Python.alterego" />
         <item itemvalue="Python.objects_config_sender" />
         <item itemvalue="Python.test_send_animations" />
-        <item itemvalue="Python.test_load" />
         <item itemvalue="Python.millenium" />
       </list>
     </recent_temporary>
