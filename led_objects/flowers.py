@@ -1,5 +1,6 @@
 from led_objects.led_object import LedObject
 
+
 class Flower(LedObject):
 
     def __init__(self, num_pixels):

@@ -1,4 +1,5 @@
 from animations_factory import color, effect, BeatFeel
+from led_objects.cabbages import cabbage1
 from led_objects.flowers import flower1
 from led_objects.led_objects import AllObjects
 from led_objects.objects_selector import elements
@@ -23,9 +24,9 @@ episodes(0, 50)
 
 for i in range(10):
     episodes(i, i+1)
-    elements(sticks1.stick(1), flower1)
+    elements(sticks1.stick(3), flower1, cabbage1)
     color.uniform(((i / 30.0), 1.0, 1.0))
-    effect.snake(1)
+    effect.snake(8)
     #effect.hue_shift(4 + (i % 2) * 4, BeatFeel.background_beat, 0.5)
 
 # CoralFlower1.add_animation(cycle.hue_shift(4, cycle.BeatFell.background_beat, 0.1))

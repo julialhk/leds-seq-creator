@@ -1,10 +1,10 @@
-from led_objects.cabbages import Cabbage1
+from led_objects.cabbages import cabbage1
 from led_objects.flowers import flower1
 from led_objects.sticks import sticks1
 
 obj_to_thing = {
     flower1: "amit",
-    # Cabbage1: "bigler",
+    cabbage1: "amir",
     sticks1: "bigler"
 }
 
