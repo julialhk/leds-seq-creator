@@ -16,3 +16,5 @@ def send_to_mqtt(filename):
         print("sending json of size {} to thing {}".format(len(json_str), thing_name))
         print(json_str)
         client.publish("animations/{}/{}".format(thing_name, filename), json_str, qos=1)
+
+    client.disconnect()

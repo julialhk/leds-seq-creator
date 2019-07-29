@@ -1,7 +1,7 @@
 import copy
 from enum import Enum
 
-import timing
+from infra import timing
 from animations.alternate_coloring import AlternateColoringAnimation
 from animations.brightness import BrightnessAnimation
 from animations.const_color import ConstColorAnimation

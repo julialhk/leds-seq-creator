@@ -1,4 +1,4 @@
-import timing
+from infra import timing
 from animations import const_color
 from animations.alternate_coloring import AlternateColoringAnimation
 from animations.rainbow import Rainbow

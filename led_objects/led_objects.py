@@ -1,4 +1,4 @@
-from painting import ColorEffects
+from infra.painting import ColorEffects
 from thing_to_obj_map import all_objects
 
 
