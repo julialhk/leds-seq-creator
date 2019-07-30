@@ -2,12 +2,16 @@
 """ global object - accessed from other modules """
 import copy
 
+from infra import stored_animations
+
 tf_global = None
 time_frame_factory = None
+
 
 def get_timing():
     global tf_global
     return copy.deepcopy(tf_global)
+
 
 class TimeFrame:
 
@@ -62,3 +66,8 @@ def episodes(episode_start_index, episode_end_index):
     global time_frame_factory
     global  tf_global
     tf_global = time_frame_factory.episodes_index(episode_start_index, episode_end_index)
+
+def episode(episode_index):
+    global time_frame_factory
+    global  tf_global
+    tf_global = time_frame_factory.single_episode(episode_index)

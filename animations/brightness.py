@@ -7,8 +7,8 @@ class BrightnessAnimation(Animation):
 
     name = "brightness"
 
-    def __init__(self, timing, brightness_func):
-        super(BrightnessAnimation, self).__init__(timing)
+    def __init__(self, brightness_func):
+        super(BrightnessAnimation, self).__init__()
         self.brightness_func = brightness_func
 
     def get_params_json(self):

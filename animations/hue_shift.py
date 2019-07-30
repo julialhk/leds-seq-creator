@@ -7,8 +7,8 @@ class HueShiftAnimation(Animation):
 
     name = "hue_shift"
 
-    def __init__(self, timing, shift_amount):
-        super(HueShiftAnimation, self).__init__(timing)
+    def __init__(self, shift_amount):
+        super(HueShiftAnimation, self).__init__()
         self.shift_amount = shift_amount
 
     def get_params_json(self):

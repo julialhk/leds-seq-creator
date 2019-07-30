@@ -9,8 +9,8 @@ class Rainbow(Animation):
 
     name = "rainbow"
 
-    def __init__(self, timing, start_hue, end_hue):
-        super(Rainbow, self).__init__(timing)
+    def __init__(self, start_hue, end_hue):
+        super(Rainbow, self).__init__()
         self.start_hue = start_hue
         self.end_hue = end_hue
 

@@ -1,44 +1,45 @@
 from infra.animations_factory import color, effect, BeatFeel
+from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1
 from led_objects.flowers import flower1
 from led_objects.objects_selector import elements
 from led_objects.sticks import sticks1
 from network.send_to_mqtt import send_to_mqtt
-from infra.timing import song_settings, episodes
+from infra.timing import song_settings, episodes, episode
 from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
 
-# save("example")
-#
-# beat(1.5, 2)
-#
-# color.uniform(red)
-# effect.snake(8)
-# effect.brightness(4, BeatFeel.drama_beat, 1.0)
-#
-# save("example")
-#
-#
+save("amit")
+elements(flower1)
+beat(1.5, 2)
+color.uniform(blue)
+#effect.fade_out()
+
+elements(sticks1)
+beat(2.5, 3)
+color.uniform(red)
+#effect.fade_out()
+
+save("amit")
+
+
 # episodes(0, 5)
 # load("example", 4)
 #
-# save("amit", 50*32)
-#
-# beat(1.5, 2)
-# color.uniform(blue)
-# effect.fade_out()
-#
-# beat(2.5, 3)
-# color.uniform(red)
-# effect.fade_out()
-#
-# save("amit")
 #
 #
 # episodes(0, 13)
 # load("amit")
 
+episode(0)
+load("amit")
+
+episodes(5,6)
+load("amit")
+
+episodes(9,11)
+load("amit")
 
 episodes(0, 50)
 elements(flower1)

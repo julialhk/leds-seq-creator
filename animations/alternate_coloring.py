@@ -6,8 +6,8 @@ class AlternateColoringAnimation(Animation):
 
     name = "al"
 
-    def __init__(self, timing, c1, c2, number_of_pixels = 3):
-        super(AlternateColoringAnimation, self).__init__(timing)
+    def __init__(self, c1, c2, number_of_pixels = 3):
+        super(AlternateColoringAnimation, self).__init__()
         self.c1 = c1
         self.c2 = c2
         self.number_of_pixels = number_of_pixels
