@@ -10,13 +10,12 @@ from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
 
-save("amit")
+save("amit", 4)
 elements(flower1)
 beat(1.5, 2)
 color.uniform(blue)
 #effect.fade_out()
 
-elements(sticks1)
 beat(2.5, 3)
 color.uniform(red)
 #effect.fade_out()
@@ -32,18 +31,12 @@ save("amit")
 # episodes(0, 13)
 # load("amit")
 
-episode(0)
+episodes(0, 13)
 load("amit")
 
-episodes(5,6)
-load("amit")
-
-episodes(9,11)
-load("amit")
-
-episodes(0, 50)
-elements(flower1)
-color.alternate(red, green)
+# episodes(0, 50)
+# elements(flower1)
+# color.alternate(red, green)
 
 # elements(sticks1)
 # effect.brightness(beats_per_cycle=2, beat_feel=BeatFeel.drama_beat, energy=1.0)
@@ -52,11 +45,11 @@ color.alternate(red, green)
 # elements(sticks1)
 # color.uniform(red)
 
-for i in range(10):
-    episodes(i, i+1)
-    elements(sticks1.stick(1), flower1, cabbage1)
-    color.uniform(((i / 30.0), 1.0, 1.0))
-    effect.snake(2)
+# for i in range(10):
+#     episodes(i, i+1)
+#     elements(sticks1.stick(1), flower1, cabbage1)
+#     color.uniform(((i / 30.0), 1.0, 1.0))
+#     effect.snake(2)
     #effect.hue_shift(4 + (i % 2) * 4, BeatFeel.background_beat, 0.5)
 
 # CoralFlower1.add_animation(cycle.hue_shift(4, cycle.BeatFell.background_beat, 0.1))
