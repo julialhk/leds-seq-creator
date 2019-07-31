@@ -5,8 +5,8 @@ class SnakeAnimation(Animation):
 
     name = "snake"
 
-    def __init__(self, timing, head_pos, length, dir):
-        super(SnakeAnimation, self).__init__(timing)
+    def __init__(self, head_pos, length, dir):
+        super(SnakeAnimation, self).__init__()
         self.dir = dir
         self.length = length
         self.head_pos = head_pos

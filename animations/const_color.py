@@ -6,8 +6,8 @@ class ConstColorAnimation(Animation):
 
     name = "const"
 
-    def __init__(self, timing, hsv):
-        super(ConstColorAnimation, self).__init__(timing)
+    def __init__(self, hsv):
+        super(ConstColorAnimation, self).__init__()
         self.hsv = hsv
 
     def get_params_json(self):

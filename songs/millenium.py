@@ -1,12 +1,10 @@
-from animations_factory import color, effect, BeatFeel
+from infra.animations_factory import color
 from led_objects.flowers import flower1
-from led_objects.led_objects import AllObjects
 from led_objects.objects_selector import elements
 from led_objects.sticks import sticks1
-from painting import ColorEffects
-from send_to_mqtt import send_to_mqtt
-from timing import song_settings, episodes
-from colors import *
+from network.send_to_mqtt import send_to_mqtt
+from infra.timing import song_settings, episodes
+from infra.colors import *
 
 song_settings(bpm=124, beats_per_episode=32)
 

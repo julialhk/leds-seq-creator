@@ -1,30 +1,58 @@
-from animations_factory import color, effect, BeatFeel
+from infra.animations_factory import color, effect, BeatFeel
+from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1
 from led_objects.flowers import flower1
-from led_objects.led_objects import AllObjects
 from led_objects.objects_selector import elements
 from led_objects.sticks import sticks1
-from painting import ColorEffects
-from send_to_mqtt import send_to_mqtt
-from timing import song_settings, episodes
-from colors import *
+from network.send_to_mqtt import send_to_mqtt
+from infra.timing import song_settings, episodes, episode
+from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
 
-episodes(0, 50)
+save("amit", 4)
+elements(flower1, sticks1)
+beat(1.5, 2)
+color.uniform(blue)
+#effect.fade_out()
+
+beat(2.5, 3)
+color.uniform(red)
+#effect.fade_out()
+
+save("amit")
+
+
+# episodes(0, 5)
+# load("example", 4)
+#
+#
+#
+# episodes(0, 13)
+# load("amit")
+
+episodes(0, 13)
+# load("amit")
+
+# episodes(0, 50)
 # elements(flower1)
 # color.alternate(red, green)
 
 # elements(sticks1)
 # effect.brightness(beats_per_cycle=2, beat_feel=BeatFeel.drama_beat, energy=1.0)
 
-# episodes(1, 2)
-# elements(sticks1)
-# color.uniform(red)
+episodes(0, 2)
+elements(flower1)
+color.uniform(red)
+effect.snake(8)
+effect.brightness(4, BeatFeel.background_beat, 1.0)
 
-for i in range(10):
+elements(sticks1)
+#color.uniform(blue)
+
+for i in range(50):
     episodes(i, i+1)
-    elements(sticks1.stick(3), flower1, cabbage1)
+    elements(sticks1.stick(1), flower1, cabbage1)
     color.uniform(((i / 30.0), 1.0, 1.0))
     effect.snake(8)
     #effect.hue_shift(4 + (i % 2) * 4, BeatFeel.background_beat, 0.5)
