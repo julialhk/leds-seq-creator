@@ -1,14 +1,13 @@
 from led_objects.led_object import LedObject
 
+cabbages = []
+
 
 class Cabbage(LedObject):
 
     def __init__(self, num_pixels):
         super(Cabbage, self).__init__(total_pixels=num_pixels)
-
-    @classmethod
-    def default_mapping(cls):
-        return "a"
+        cabbages.append(self)
 
 
 cabbage1 = Cabbage(300)

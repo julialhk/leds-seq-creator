@@ -54,8 +54,8 @@ class Animation:
             if not elements_to_apply:
                 raise Exception("animation has no led objects to take effect on")
 
-            for led_object in elements_to_apply:
-                led_object.add_animation(copy.deepcopy(self))
+            for segment_proxy in elements_to_apply:
+                segment_proxy.add_animation(copy.deepcopy(self))
 
     def create_from_template(self):
         self.timing = timing.get_timing()
