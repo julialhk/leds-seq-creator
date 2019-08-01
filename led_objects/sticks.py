@@ -1,5 +1,8 @@
 from led_objects.led_object import LedObject, SegmentProxy
 
+sticks = []
+single_sticks = []
+
 
 class Sticks(LedObject):
 
@@ -10,15 +13,17 @@ class Sticks(LedObject):
 
         last_index_per_stick.insert(0, 0)
         self.mapping.update({ str(i): list(range(last_index_per_stick[i-1], last_index_per_stick[i])) for i in range(1, len(last_index_per_stick))})
-
-    @classmethod
-    def default_mapping(cls):
-        return "a"
+        sticks.append(self)
+        single_sticks.append(self.all)
 
     def stick(self, index):
         if index < 1 or index > self.num_of_sticks:
             raise Exception("stick index {} not valid".format(index))
         return SegmentProxy(self, str(index))
+
+    @property
+    def all(self):
+        return [SegmentProxy(self, str(i)) for i in range(1, self.num_of_sticks + 1)]
 
 
 sticks1 = Sticks([11, 30, 45, 55, 67])
