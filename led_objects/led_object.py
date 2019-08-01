@@ -14,16 +14,12 @@ class LedObject:
         self.mapping = {"a": list(range(self.total_pixels)), "r": random_index}
         all.append(self)
 
-    def add_animation(self, animation):
-        animation.set_pixels(self.default_mapping())
-        self.animations.append(animation)
+    def add_for_segment(self, segments, animation):
 
-    def add_for_segment(self, segment_name, animation):
+        not_found = set(segments).difference(set(self.mapping.keys()))
+        if not_found:
+            raise Exception("could not find segment with name {} in object".format(not_found))
 
-        if segment_name not in self.mapping:
-            raise Exception("could not find segment with name {} in object".format(segment_name))
-
-        animation.set_pixels(segment_name)
         self.animations.append(animation)
 
     def default_mapping(self):
@@ -43,8 +39,13 @@ class LedObject:
 class SegmentProxy:
 
     def __init__(self, led_object, segment_name):
-        self.led_object = led_object
-        self.segment_name = segment_name
+        self._led_object = led_object
+        self._segment_name = segment_name
 
-    def add_animation(self, animation):
-        self.led_object.add_for_segment(self.segment_name, animation)
+    @property
+    def led_object(self):
+        return self._led_object
+
+    @property
+    def segment_name(self):
+        return self._segment_name

@@ -4,7 +4,7 @@ from led_objects.cabbages import cabbage1
 from led_objects.led_object import all
 from led_objects.flowers import flower1, flowers
 from led_objects.objects_selector import elements
-from led_objects.sticks import sticks1
+from led_objects.sticks import sticks1, single_sticks
 from network.send_to_mqtt import send_to_mqtt
 from infra.timing import song_settings, episodes, episode
 from infra.colors import *
@@ -32,11 +32,9 @@ song_settings(bpm=123, beats_per_episode=32)
 # episodes(0, 13)
 # load("amit")
 
-my_elements = [[flowers, sticks1.all]]
-
 flower1.random
 episodes(0, 30)
-elements(all)
+elements(single_sticks)
 color.gradient(0.0, 0.5)
 
 
