@@ -7,7 +7,7 @@ from led_objects.flowers import flower1, flowers
 from led_objects.objects_selector import elements
 from led_objects.sticks import sticks1, single_sticks
 from network.send_to_mqtt import send_to_mqtt
-from infra.timing import song_settings, episodes, episode, repeat
+from infra.timing import song_settings, episodes, episode, cycle, cycle_beats
 from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
@@ -34,11 +34,14 @@ song_settings(bpm=123, beats_per_episode=32)
 # load("amit")
 
 episodes(0, 30)
-repeat(beats=2)
 elements(flower1)
+cycle(beats=4)
+
+cycle_beats(1.5, 2)
 color.uniform(red)
-effect.hue_saw_tooth(total, True)
-effect.fade_in()
+
+cycle_beats(2.5, 3)
+color.uniform(blue)
 
 # load("amit")
 

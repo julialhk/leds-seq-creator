@@ -20,6 +20,7 @@ class TimeFrame:
         self.start_beat_index = start_beat_index
         self.end_beat_index = start_beat_index + number_of_beats
         self._beats_in_cycle = beats_in_cycle
+        self._cycle_beats = None
 
     @property
     def beats_in_cycle(self):
@@ -28,10 +29,29 @@ class TimeFrame:
     @beats_in_cycle.setter
     def beats_in_cycle(self, value):
         self._beats_in_cycle = value
+        self._cycle_beats = None
 
     @property
     def repeats(self):
         return self.number_of_beats() / self.beats_in_cycle
+
+    @property
+    def cycle_beats(self):
+        return self._cycle_beats
+
+    @cycle_beats.setter
+    def cycle_beats(self, start_end_tuple):
+        self._cycle_beats = start_end_tuple
+
+    def get_cycle_beat_rel_start(self):
+        if not self._cycle_beats:
+            return 0.0
+        return self._cycle_beats[0] / float(self.beats_in_cycle)
+
+    def get_cycle_beat_rel_end(self):
+        if not self._cycle_beats:
+            return 1.0
+        return self._cycle_beats[1] / float(self.beats_in_cycle)
 
     def get_start_time_ms(self):
         return self.get_beat_time_ms(self.start_beat_index)
@@ -89,8 +109,18 @@ def episode(episode_index):
     tf_global = time_frame_factory.single_episode(episode_index)
 
 
-def repeat(beats):
+def cycle(beats):
     global tf_global
     tf_global.beats_in_cycle = beats
 
 
+def cycle_beats(start_beat, end_beat):
+    global tf_global
+    if start_beat >= end_beat:
+        raise Exception("start beat ({0}) should be < end beat ({0})".format(start_beat, end_beat))
+    if start_beat < 0:
+        raise Exception("start beat({0}) should be >= 0".format(start_beat))
+    if end_beat > tf_global.beats_in_cycle:
+        raise Exception("current cycle has {0} beats, but end cycle beat set to {1}".format(tf_global.beats_in_cycle, end_beat))
+
+    tf_global.cycle_beats = (start_beat, end_beat)

@@ -27,8 +27,9 @@ class Animation:
         }
 
         if self.timing.number_of_beats:
-            json_obj["rep_s"] = 0.0
-            json_obj["rep_e"] = 1.0
+            cycle_beats = self.timing.cycle_beats
+            json_obj["rep_s"] = self.timing.get_cycle_beat_rel_start()
+            json_obj["rep_e"] = self.timing.get_cycle_beat_rel_end()
             json_obj["rep_num"] = self.timing.repeats
 
         if self.repeat_params:
