@@ -14,7 +14,7 @@ from infra.colors import *
 song_settings(bpm=123, beats_per_episode=32)
 
 episodes(0, 30)
-elements(flower1)
+elements(cabbage1)
 cycle(beats=4)
 
 cycle_beats(1.5, 2)
@@ -30,30 +30,26 @@ effect.brightness(0.5)
 
 
 
-
-
 episodes(1, 30)
 elements(sticks1.all)
 cycle(2)
 color.gradient(0.3, 0.5)
-effect.blink(medium)
+effect.saw_tooth(medium)
+effect.snake(4.0)
 
 episodes(2, 30)
 effect.brightness(0.5)
 
+
+episodes(0, 30)
+elements(flower1)
+cycle(1)
+color.gradient(0.0, 0.0)
+effect.random_saturation()
+#effect.breath(soft)
+
+
 send_to_mqtt("alterego")
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
