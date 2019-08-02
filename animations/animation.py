@@ -26,7 +26,7 @@ class Animation:
             "params": self.get_params_json()
         }
 
-        if self.timing.number_of_beats:
+        if self.timing.repeats:
             cycle_beats = self.timing.cycle_beats
             json_obj["rep_s"] = self.timing.get_cycle_beat_rel_start()
             json_obj["rep_e"] = self.timing.get_cycle_beat_rel_end()

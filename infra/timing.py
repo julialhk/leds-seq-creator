@@ -33,6 +33,8 @@ class TimeFrame:
 
     @property
     def repeats(self):
+        if self.beats_in_cycle is None:
+            return None
         return self.number_of_beats() / self.beats_in_cycle
 
     @property
