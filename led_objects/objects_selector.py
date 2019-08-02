@@ -13,6 +13,7 @@ def get_elements():
 def should_unapack(elems):
     return any(isinstance(el, list) for el in elems)
 
+
 def unpack_elements(elems):
     new_elems = []
     for elem in elems:
@@ -28,4 +29,4 @@ def elements(*args):
     new_args = unpack_elements(args)
     while should_unapack(new_args):
         new_args = unpack_elements(new_args)
-    stored_objects = [SegmentProxy(obj, obj.default_mapping()) if isinstance(args[0], LedObject) else obj for obj in new_args]
+    stored_objects = [SegmentProxy(obj, obj.default_mapping()) if isinstance(obj, LedObject) else obj for obj in new_args]

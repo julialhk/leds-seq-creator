@@ -26,6 +26,11 @@ class Animation:
             "params": self.get_params_json()
         }
 
+        if self.timing.number_of_beats:
+            json_obj["rep_s"] = 0.0
+            json_obj["rep_e"] = 1.0
+            json_obj["rep_num"] = self.timing.repeats
+
         if self.repeat_params:
             total_beats = self.timing.number_of_beats()
             curr_length_in_beats = self.repeat_params["curr_length_beats"]
