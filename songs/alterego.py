@@ -34,7 +34,7 @@ song_settings(bpm=123, beats_per_episode=32)
 
 flower1.random
 episodes(0, 30)
-elements(single_sticks)
+elements(single_sticks, flower1)
 color.gradient(0.0, 0.5)
 
 
