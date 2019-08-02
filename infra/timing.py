@@ -15,10 +15,23 @@ def get_timing():
 
 class TimeFrame:
 
-    def __init__(self, bpm, start_beat_index, number_of_beats):
+    def __init__(self, bpm, start_beat_index, number_of_beats, beats_in_cycle = None):
         self.bpm = bpm
         self.start_beat_index = start_beat_index
         self.end_beat_index = start_beat_index + number_of_beats
+        self._beats_in_cycle = beats_in_cycle
+
+    @property
+    def beats_in_cycle(self):
+        return self._beats_in_cycle
+
+    @beats_in_cycle.setter
+    def beats_in_cycle(self, value):
+        self._beats_in_cycle = value
+
+    @property
+    def repeats(self):
+        return self.number_of_beats() / self.beats_in_cycle
 
     def get_start_time_ms(self):
         return self.get_beat_time_ms(self.start_beat_index)
@@ -34,6 +47,7 @@ class TimeFrame:
 
     def __get_beats_per_second(self):
         return 60.0 / self.bpm
+
 
 class TimeFrameFactory:
 
@@ -62,12 +76,21 @@ def song_settings(bpm, beats_per_episode):
     global time_frame_factory
     time_frame_factory = TimeFrameFactory(bpm, beats_per_episode)
 
+
 def episodes(episode_start_index, episode_end_index):
     global time_frame_factory
-    global  tf_global
+    global tf_global
     tf_global = time_frame_factory.episodes_index(episode_start_index, episode_end_index)
+
 
 def episode(episode_index):
     global time_frame_factory
-    global  tf_global
+    global tf_global
     tf_global = time_frame_factory.single_episode(episode_index)
+
+
+def repeat(beats):
+    global tf_global
+    tf_global.beats_in_cycle = beats
+
+

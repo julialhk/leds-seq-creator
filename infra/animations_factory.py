@@ -15,6 +15,7 @@ from float_func.half import HalfFloatFunc
 from float_func.linear import LinearFloatFunc
 from float_func.repeat import RepeatFloatFunc
 from float_func.sin import SinFloatFunc
+from infra.length import short, medium, long, soft, hard, total
 from led_objects.objects_selector import get_elements
 
 
@@ -49,35 +50,46 @@ class EffectFactory:
     def hue_shift(self, beats_per_cycle, beat_feel, energy=1.0):
         self._hue_shift(beats_per_cycle, beat_feel, energy).apply()
 
-    def snake(self, beats_per_cycle):
-        t = timing.get_timing()
-        tail_length = 1.0
-        head = RepeatFloatFunc.from_timing(t, beats_per_cycle, LinearFloatFunc(0.0, 1.0 + tail_length))
-        SnakeAnimation(head, ConstFloatFunc(tail_length), ConstBooleanFunc()).apply()
+    def snake(self, tail):
+        tail_length = {short: 0.25, medium: 1.0, long: 4.0}[tail]
+        SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail_length), ConstFloatFunc(tail_length), ConstBooleanFunc()).apply()
 
-    def _brightness(self, beats_per_cycle, beat_feel, energy=1.0):
-        t = timing.get_timing()
+    def blink(self, edge=0.5):
+        if isinstance(edge, str):
+            edge = {soft: 0.25, medium: 0.5, hard: 0.75, total: 1.0}[edge]
+        return BrightnessAnimation(HalfFloatFunc(ConstFloatFunc(1.0), ConstFloatFunc(1.0 - edge))).apply()
 
-        if beat_feel == BeatFeel.no_beat:
-            func1 = SinFloatFunc.from_timing(t, beats_per_cycle * 2.57, 1.0 - energy * 0.7, 1.0, -0.25)
-            func2 = SinFloatFunc.from_timing(t, beats_per_cycle * 0.88, 1.0 - energy * 0.5, 1.0, 0.15)
-            return BrightnessAnimation(Comb2FloatFunc(0.3, func1, 0.7, func2))
+    def breath(self, edge=0.6):
+        if isinstance(edge, str):
+            edge = {soft: 0.4, medium: 0.6, hard: 0.8, total: 1.0}[edge]
+        return BrightnessAnimation(SinFloatFunc(1.0 - edge, 1.0, -0.25, 1)).apply()
 
-        elif beat_feel == BeatFeel.background_beat:
-            return BrightnessAnimation(SinFloatFunc.from_timing(t, beats_per_cycle, 1.0 - energy, 1.0, -0.25))
+    def saw_tooth(self, edge=0.6, reverse=False):
+        if isinstance(edge, str):
+            edge = {soft: 0.4, medium: 0.6, hard: 0.8, total: 1.0}[edge]
+        min_val = 1.0 - edge if reverse else 1.0
+        max_val = 1.0 if reverse else 1.0 - edge
+        return BrightnessAnimation(LinearFloatFunc(min_val, max_val)).apply()
 
-        elif beat_feel == BeatFeel.weak_beat:
-            zigzag = HalfFloatFunc(LinearFloatFunc(1.0 - energy, 1.0), LinearFloatFunc(1.0, 1.0 - energy))
-            return BrightnessAnimation(RepeatFloatFunc.from_timing(t, beats_per_cycle, zigzag))
+    def hue_blink(self, edge=0.5, reverse=False):
+        if isinstance(edge, str):
+            edge = {soft: 0.05, medium: 0.12, hard: 0.25, total: 0.5}[edge]
+        if reverse:
+            edge = -edge
+        return HueShiftAnimation(HalfFloatFunc(ConstFloatFunc(1.0), ConstFloatFunc(1.0 - edge))).apply()
 
-        elif beat_feel == BeatFeel.drama_beat:
-            return BrightnessAnimation(RepeatFloatFunc.from_timing(t, beats_per_cycle,
-                                                                      LinearFloatFunc(1.0 - energy, 1.0)))
-        elif beat_feel == BeatFeel.pair_beat:
-            on_off = HalfFloatFunc(ConstFloatFunc(1.0), ConstFloatFunc(1.0 - energy))
-            return BrightnessAnimation(RepeatFloatFunc.from_timing(t, beats_per_cycle, on_off))
+    def hue_breath(self, edge=0.1):
+        if isinstance(edge, str):
+            edge = {soft: 0.03, medium: 0.1, hard: 0.2, total: 0.5}[edge]
+        return HueShiftAnimation(SinFloatFunc(-edge, edge, 0.0, 1)).apply()
 
-        raise Exception("cannot handle beat feel with value ", beat_feel)
+    def hue_saw_tooth(self, edge=0.1, reverse=False):
+        if isinstance(edge, str):
+            edge = {soft: 0.04, medium: 0.08, hard: 0.2, total: 0.35}[edge]
+        if reverse:
+            edge = -edge
+        return HueShiftAnimation(LinearFloatFunc(0.0, edge)).apply()
+
 
     def _hue_shift(self, beats_per_cycle, beat_feel, energy=1.0):
         t = timing.get_timing()
