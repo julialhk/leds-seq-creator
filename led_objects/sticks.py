@@ -27,9 +27,9 @@ class Sticks(LedObject):
 
 
 sticks1 = Sticks([11, 30, 45, 55, 67])
-sticks2 = Sticks([10])
-sticks3 = Sticks([10])
+sticks2 = Sticks([17, 31, 53, 70, 91, 107])
+sticks3 = Sticks([55, 107, 151, 191, 228])
 
-lifa1 = Sticks([10])
-lifa2 = Sticks([10])
-lifa3 = Sticks([10])
+lifa1 = Sticks([46, 84, 125, 159, 193])
+lifa2 = Sticks([19, 47, 80, 119, 165])
+lifa3 = Sticks([79, 146, 202, 257, 307]) # missing 7 - 307

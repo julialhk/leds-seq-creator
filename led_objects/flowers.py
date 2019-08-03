@@ -21,5 +21,5 @@ paper2 = Flower(50)
 
 cup_cake = Flower(100)
 
-rug1 = Flower(6)
-rug2 = Flower(6)
+rug1 = Flower(11)
+rug2 = Flower(11)

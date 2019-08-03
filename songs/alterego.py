@@ -6,7 +6,7 @@ from led_objects.cabbages import cabbage1, cabbage2, brain1, brain2
 from led_objects.led_object import all
 from led_objects.flowers import flower1, flowers, paper1
 from led_objects.objects_selector import elements
-from led_objects.sticks import sticks1, single_sticks
+from led_objects.sticks import sticks1, single_sticks, sticks2, sticks3, lifa1, lifa2, lifa3
 from network.send_to_mqtt import send_to_mqtt
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats
 from infra.colors import *
@@ -63,6 +63,11 @@ color.uniform((0.4, 1.0, 1.0))
 
 elements(paper1)
 color.uniform((0.4, 1.0, 1.0))
+
+elements(lifa3)
+color.uniform((0.0, 1.0, 0.3))
+elements(lifa3.stick(5))
+color.uniform((0.9, 1.0, 1.0))
 
 
 elements(all)
