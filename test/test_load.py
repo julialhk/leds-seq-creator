@@ -12,7 +12,7 @@ def send_new_file(file_name):
     r = requests.put(url = "http://10.0.0.200:8080/api/current-song", data=json.dumps(data))
 
 
-for i in range(100):
+for i in range(1000):
     send_new_file("alterego.wav")
     time.sleep(1000)
     # send_new_file("millenium.wav")

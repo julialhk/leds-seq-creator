@@ -1,6 +1,8 @@
 import copy
 from enum import Enum
 
+from animations.rand_brightness import RandBrightnessAnimation
+from animations.rand_sat import RandSaturationAnimation
 from infra import timing, stored_animations
 from animations.alternate_coloring import AlternateColoringAnimation
 from animations.brightness import BrightnessAnimation
@@ -39,9 +41,10 @@ class EffectFactory:
     def brightness(self, factor):
         BrightnessAnimation(ConstFloatFunc(factor)).apply()
 
-    def snake(self, tail):
-        tail_length = {short: 0.25, medium: 1.0, long: 4.0}[tail]
-        SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail_length), ConstFloatFunc(tail_length), ConstBooleanFunc()).apply()
+    def snake(self, tail=1.0):
+        if isinstance(tail, str):
+            tail = {short: 0.25, medium: 1.0, long: 4.0}[tail]
+        SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail), ConstFloatFunc(tail), ConstBooleanFunc()).apply()
 
     def blink(self, edge=0.5):
         if isinstance(edge, str):
@@ -78,6 +81,12 @@ class EffectFactory:
         if reverse:
             edge = -edge
         HueShiftAnimation(LinearFloatFunc(0.0, edge)).apply()
+
+    def random_brightness(self):
+        RandBrightnessAnimation().apply()
+
+    def random_saturation(self):
+        RandSaturationAnimation().apply()
 
 
 effect = EffectFactory()

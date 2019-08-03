@@ -11,3 +11,15 @@ class Flower(LedObject):
 
 
 flower1 = Flower(50)
+flower2 = Flower(50)
+
+bottle1 = Flower(50)
+bottle2 = Flower(50)
+
+paper1 = Flower(50)
+paper2 = Flower(50)
+
+cup_cake = Flower(100)
+
+rug1 = Flower(6)
+rug2 = Flower(6)
