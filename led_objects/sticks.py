@@ -27,3 +27,9 @@ class Sticks(LedObject):
 
 
 sticks1 = Sticks([11, 30, 45, 55, 67])
+sticks2 = Sticks([10])
+sticks3 = Sticks([10])
+
+lifa1 = Sticks([10])
+lifa2 = Sticks([10])
+lifa3 = Sticks([10])
