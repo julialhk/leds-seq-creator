@@ -1,7 +1,7 @@
 from infra.animations_factory import color
-from led_objects.flowers import flower1
+from led_objects.flowers import flower6
 from led_objects.objects_selector import elements
-from led_objects.sticks import sticks1
+from led_objects.stands import sticks8
 from network.send_to_mqtt import send_to_mqtt
 from infra.timing import song_settings, episodes
 from infra.colors import *
@@ -9,7 +9,7 @@ from infra.colors import *
 song_settings(bpm=124, beats_per_episode=32)
 
 episodes(0, 50)
-elements(flower1, sticks1)
+elements(flower6, sticks8)
 color.alternate(red, blue)
 
 # elements(sticks1)
