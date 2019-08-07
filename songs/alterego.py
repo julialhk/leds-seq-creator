@@ -71,6 +71,7 @@ song_settings(bpm=123, beats_per_episode=32)
 
 episodes(0, 30)
 elements(all)
+cycle(8)
 color.uniform(red)
 effect.breath()
 #effect.breath(soft)

@@ -13,9 +13,10 @@ from infra.colors import *
 
 song_settings(bpm=124, beats_per_episode=32)
 
-episodes(0, 30)
+episodes(0, 50)
 elements(all)
-color.uniform(red)
+cycle(4)
+color.uniform((0.9, 1.0, 0.3))
 effect.breath()
 
 # elements(sticks1)
