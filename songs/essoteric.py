@@ -13,6 +13,11 @@ from infra.colors import *
 
 song_settings(bpm=73.5, beats_per_episode=16)
 
+episodes(0, 30)
+elements(all)
+cycle(8)
+color.uniform(red)
+effect.breath()
 
 
 send_to_mqtt("essoteric")
