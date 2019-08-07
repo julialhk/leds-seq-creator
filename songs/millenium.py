@@ -32,3 +32,5 @@ effect.breath()
 #     effect.hue_shift(1 + i % 2, BeatFeel.background_beat, 0.5)
 
 send_to_mqtt("millenium")
+
+#shift+fn f10-
