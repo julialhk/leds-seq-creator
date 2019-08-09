@@ -353,179 +353,180 @@ clapping(cabbages)
 
 def small_bit():
     effect.hue_breath(0.4)
-    cycle(beats=16)
 
     elements(flower6)
-    cycle_beats(0.12, 16)
+    beats((16 * 7) + 0.12, (16*7) + 32)
     color.uniform(red)
 
     elements(cabbage1)
-    cycle_beats(0.5, 16)
+    beats((16*7) +0.5, (16*7) + 32)
     color.uniform(aquamarine)
 
     elements(lifas5.stand(3))
-    cycle_beats(1.0, 16)
+    beats((16*7) +1.0, (16*7) + 32)
     color.uniform(blue)
 
     elements(cup_cake4)
-    cycle_beats(1.37, 16)
+    beats((16*7) +1.37, (16*7) + 32)
     color.uniform(purple_string)
 
     elements(lifas4.stand(4))
-    cycle_beats(1.75, 16)
+    beats((16*7) +1.75, (16*7) + 32)
     color.uniform(yellow_strip)
 
     elements(paper2)
-    cycle_beats(2.0, 16)
+    beats((16*7) +2.0, (16*7) + 32)
     color.uniform(orange_string)
 
     elements(lifas5.stand(2))
-    cycle_beats(2.55, 3.0)
+    beats((16*7) +2.55, (16*7) + 32)
     color.uniform(blue)
 
     elements(donut3)
-    cycle_beats(3.0, 16)
+    beats((16*7) +3.0, (16*7) + 32)
     color.uniform(green)
 
     elements(cabbage5)
-    cycle_beats(3.34, 16)
+    beats((16*7) +3.34, (16*7) + 32)
     color.uniform(coral)
 
     elements(sticks7.stand(1))
-    cycle_beats(3.66, 16)
+    beats((16*7) +3.66, (16*7) + 32)
     color.uniform(blue)
 
     elements(flower1)
-    cycle_beats(4.12, 16)
+    beats((16*7) +4.12, (16*7) + 32)
     color.uniform(purple_strip)
 
     elements(bottle4)
-    cycle_beats(4.5, 16)
+    beats((16*7) +4.5, (16*7) + 32)
     color.uniform(aquamarine)
 
     elements([sticks8.stand(2), sticks8.stand(4)])
-    cycle_beats(5.0, 16)
+    beats((16*7) +5.0, (16*7) + 32)
     color.uniform(blue)
 
     elements(cup_cake3)
-    cycle_beats(5.37, 16)
+    beats((16*7) +5.37, (16*7) + 32)
     color.uniform(pink_strip)
 
     elements(lifas1.stand(3))
-    cycle_beats(5.75, 16)
+    beats((16*7) +5.75, (16*7) + 32)
     color.uniform(turquoise_string)
 
     elements(sticks3.stand(3))
-    cycle_beats(6.0, 16)
+    beats((16*7) +6.0, (16*7) + 32)
     color.uniform(orange_string)
 
     elements(lifas5. stand(1))
-    cycle_beats(6.55, 16)
+    beats((16*7) +6.55, (16*7) + 32)
     color.uniform(blue)
 
     elements(lifas4.stand(2))
-    cycle_beats(7.0, 16)
+    beats((16*7) +7.0, (16*7) + 32)
     color.uniform(yellow_strip)
 
     elements(rug4)
-    cycle_beats(7.34, 16)
+    beats((16*7) +7.34, (16*7) + 32)
     color.uniform(coral)
 
     elements(sticks7. stand(2))
-    cycle_beats(7.66, 16)
+    beats((16*7) +7.66, (16*7) + 32)
     color.uniform(blue)
 
     elements(bottle5)
-    cycle_beats(8.12, 16)
+    beats((16*7) +8.12, (16*7) + 32)
     color.uniform(magenta)
 
     elements(lifas5.stand(4))
-    cycle_beats(8.5, 16)
+    beats((16*7) +8.5, (16*7) + 32)
     color.uniform(aquamarine)
 
     elements(lifas1.stand(5))
-    cycle_beats(9.0, 16)
+    beats((16*7) +9.0, (16*7) + 32)
     color.uniform(indigo)
 
     elements(cup_cake4)
-    cycle_beats(9.37, 16)
+    beats((16*7) +9.37, (16*7) + 32)
     color.uniform(purple_string)
 
     elements(rug6)
-    cycle_beats(9.75, 16)
+    beats((16*7) +9.75, (16*7) + 32)
     color.uniform(turquoise_string)
 
     elements(sticks3.stand(1))
-    cycle_beats(10.0, 16)
+    beats((16*7) +10.0, (16*7) + 32)
     color.uniform(orange_string)
 
     elements(brain7)
-    cycle_beats(10.55, 16)
+    beats((16*7) +10.55, (16*7) + 32)
     color.uniform(blue)
 
     elements(paper5)
-    cycle_beats(11.0, 16)
+    beats((16*7) +11.0, (16*7) + 32)
     color.uniform(green)
 
     elements(flower6)
-    cycle_beats(11.34, 16)
+    beats((16*7) +11.34, (16*7) + 32)
     color.uniform(coral)
 
     elements(sticks7.stand(2))
-    cycle_beats(11.66, 16)
+    beats((16*7) +11.66, (16*7) + 32)
     color.uniform(blue)
 
     elements(lifas4.stand(1))
-    cycle_beats(12.12, 16)
+    beats((16*7) +12.12, (16*7) + 32)
     color.uniform(yellow_string)
 
     elements(sticks3.stand(2))
-    cycle_beats(12.5, 16)
+    beats((16*7) +12.5, (16*7) + 32)
     color.uniform(orange_string)
 
     elements(lifas1.stand(2))
-    cycle_beats(13.0, 16)
+    beats((16*7) +13.0, (16*7) + 32)
     color.uniform(turquoise_string)
 
     elements(sticks7.stand(3))
-    cycle_beats(13.37, 16)
+    beats((16*7) +13.37, (16*7) + 32)
     color.uniform(blue)
 
     elements([sticks8.stand(3), sticks8.stand(5)])
-    cycle_beats(13.75, 16)
+    beats((16*7) +13.75, (16*7) + 32)
     color.uniform(blue)
 
     elements(lifas4.stand(5))
-    cycle_beats(14.0, 16)
+    beats((16*7) +14.0, (16*7) + 32)
     color.uniform(yellow_strip)
 
     elements(sticks3.stand(5), sticks3.stand(4))
-    cycle_beats(14.55, 16)
+    beats((16*7) +14.55, (16*7) + 32)
     color.uniform(orange_string)
 
     elements([lifas1.stand(1), lifas1.stand(4)])
-    cycle_beats(15.0, 16)
+    beats((16*7) +15.0, (16*7) + 32)
     color.uniform(turquoise_string)
 
     elements(sticks8.stand(1))
-    cycle_beats(15.34, 16)
+    beats((16*7) +15.34, (16*7) + 32)
     color.uniform(blue)
 
     elements(lifas4.stand(3))
-    cycle_beats(15.66, 16.0)
+    beats((16*7) +15.66, (16*7) + 32.0)
     color.uniform(yellow_strip)
 
-episode(7)
+episodes(7, 9)
 small_bit()
 elements(all)
+effect.hue_breath(0.5)
 cycle(2)
-effect.breath(0.5)
+
+
 
 
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric")
+start_song("essoteric", 90* 1000)
 
 
 
