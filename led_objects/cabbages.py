@@ -17,9 +17,9 @@ cabbage5 = Twist(300)
 cabbages = [cabbage1, cabbage6, cabbage5]
 
 brain7 = Twist(299)
-brain4 = Twist(300)
+cup_cake4 = Twist(300)
 
-brains = [brain4, brain7]
+brains = [brain7]
 
 twists = [cabbages, brains]
 
