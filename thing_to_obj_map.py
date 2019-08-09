@@ -1,4 +1,4 @@
-from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, brain4, donut1, donut3
+from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, cup_cake4, donut1, donut3
 from led_objects.flowers import flower6, bottle4, bottle5, paper5, cup_cake3, paper2, flower1, rug6, rug4
 from led_objects.stands import sticks8, sticks7, sticks3, lifas5, lifas1, lifas4
 
@@ -7,7 +7,7 @@ obj_to_thing = {
     cabbage5: "cabbage5",
     cabbage6: "cabbage6",
     brain7: "brain7",
-    brain4: "brain4",
+    cup_cake4: "cup_cake4",
     bottle4: "bottle4",
     bottle5: "bottle5",
     paper5: "paper5",
@@ -16,7 +16,7 @@ obj_to_thing = {
     flower1: "flower1",
     cabbage1: "cabbage1",
     donut1: "donut1",
-    # donut3: "mickey",
+    donut3: "donut3",
     sticks8: "sticks8",
     sticks7: "sticks7",
     sticks3: "sticks3",
