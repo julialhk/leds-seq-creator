@@ -3,6 +3,7 @@ from enum import Enum
 
 from animations.rand_brightness import RandBrightnessAnimation
 from animations.rand_sat import RandSaturationAnimation
+from float_func.steps import StepsFloatFunc
 from infra import timing, stored_animations
 from animations.alternate_coloring import AlternateColoringAnimation
 from animations.brightness import BrightnessAnimation
@@ -41,10 +42,23 @@ class EffectFactory:
     def brightness(self, factor):
         BrightnessAnimation(ConstFloatFunc(factor)).apply()
 
-    def snake(self, tail=1.0):
+    def snake(self, tail=1.0, switch_direction=False):
         if isinstance(tail, str):
             tail = {short: 0.25, medium: 1.0, long: 4.0}[tail]
-        SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail), ConstFloatFunc(tail), ConstBooleanFunc()).apply()
+        if switch_direction:
+            SnakeAnimation(LinearFloatFunc(1.0, 0.0 - tail), ConstFloatFunc(tail), ConstBooleanFunc(not switch_direction)).apply()
+        else:
+            SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail), ConstFloatFunc(tail), ConstBooleanFunc(not switch_direction)).apply()
+
+    def snake_up_down(self, tail=1.0):
+        if isinstance(tail, str):
+            tail = {short: 0.25, medium: 1.0, long: 4.0}[tail]
+        SnakeAnimation(SinFloatFunc(1.0, -0.1, -0.25, 1), ConstFloatFunc(tail), ConstBooleanFunc(True)).apply()
+
+    def snake_down_up(self, tail=1.0):
+        if isinstance(tail, str):
+            tail = {short: 0.25, medium: 1.0, long: 4.0}[tail]
+        SnakeAnimation(SinFloatFunc(0.0, 1.0, -0.25, 1), ConstFloatFunc(tail), ConstBooleanFunc(False)).apply()
 
     def blink(self, edge=0.5):
         if isinstance(edge, str):
