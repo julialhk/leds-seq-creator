@@ -10,7 +10,7 @@ from led_objects.flowers import flower6, flowers, paper5, papers, bottles
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands
 from network.send_to_mqtt import send_to_mqtt
-from infra.timing import song_settings, episodes, episode, cycle, cycle_beats
+from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
@@ -71,9 +71,9 @@ song_settings(bpm=123, beats_per_episode=32)
 # elements(lifa3.stick(5))
 # color.uniform((0.9, 1.0, 1.0))
 
-episodes(0, 30)
+beats(10, 20)
 elements(stands)
-cycle(8)
+cycle(1)
 color.uniform(green)
 effect.breath()
 #effect.breath(soft)
