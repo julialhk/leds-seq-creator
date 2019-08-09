@@ -20,10 +20,10 @@ def on_publish_callback(client, userdata, mid):
         client.disconnect()
 
 
-def start_song(song_name):
+def start_song(song_name, start_time=0):
     json_data = {
         "file_id": "{}.wav".format(song_name),
-        "start_offset_ms" : 0
+        "start_offset_ms": start_time
     }
     body = json.dumps(json_data)
     conn = http.client.HTTPConnection(host_name, 8080)
