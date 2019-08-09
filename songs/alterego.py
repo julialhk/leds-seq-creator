@@ -1,4 +1,5 @@
 from animations import brightness
+from animations.hue_shift import hue_shift_jump_on_cycle
 from infra.animations_factory import color, effect
 from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
@@ -8,7 +9,8 @@ from led_objects.flood import cup_cakes
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles
 from led_objects.objects_selector import elements
-from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands
+from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
+    single_lifas, single_stands
 from network.send_to_mqtt import send_to_mqtt
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
@@ -71,11 +73,11 @@ song_settings(bpm=123, beats_per_episode=32)
 # elements(lifa3.stick(5))
 # color.uniform((0.9, 1.0, 1.0))
 
-beats(10, 20)
-elements(stands)
-cycle(1)
+episodes(0, 30)
+elements(single_stands)
+cycle(8)
 color.uniform(green)
-effect.breath()
+effect.snake()
 #effect.breath(soft)
 
 
