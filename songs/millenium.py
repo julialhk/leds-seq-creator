@@ -14,52 +14,55 @@ from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, b
 from infra.colors import *
 
 song_settings(bpm=124, beats_per_episode=64)
-#ביט
-episodes(0, 1)
-cycle(2)
-cycle_beats(0,1)
-elements(cup_cake3)
-color.uniform(light_blue)
-effect.breath(soft)
-cycle_beats(1,2)
-elements(flower1)
-color.uniform(light_green)
-effect.breath(total)
 
-# # #צפירה#
-episodes(9/64,61/64)
-cycle(16)
-cycle_beats(1,4)
-elements(stands)
-color.alternate(yellow_strip,orange_strip,10)
-effect.breath(medium)
-# ביט
-episodes(1, 2)
-elements(flower1,flower6)
-cycle(2)
-cycle_beats(0,1)
-color.uniform(yellow_string)
-cycle_beats(1,2)
-color.uniform(red)
-effect.saw_tooth (total)
 
-# episodes(1, 2)
+
+# #ביט
+# episodes(0, 1)
+# cycle(2)
+# cycle_beats(0,1)
+# elements(cup_cake3)
+# color.uniform(light_coral)
+# effect.breath(soft)
+# cycle_beats(1,2)
+# elements(flower1)
+# color.uniform(light_purple_string)
+# effect.breath(total)
+#
+# # # #צפירה#
+# beats(9,61)
+# cycle(16)
+# cycle_beats(1,4)
 # elements(stands)
-# cycle(32)
-# cycle_beats(2,7)
 # color.alternate(yellow_strip,orange_strip,10)
 # effect.breath(medium)
-#
-# cycle_beats(17,20)
-# color.alternate(yellow_strip,orange_strip,10)
+# # ביט
+# episodes(1, 4)
+# elements(flower1,flower6)
+# cycle(2)
+# cycle_beats(0,1)
+# color.uniform(yellow_string)
+# cycle_beats(1,2)
+# color.uniform(red)
+# effect.saw_tooth (total)
 
-episodes(2.625,3.875)
+episodes(1, 2)
+elements(sticks)
+cycle(32)
+cycle_beats(1,7)
+color.alternate(yellow_strip,orange_strip,10)
+effect.snake()
+cycle_beats(17,20)
+color.alternate(yellow_strip,orange_strip,10)
+effect.snake()
+
+
+beats(186,248)
 elements(stands)
 cycle(8)
 color.uniform(light_aquamarine)
-effect.saw_tooth(soft)
-cycle(None)
-effect.hue_saw_tooth(3.0)
+effect.saw_tooth(total)
+
 # cycle(8)
 # color.uniform(light_coral)
 # effect.saw_tooth(soft)
