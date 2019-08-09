@@ -9,7 +9,8 @@ from led_objects.groups import group1, group2, group3, group4, group5, group6, g
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, flower1
 from led_objects.objects_selector import elements
-from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands
+from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
+    single_stands
 from network.send_to_mqtt import send_to_mqtt
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
@@ -70,7 +71,7 @@ color.alternate(yellow_strip,orange_strip,10)
 effect.snake()
 
 
-# beats(186,248)
+# episode3-4
 wanted_elements = [group1, group2, group3, group4, group5, group6, group7, group8]
 current_elements = []
 current_beat = 192
@@ -83,10 +84,70 @@ for element in wanted_elements:
     effect.saw_tooth(soft)
     current_beat += 8
 
-color.uniform(purple)
+color.uniform(purple_string)
 effect.saw_tooth(total)
 
+
+episodes(4.125,4.5)
+cycle(1)
+elements(all)
+color.uniform(coral)
+effect.blink()
+cycle(8)
+effect.hue_saw_tooth(edge=soft)
+
+episodes(4.5,5)
+cycle(1)
+elements(group1,group3,group5)
+color.uniform(yellow_string)
+effect.blink()
+cycle(8)
+effect.hue_saw_tooth(edge=medium)
+
+episodes(5,5.5)
+cycle(1)
+elements(group2,group4,group6)
+color.uniform(orange_string)
+effect.blink()
+cycle(8)
+effect.hue_saw_tooth(edge=hard)
+
+
+#eqwilaizer
+beats(480, 540)
+elements(stands)
+cycle(1.5)
+color.gradient(orange_strip[0], yellow_strip[0])
+effect.snake_down_up(1.0)
 #
+# beats(480,540)
+# elements(lifas1.stand(4))
+# cycle(1)
+# cycle_beats(0,1/2)
+# color.gradient(orange_strip[0], yellow_strip[0])
+# effect.snake_down_up(1.0)
+#
+# beats(480,540)
+# elements(lifas1.stand(1))
+# cycle(1)
+# cycle_beats(0,1/2)
+# color.gradient(orange_strip[0], yellow_strip[0])
+# effect.snake_down_up(1.0)
+#
+# beats(480,540)
+# elements(lifas1.stand(5))
+# cycle(1)
+# cycle_beats(0,1/2)
+# color.gradient(orange_strip[0], yellow_strip[0])
+# effect.snake_down_up(1.0)
+#
+# beats(480,540)
+# elements(lifas1.stand(2))
+# cycle(1)
+# cycle_beats(0,1/2)
+# color.gradient(orange_strip[0], yellow_strip[0])
+# effect.snake_down_up(1.0)
+# #
 # beats(210,218)
 # elements(stands)
 # color.uniform(light_blue)
