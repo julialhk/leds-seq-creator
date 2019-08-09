@@ -103,13 +103,13 @@ def coloropening():
     elements(group7)
     cycle(beats=16)
     cycle_beats(10, 16)
-    color.uniform(blue)
+    color.uniform(light_blue)
     effect.saw_tooth(1.0, False)
 
     elements(group3)
     cycle(beats=16)
     cycle_beats(12, 16)
-    color.uniform(light_blue)
+    color.uniform(light_green)
     effect.saw_tooth(1.0, False)
 
     elements(group8)
@@ -124,19 +124,17 @@ coloropening()
 def clapping(clapping_lights):
 
     elements(clapping_lights)
-    cycle(beats=4)
+    cycle(beats=2)
 
     cycle_beats(1.0, 1.37)
-    effect.saw_tooth(0.5)
+    effect.saw_tooth(0.5, False)
     color.uniform(coral)
 
-    cycle_beats(1.37, 1.75)
-    effect.saw_tooth(0.5)
+    cycle_beats(1.37, 2.0)
+    effect.saw_tooth(1.0, False)
     color.uniform(pink_strip)
 
-    cycle_beats(1.75, 3)
-    effect.saw_tooth(0.5)
-    color.uniform(light_pink_strip)
+
 
 
 
@@ -240,6 +238,110 @@ def violin1(stick_to_light):
     color.gradient(orange_strip[0], yellow_strip[0])
     effect.snake(1.0)
 
+def violin2 (lifa_to_light):
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(0.0, 0.55)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(1))
+    cycle(beats=8)
+    cycle_beats(0.55, 1.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(2))
+    cycle(beats=8)
+    cycle_beats(1.0, 1.58)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(5))
+    cycle(beats=8)
+    cycle_beats(1.58, 1.75)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(1.75, 2.07)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(2))
+    cycle(beats=8)
+    cycle_beats(2.07, 2.48)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(4))
+    cycle(beats=8)
+    cycle_beats(2.48, 3.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(3.0, 3.55)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(4))
+    cycle(beats=8)
+    cycle_beats(3.55, 4.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(4.0, 4.5)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(1))
+    cycle(beats=8)
+    cycle_beats(4.5, 5.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(2))
+    cycle(beats=8)
+    cycle_beats(5.0, 5.71)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(5))
+    cycle(beats=8)
+    cycle_beats(5.71, 6.07)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(6.07, 6.37)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(2))
+    cycle(beats=8)
+    cycle_beats(6.37, 6.76)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(4))
+    cycle(beats=8)
+    cycle_beats(6.76, 7.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
+    elements(lifa_to_light.stand(3))
+    cycle(beats=8)
+    cycle_beats(7.0, 8.0)
+    color.gradient(purple_strip[0], magenta[0])
+    effect.snake(1.0)
+
 
 episodes(3, 7)
 violin1(sticks3)
@@ -250,6 +352,14 @@ violin1(sticks8)
 episodes(5, 7)
 violin1(sticks7)
 
+episodes(5, 7)
+violin2(lifas5)
+
+episodes(6, 7)
+violin2(lifas1)
+
+episode(7)
+violin2(lifas4)
 
 episode(5)
 clapping(flowers)
