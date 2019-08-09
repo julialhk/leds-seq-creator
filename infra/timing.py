@@ -99,6 +99,12 @@ def song_settings(bpm, beats_per_episode):
     time_frame_factory = TimeFrameFactory(bpm, beats_per_episode)
 
 
+def beats(beat_start_index, beat_end_index):
+    global time_frame_factory
+    global tf_global
+    tf_global = time_frame_factory.from_beat(beat_start_index, beat_end_index)
+
+
 def episodes(episode_start_index, episode_end_index):
     global time_frame_factory
     global tf_global

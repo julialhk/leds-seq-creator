@@ -13,7 +13,6 @@ class Stands(LedObject):
 
         last_index_per_stick.insert(0, 0)
         self.mapping.update({ str(i): list(range(last_index_per_stick[i-1], last_index_per_stick[i])) for i in range(1, len(last_index_per_stick))})
-        sticks.append(self)
         single_sticks.append(self.all)
 
     def stand(self, index):
