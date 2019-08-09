@@ -11,7 +11,7 @@ from led_objects.flowers import flower6, flowers, paper5, papers, bottles
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
     single_lifas, single_stands
-from network.send_to_mqtt import send_to_mqtt
+from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
@@ -83,6 +83,6 @@ effect.snake()
 
 
 send_to_mqtt("alterego")
-
+start_song("alterego")
 
 

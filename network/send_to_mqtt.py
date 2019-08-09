@@ -1,7 +1,9 @@
+import http.client
 import json
 import time
 
 import paho.mqtt.client as mqtt
+
 from thing_to_obj_map import obj_to_thing
 
 host_name = "10.0.0.200"
@@ -16,6 +18,16 @@ def on_publish_callback(client, userdata, mid):
     if len(sent_not_acked) == 0:
         print("sent all messages, disconnecting from mqtt")
         client.disconnect()
+
+
+def start_song(song_name):
+    json_data = {
+        "file_id": "{}.wav".format(song_name),
+        "start_offset_ms" : 0
+    }
+    body = json.dumps(json_data)
+    conn = http.client.HTTPConnection(host_name, 8080)
+    conn.request("PUT", "/api/current-song", body)
 
 
 def send_to_mqtt(filename):
