@@ -2,7 +2,7 @@ from animations import brightness
 from infra.animations_factory import color, effect
 from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
-from led_objects.cabbages import cabbage1, cabbage6, brain7, brain4, cabbage5, cabbages, brains, donut1, donut3
+from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5, cabbages, cup_cakes, donut1, donut3
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5
 from led_objects.objects_selector import elements
@@ -56,9 +56,9 @@ song_settings(bpm=123, beats_per_episode=32)
 # elements(cabbage2)
 # color.uniform((0.2, 1.0, 1.0))
 #
-# elements(brain1)
+# elements(cup_cake1)
 # color.uniform((0.3, 1.0, 1.0))
-# elements(brain2)
+# elements(cup_cake2)
 # color.uniform((0.4, 1.0, 1.0))
 #
 # elements(paper1)
