@@ -4,10 +4,10 @@ from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5, cabbages, donut1, donut3, \
     brains, twists, donuts
-from led_objects.flood import cup_cakes
+from led_objects.flood import cup_cakes, cup_cake3, rug4, rug6
 from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.led_object import all
-from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1, bottle4
+from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1, bottle4, bottle5
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands
 from network.send_to_mqtt import send_to_mqtt, start_song
@@ -352,171 +352,174 @@ clapping(cabbages)
 
 
 def small_bit():
-    effect.hue_breath(0.2)
+    effect.hue_breath(0.4)
     cycle(beats=16)
 
     elements(flower6)
-    cycle_beats(0.12, 0.5)
-    color.gradient(red[0], blue[0])
+    cycle_beats(0.12, 16)
+    color.uniform(red)
 
     elements(cabbage1)
-    cycle_beats(0.5, 1.0)
-    color.gradient(aquamarine[0], indigo[0])
+    cycle_beats(0.5, 16)
+    color.uniform(aquamarine)
 
-    elements(paper5)
-    cycle_beats(1.0, 1.37)
-    color.gradient(green[0], indigo[0])
+    elements(lifas5.stand(3))
+    cycle_beats(1.0, 16)
+    color.uniform(blue)
 
     elements(cup_cake4)
-    cycle_beats(1.37, 1.75)
-    color.gradient(purple_string[0], aquamarine[0])
+    cycle_beats(1.37, 16)
+    color.uniform(purple_string)
 
-    elements(brain7)
-    cycle_beats(1.75, 2.0)
-    color.gradient(turquoise_string[0], yellow_string[0])
+    elements(lifas4.stand(4))
+    cycle_beats(1.75, 16)
+    color.uniform(yellow_strip)
 
     elements(paper2)
-    cycle_beats(2.0, 2.55)
-    color.gradient(orange_string[0], purple_string[0])
+    cycle_beats(2.0, 16)
+    color.uniform(orange_string)
 
     elements(lifas5.stand(2))
     cycle_beats(2.55, 3.0)
-    color.gradient(blue[0], magenta[0])
+    color.uniform(blue)
 
     elements(donut3)
-    cycle_beats(3.0, 3.34)
-    color.gradient(green[0], indigo[0])
+    cycle_beats(3.0, 16)
+    color.uniform(green)
 
     elements(cabbage5)
-    cycle_beats(3.34, 3.66)
-    color.gradient(coral[0], yellow_string[0])
+    cycle_beats(3.34, 16)
+    color.uniform(coral)
 
     elements(sticks7.stand(1))
-    cycle_beats(3.66, 4.12)
-    color.gradient(blue[0], magenta[0])
-
-    elements(flower6)
-    cycle_beats(4.12, 4.5)
-    color.gradient(purple_strip[0], red[0])
-
-    elements(bottle4)
-    cycle_beats(4.5, 5.0)
-    color.gradient(aquamarine[0], indigo[0])
-
-    elements(sticks7.stand(1))
-    cycle_beats(5.0, 5.37)
-    color.gradient(green[0], indigo[0])
-
-    elements(cup_cake4)
-    cycle_beats(5.37, 5.75)
-    color.gradient(orange_string[0], purple_string[0])
-
-    elements(brain7)
-    cycle_beats(5.75, 6.0)
-    color.gradient(turquoise_string[0], yellow_string[0])
-
-    elements(paper2)
-    cycle_beats(6.0, 6.55)
-    color.gradient(orange_string[0], aquamarine[0])
-
-    elements(lifas5)
-    cycle_beats(6.55, 7.0)
-    color.gradient(blue[0], magenta[0])
-
-    elements(donut3)
-    cycle_beats(7.0, 7.34)
-    color.gradient(green[0], indigo[0])
-
-    elements(cabbage5)
-    cycle_beats(7.34, 7.66)
-    color.gradient(coral[0], yellow_string[0])
-
-    elements(sticks7.stand(1))
-    cycle_beats(7.66, 8.12)
-    color.gradient(blue[0], yellow_string[0])
-
-    elements(flower6)
-    cycle_beats(8.12, 8.5)
-    color.gradient(red[0], blue[0])
-
-    elements(cabbage1)
-    cycle_beats(8.5, 9.0)
-    color.gradient(aquamarine[0], indigo[0])
-
-    elements(paper5)
-    cycle_beats(9.0, 9.37)
-    color.gradient(green[0], indigo[0])
-
-    elements(cup_cake4)
-    cycle_beats(9.37, 9.75)
-    color.gradient(purple_string[0], aquamarine[0])
-
-    elements(brain7)
-    cycle_beats(9.75, 10.0)
-    color.gradient(turquoise_string[0], yellow_string[0])
-
-    elements(paper2)
-    cycle_beats(10.0, 10.55)
-    color.gradient(orange_string[0], purple_string[0])
-
-    elements(sticks8.stand(1))
-    cycle_beats(10.55, 11.0)
-    color.gradient(blue[0], magenta[0])
-
-    elements(lifas5.stand(1))
-    cycle_beats(11.0, 11.34)
-    color.gradient(green[0], indigo[0])
-
-    elements(donut1)
-    cycle_beats(11.34, 11.66)
-    color.gradient(coral[0], yellow_string[0])
-
-    elements(sticks7.stand(2))
-    cycle_beats(11.66, 12.12)
-    color.gradient(green[0], yellow_string[0])
+    cycle_beats(3.66, 16)
+    color.uniform(blue)
 
     elements(flower1)
-    cycle_beats(12.12, 12.5)
-    color.gradient(red[0], yellow_string[0])
+    cycle_beats(4.12, 16)
+    color.uniform(purple_strip)
 
-    elements(cabbage5)
-    cycle_beats(12.5, 13.0)
-    color.gradient(aquamarine[0], indigo[0])
+    elements(bottle4)
+    cycle_beats(4.5, 16)
+    color.uniform(aquamarine)
 
-    elements(paper5)
-    cycle_beats(13.0, 13.37)
-    color.gradient(green[0], indigo[0])
+    elements([sticks8.stand(2), sticks8.stand(4)])
+    cycle_beats(5.0, 16)
+    color.uniform(blue)
+
+    elements(cup_cake3)
+    cycle_beats(5.37, 16)
+    color.uniform(pink_strip)
+
+    elements(lifas1.stand(3))
+    cycle_beats(5.75, 16)
+    color.uniform(turquoise_string)
+
+    elements(sticks3.stand(3))
+    cycle_beats(6.0, 16)
+    color.uniform(orange_string)
+
+    elements(lifas5. stand(1))
+    cycle_beats(6.55, 16)
+    color.uniform(blue)
+
+    elements(lifas4.stand(2))
+    cycle_beats(7.0, 16)
+    color.uniform(yellow_strip)
+
+    elements(rug4)
+    cycle_beats(7.34, 16)
+    color.uniform(coral)
+
+    elements(sticks7. stand(2))
+    cycle_beats(7.66, 16)
+    color.uniform(blue)
+
+    elements(bottle5)
+    cycle_beats(8.12, 16)
+    color.uniform(magenta)
+
+    elements(lifas5.stand(4))
+    cycle_beats(8.5, 16)
+    color.uniform(aquamarine)
+
+    elements(lifas1.stand(5))
+    cycle_beats(9.0, 16)
+    color.uniform(indigo)
 
     elements(cup_cake4)
-    cycle_beats(13.37, 13.75)
-    color.gradient(purple_string[0], yellow_string[0])
+    cycle_beats(9.37, 16)
+    color.uniform(purple_string)
+
+    elements(rug6)
+    cycle_beats(9.75, 16)
+    color.uniform(turquoise_string)
+
+    elements(sticks3.stand(1))
+    cycle_beats(10.0, 16)
+    color.uniform(orange_string)
 
     elements(brain7)
-    cycle_beats(13.75, 14.0)
-    color.gradient(turquoise_string[0], yellow_string[0])
+    cycle_beats(10.55, 16)
+    color.uniform(blue)
 
-    elements(paper2)
-    cycle_beats(14.0, 14.55)
-    color.gradient(orange_string[0], purple_string[0])
+    elements(paper5)
+    cycle_beats(11.0, 16)
+    color.uniform(green)
 
-    elements(lifas5)
-    cycle_beats(14.55, 15.0)
-    color.gradient(blue[0], magenta[0])
+    elements(flower6)
+    cycle_beats(11.34, 16)
+    color.uniform(coral)
 
-    elements(donut3)
-    cycle_beats(15.0, 15.34)
-    color.gradient(aquamarine[0], indigo[0])
+    elements(sticks7.stand(2))
+    cycle_beats(11.66, 16)
+    color.uniform(blue)
 
-    elements(cabbage5)
-    cycle_beats(15.34, 15.66)
-    color.gradient(coral[0], yellow_string[0])
+    elements(lifas4.stand(1))
+    cycle_beats(12.12, 16)
+    color.uniform(yellow_string)
 
-    elements(sticks7.stand(1))
+    elements(sticks3.stand(2))
+    cycle_beats(12.5, 16)
+    color.uniform(orange_string)
+
+    elements(lifas1.stand(2))
+    cycle_beats(13.0, 16)
+    color.uniform(turquoise_string)
+
+    elements(sticks7.stand(3))
+    cycle_beats(13.37, 16)
+    color.uniform(blue)
+
+    elements([sticks8.stand(3), sticks8.stand(5)])
+    cycle_beats(13.75, 16)
+    color.uniform(blue)
+
+    elements(lifas4.stand(5))
+    cycle_beats(14.0, 16)
+    color.uniform(yellow_strip)
+
+    elements(sticks3.stand(5), sticks3.stand(4))
+    cycle_beats(14.55, 16)
+    color.uniform(orange_string)
+
+    elements([lifas1.stand(1), lifas1.stand(4)])
+    cycle_beats(15.0, 16)
+    color.uniform(turquoise_string)
+
+    elements(sticks8.stand(1))
+    cycle_beats(15.34, 16)
+    color.uniform(blue)
+
+    elements(lifas4.stand(3))
     cycle_beats(15.66, 16.0)
-    color.gradient(turquoise_string[0], yellow_string[0])
+    color.uniform(yellow_strip)
 
 episode(7)
 small_bit()
+elements(all)
+cycle(2)
+effect.breath(0.5)
 
 
 
