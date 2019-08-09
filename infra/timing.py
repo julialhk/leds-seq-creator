@@ -78,7 +78,7 @@ class TimeFrameFactory:
         self.bpm = bpm
 
     def from_beat(self, beat_start_index, beat_end_index):
-        return TimeFrame(self.bpm, beat_start_index, beat_end_index)
+        return TimeFrame(self.bpm, beat_start_index, beat_end_index - beat_start_index)
 
     def episodes_length(self, episode_start_index, num_of_episodes):
         start_beat = episode_start_index * self.beats_per_episode
