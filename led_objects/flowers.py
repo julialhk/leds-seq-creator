@@ -21,4 +21,6 @@ paper2 = Flower(50)
 
 papers = [paper2, paper5]
 
+strings = [flowers, bottles, papers]
+
 
