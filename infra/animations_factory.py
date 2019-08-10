@@ -77,6 +77,11 @@ class EffectFactory:
         max_val = 1.0 if reverse else 1.0 - edge
         BrightnessAnimation(LinearFloatFunc(min_val, max_val)).apply()
 
+    def hue_shift(self, edge=0.5):
+        if isinstance(edge, str):
+            edge = {soft: 0.05, medium: 0.12, hard: 0.25, total: 0.5}[edge]
+        HueShiftAnimation(ConstFloatFunc(edge)).apply()
+
     def hue_blink(self, edge=0.5, reverse=False):
         if isinstance(edge, str):
             edge = {soft: 0.05, medium: 0.12, hard: 0.25, total: 0.5}[edge]

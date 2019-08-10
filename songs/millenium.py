@@ -7,7 +7,7 @@ from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5
 from led_objects.flood import cup_cakes, cup_cake3
 from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.led_object import all
-from led_objects.flowers import flower6, flowers, paper5, papers, bottles, flower1
+from led_objects.flowers import flower6, flowers, paper5, papers, bottles, flower1, paper2
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
     single_stands
@@ -23,26 +23,26 @@ song_settings(bpm=124, beats_per_episode=64)
 episodes(0, 1)
 cycle(2)
 cycle_beats(0,1)
-elements(cup_cake3)
+elements(group1)
 color.uniform(light_coral)
 effect.breath(soft)
 cycle_beats(1,2)
-elements(flower1)
+elements(group4)
 color.uniform(light_purple_string)
 effect.breath(total)
 
 
 # # #צפירה#
-beats(9,61)
+episodes (0+8/64, 1)
 cycle(16)
-cycle_beats(1,4)
+cycle_beats(0,4)
 elements(sticks)
-color.gradient(0.74,0.98)
+color.gradient(0.11,0.05)
 effect.breath(medium)
 # ביט
 
-episodes(1, 4)
-elements(flower1,flower6)
+episodes(1, 3)
+elements(paper2,flowers,cup_cake3, bottles)
 cycle(2)
 cycle_beats(0,1)
 color.uniform(purple_string)
@@ -60,8 +60,8 @@ effect.breath(soft)
 #effect.saw_tooth (medium)
 
 #צפירה
-episodes(1, 2)
-elements(single_sticks)
+episodes(1, 3)
+elements(single_sticks,single_stands)
 cycle(32)
 cycle_beats(1,7)
 color.alternate(yellow_strip,orange_strip,10)
@@ -84,123 +84,122 @@ for element in wanted_elements:
     effect.saw_tooth(soft)
     current_beat += 8
 
-color.uniform(purple_string)
+color.uniform(red)
 effect.saw_tooth(total)
 
+beats(256,257)
+elements(single_stands)
+color.uniform(red)
+effect.snake(1,switch_direction=True)
 
-episodes(4.125,4.5)
-cycle(1)
-elements(all)
-color.uniform(coral)
-effect.blink()
-cycle(8)
-effect.hue_saw_tooth(edge=soft)
-
-episodes(4.5,5)
-cycle(1)
-elements(group1,group3,group5)
+beats(256,262)
+elements(cup_cake4,cup_cake4,cabbages,paper2)
 color.uniform(yellow_string)
-effect.blink()
+effect.snake(1,switch_direction=True)
+#
+# episodes(4.125,4.5)
+# cycle(1)
+# elements(all)
+# color.alternate(light_pink_strip,coral)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=soft)
+
+episodes (4.125,6)
 cycle(8)
-effect.hue_saw_tooth(edge=medium)
 
-episodes(5,5.5)
-cycle(1)
-elements(group2,group4,group6)
-color.uniform(orange_string)
-effect.blink()
-cycle(8)
-effect.hue_saw_tooth(edge=hard)
+def light_one(start_beat, element):
+    cycle_beats(start_beat, start_beat + 1)
+    elements(element)
+    color.uniform(blue)
+    effect.saw_tooth(edge=soft)
+
+light_one(0, cabbage1)
+light_one(1, cabbage5)
+light_one(2, brain7)
+light_one(3, sticks8)
+light_one(4, donut3)
+light_one(5, cup_cake4)
+light_one(6, paper2)
+light_one(7, flower1)
 
 
-#eqwilaizer
-beats(480, 540)
+elements(all)
+
+for i in range(1, 16):
+    episodes(4 + i / 8.0, 4 + (i+1) / 8.0)
+    effect.hue_shift(i / 6.0)
+
+# episodes(4.5,4.75)
+# cycle(1)
+# elements(group1,group3,group5)
+# color.uniform(light_yellow_string)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=medium)
+#
+# episodes(4.75,5)
+# cycle(1)
+# elements(group2,group4,group6)
+# color.uniform(light_orange_strip)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=hard)
+#
+# episodes(5,5.25)
+# cycle(1)
+# elements(donuts,flowers,bottles)
+# color.uniform(orange_string)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=hard)
+#
+# episodes(5.25, 5.5)
+# cycle(1)
+# elements(brains,papers,cup_cake3)
+# color.uniform((0.02, 1.0, 1.0))
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=hard)
+#
+# episodes(5.5, 5.75)
+# cycle(1)
+# elements(group1,brain7,bottles)
+# color.uniform(coral)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=hard)
+#
+# episodes(5.75, 6)
+# cycle(1)
+# elements(group2,cup_cake4,cabbages)
+# color.uniform(red)
+# effect.blink()
+# cycle(8)
+# effect.hue_saw_tooth(edge=hard)
+
+
+#Equalizer
+episode(6)
+# beats(480, 540)
+elements(paper2,flowers,cup_cake3, bottles)
+cycle(2)
+cycle_beats(0,1)
+color.uniform(purple_string)
+cycle_beats(1,2)
+color.uniform(indigo)
+effect.random_saturation()
+
 elements(stands)
 cycle(1.5)
 color.gradient(orange_strip[0], yellow_strip[0])
 effect.snake_down_up(1.0)
-#
-# beats(480,540)
-# elements(lifas1.stand(4))
-# cycle(1)
-# cycle_beats(0,1/2)
-# color.gradient(orange_strip[0], yellow_strip[0])
-# effect.snake_down_up(1.0)
-#
-# beats(480,540)
-# elements(lifas1.stand(1))
-# cycle(1)
-# cycle_beats(0,1/2)
-# color.gradient(orange_strip[0], yellow_strip[0])
-# effect.snake_down_up(1.0)
-#
-# beats(480,540)
-# elements(lifas1.stand(5))
-# cycle(1)
-# cycle_beats(0,1/2)
-# color.gradient(orange_strip[0], yellow_strip[0])
-# effect.snake_down_up(1.0)
-#
-# beats(480,540)
-# elements(lifas1.stand(2))
-# cycle(1)
-# cycle_beats(0,1/2)
-# color.gradient(orange_strip[0], yellow_strip[0])
-# effect.snake_down_up(1.0)
-# #
-# beats(210,218)
-# elements(stands)
-# color.uniform(light_blue)
-# effect.saw_tooth(soft)
-#
-# beats(218,226)
-# elements(stands)
-# color.uniform(light_turquoise_strip)
-# effect.saw_tooth(soft)
-#
-# beats(226,234)
-# elements(stands)
-# color.uniform(light_green)
-# effect.saw_tooth(soft)
-#
-#
-# beats(234,242)
-# elements(stands)
-# color.uniform(aquamarine)
-# effect.saw_tooth(medium)
-#
-#
-# beats(242,250)
-# elements(stands)
-# color.uniform(coral)
-# effect.saw_tooth(medium)
-#
-#
-# beats(250,258)
-# elements(stands)
-# color.uniform(turquoise_strip)
-# effect.saw_tooth(medium)
-#
-#
-# beats(258,266)
-# elements(stands)
-# color.uniform(blue)
-# effect.saw_tooth(medium)
-#
-#
-# beats(266,274)
-# elements(stands)
-# color.uniform(dark_green)
-# effect.saw_tooth(hard)
-#
-# beats(274,282)
-# elements(stands)
-# color.uniform(dark_blue)
-# effect.saw_tooth(hard)
+
 
 
 
 #
 send_to_mqtt("millenium")
+# start_song("millenium", 0*1000)
 
 #shift+fn f10-
