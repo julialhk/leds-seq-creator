@@ -124,64 +124,22 @@ light_one(6, paper2)
 light_one(7, flower1)
 
 
+
 elements(all)
 
 for i in range(1, 16):
     episodes(4 + i / 8.0, 4 + (i+1) / 8.0)
     effect.hue_shift(i / 6.0)
 
-# episodes(4.5,4.75)
-# cycle(1)
-# elements(group1,group3,group5)
-# color.uniform(light_yellow_string)
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=medium)
-#
-# episodes(4.75,5)
-# cycle(1)
-# elements(group2,group4,group6)
-# color.uniform(light_orange_strip)
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=hard)
-#
-# episodes(5,5.25)
-# cycle(1)
-# elements(donuts,flowers,bottles)
-# color.uniform(orange_string)
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=hard)
-#
-# episodes(5.25, 5.5)
-# cycle(1)
-# elements(brains,papers,cup_cake3)
-# color.uniform((0.02, 1.0, 1.0))
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=hard)
-#
-# episodes(5.5, 5.75)
-# cycle(1)
-# elements(group1,brain7,bottles)
-# color.uniform(coral)
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=hard)
-#
-# episodes(5.75, 6)
-# cycle(1)
-# elements(group2,cup_cake4,cabbages)
-# color.uniform(red)
-# effect.blink()
-# cycle(8)
-# effect.hue_saw_tooth(edge=hard)
+beats(384,385)
+elements(single_stands)
+color.uniform(red)
+effect.snake(1,switch_direction=True)
+
 
 
 #Equalizer
 episode(6)
-# beats(480, 540)
 elements(paper2,flowers,cup_cake3, bottles)
 cycle(2)
 cycle_beats(0,1)

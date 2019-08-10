@@ -7,7 +7,7 @@ from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5
     brains, twists, donuts
 from led_objects.flood import cup_cakes
 from led_objects.led_object import all
-from led_objects.flowers import flower6, flowers, paper5, papers, bottles
+from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
     single_lifas, single_stands
@@ -17,70 +17,61 @@ from infra.colors import *
 
 song_settings(bpm=123, beats_per_episode=32)
 
-# episodes(0, 30)
-# elements(cabbage1)
-# cycle(beats=4)
-#
-# cycle_beats(1.5, 2)
-# color.uniform((0.35, 0.9, 1.0))
-# effect.saw_tooth(1.0)
-#
-# cycle_beats(2.5, 3)
-# color.uniform((0.4, 0.7, 1.0))
-# effect.saw_tooth(1.0)
-#
-# episodes(1, 30)
-# effect.brightness(0.5)
-#
-# x = [flower1, cabbage1,]
-#
-# episodes(1, 30)
-# elements(x)
-# cycle(2)
-# color.alternate(red, coral, number_of_pixels=10)
-# color.gradient(0.3, 0.5)
-# effect.saw_tooth(medium)
-# effect.snake(4.0)
-#
-# episodes(2, 30)
-# effect.brightness(0.5)
+flower1.random
+flower6.random
 
+episodes(0, 5)
+elements(flowers)
+color.gradient(0.0, 0.1)
 
-# episodes(0, 30)
-# elements(all)
-# cycle(4)
-# color.alternate((0.0, 1.0, 1.0), (0.05, 0.8, 1.0))
-#
-# elements(flower1)
-# color.uniform((0.0, 1.0, 1.0))
-#
-# elements(cabbage1)
-# color.uniform((0.1, 1.0, 1.0))
-#
-# elements(cabbage2)
-# color.uniform((0.2, 1.0, 1.0))
-#
-# elements(cup_cake1)
-# color.uniform((0.3, 1.0, 1.0))
-# elements(cup_cake2)
-# color.uniform((0.4, 1.0, 1.0))
-#
-# elements(paper1)
-# color.uniform((0.4, 1.0, 1.0))
-#
-# elements(lifa3)
-# color.uniform((0.0, 1.0, 0.3))
-# elements(lifa3.stick(5))
-# color.uniform((0.9, 1.0, 1.0))
-
-episodes(0, 30)
-elements(all)
+episode(0)
 cycle(4)
-color.gradient(0.0, 0.5)
-#effect.snake_steps(8, tail=1.0)
-effect.breath(soft)
+
+cycle_beats(0, 1)
+effect.hue_breath(0.02)
+
+cycle_beats(1.5, 2)
+elements(flower1)
+effect.breath(0.2, True)
+
+cycle_beats(2.5, 3)
+elements(flower6)
+effect.breath(0.2, True)
+
+
+# bring in the beat
+beats(29.5, 32)
+elements(papers)
+color.uniform((0.0, 0.3, 1.0))
+cycle(None)
+effect.saw_tooth(total, True)
+
+
+# episode 1
+
+paper2.random
+paper5.random
+episodes(1, 5)
+elements(papers)
+color.gradient(0.0, 0.1)
+
+episodes(1, 3)
+elements([flowers, papers])
+
+cycle(2)
+elements([flower6, paper5])
+effect.blink(0.5, False)
+elements([flower1, paper2])
+effect.blink(0.5, True)
+
+episode(2)
+elements(cup_cakes)
+color.uniform(light_purple_strip)
+cycle(1)
+effect.random_brightness()
+effect.breath(total)
 
 send_to_mqtt("alterego")
-start_song("alterego")
+start_song("alterego", 0)
 
 
