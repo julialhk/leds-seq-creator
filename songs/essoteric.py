@@ -392,11 +392,11 @@ def small_bit():
 
     elements(lifas5.stand(2))
     beats((16*7) +2.55, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(light_blue)
 
     elements(donut3)
     beats((16*7) +3.0, (16*7) + 32)
-    color.uniform(green)
+    color.uniform(light_green)
 
     elements(cabbage5)
     beats((16*7) +3.34, (16*7) + 32)
@@ -408,7 +408,7 @@ def small_bit():
 
     elements(flower1)
     beats((16*7) +4.12, (16*7) + 32)
-    color.uniform(purple_strip)
+    color.uniform(light_purple_string)
 
     elements(bottle4)
     beats((16*7) +4.5, (16*7) + 32)
@@ -420,15 +420,15 @@ def small_bit():
 
     elements(cup_cake3)
     beats((16*7) +5.37, (16*7) + 32)
-    color.uniform(pink_strip)
+    color.uniform(light_pink_strip)
 
     elements(lifas1.stand(3))
     beats((16*7) +5.75, (16*7) + 32)
-    color.uniform(turquoise_string)
+    color.uniform(light_turquoise_string)
 
     elements(sticks3.stand(3))
     beats((16*7) +6.0, (16*7) + 32)
-    color.uniform(orange_string)
+    color.uniform(light_orange_strip)
 
     elements(lifas5. stand(1))
     beats((16*7) +6.55, (16*7) + 32)
@@ -532,7 +532,7 @@ small_bit()
 episode(8)
 cycle(2)
 elements(all)
-effect.hue_saw_tooth(0.2, True)
+effect.hue_saw_tooth(0.4, True)
 
 
 def quickgroupcolorchange():
@@ -575,13 +575,72 @@ def quickgroupcolorchange():
 episode(9)
 quickgroupcolorchange()
 
-cycle(16)
-effect.hue_breath(0.6)
+episode(9)
+cycle(4)
+elements(all)
+effect.hue_breath(0.4)
+
+def wave():
+    cycle(1)
+
+    elements(flower1)
+    cycle_beats(0.0, 0.05)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(lifas1, cabbage1)
+    cycle_beats(0.05, 0.1)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(donut1)
+    cycle_beats(0.1, 0.15)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(sticks8, paper2, flower1)
+    cycle_beats(0.15, 0.2)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(cup_cake3, cabbage6, rug6)
+    cycle_beats(0.2, 0.25)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(sticks3, donut3, brain7)
+    cycle_beats(0.25, 0.3)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(sticks7, lifas4, rug4)
+    cycle_beats(0.3, 0.35)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(paper5)
+    cycle_beats(0.35, 0.4)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(cabbage6, bottle5)
+    cycle_beats(0.4, 0.45)
+    effect.snake(0.4)
+    color.uniform(light_green)
+
+    elements(paper5, lifas5, bottle5)
+    cycle_beats(0.45, 0.5)
+    effect.snake(0.4)
+    color.uniform(light_green)
 
 
+
+episode(10)
+wave()
+cycle(8)
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 90* 1000)
+start_song("essoteric", 120* 1000)
 
 
 
