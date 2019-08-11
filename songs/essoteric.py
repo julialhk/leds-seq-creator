@@ -129,10 +129,6 @@ def clapping(clapping_lights):
     elements(clapping_lights)
     cycle(beats=2)
 
-    cycle_beats(0.0, 1.0)
-    effect.saw_tooth(0.2, False)
-    color.uniform(red)
-
     cycle_beats(1.0, 1.37)
     effect.saw_tooth(0.2, False)
     color.uniform(coral)
@@ -143,7 +139,7 @@ def clapping(clapping_lights):
 
     cycle_beats(1.67, 2.0)
     effect.saw_tooth(0.2, False)
-    color.uniform(light_pink_strip)
+    color.uniform((0.98, 0.45, 0.5))
 
 episode(2)
 clapping(all)
@@ -357,7 +353,7 @@ violin2(lifas4)
 episodes(5, 7)
 cycle(8)
 elements(flowers, cabbages, cup_cakes,papers, donuts)
-color.uniform((0.11, 0.8, 0.7))
+color.uniform((0.11, 0.8, 0.4))
 effect.breath(0.8)
 
 
@@ -689,10 +685,233 @@ cycle(8)
 episode(10)
 cycle(2)
 elements(all)
-effect.hue_breath(0.5)
+effect.hue_breath(0.1)
+
+def violin1end(stick_to_light_end):
+
+    elements(stick_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(0.0, 0.55)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+
+    elements(stick_to_light_end.stand(1))
+    cycle(beats=8)
+    cycle_beats(0.55, 1.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(1.0, 1.75)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(5))
+    cycle(beats=8)
+    cycle_beats(1.75, 2.07)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+
+    elements(stick_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(2.07, 2.48)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(4))
+    cycle(beats=8)
+    cycle_beats(2.48, 3.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(3.0, 3.55)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(4))
+    cycle(beats=8)
+    cycle_beats(3.55, 4.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+
+    elements(stick_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(4.0, 4.5)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+
+    elements(stick_to_light_end.stand(1))
+    cycle(beats=8)
+    cycle_beats(4.5, 5.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(5.0, 5.71)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(5))
+    cycle(beats=8)
+    cycle_beats(5.71, 6.07)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+
+    elements(stick_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(6.07, 6.6)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(4))
+    cycle(beats=8)
+    cycle_beats(6.6, 7.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+    elements(stick_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(7.0, 8.0)
+    color.uniform(light_yellow_strip)
+    effect.snake(1.0)
+
+def violin2end (lifa_to_light_end):
+
+    elements(lifa_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(0.0, 0.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(1))
+    cycle(beats=8)
+    cycle_beats(0.55, 1.0)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(1.0, 1.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(5))
+    cycle(beats=8)
+    cycle_beats(1.55, 2.07)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+
+    elements(lifa_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(2.07, 2.48)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(4))
+    cycle(beats=8)
+    cycle_beats(2.48, 3.0)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(3.0, 3.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(4))
+    cycle(beats=8)
+    cycle_beats(3.55, 4.0)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(4.0, 4.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(1))
+    cycle(beats=8)
+    cycle_beats(4.55, 5.0)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(5.0, 5.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(5))
+    cycle(beats=8)
+    cycle_beats(5.55, 6.07)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(6.0, 6.55)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(2))
+    cycle(beats=8)
+    cycle_beats(6.55, 7.00)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+    elements(lifa_to_light_end.stand(3))
+    cycle(beats=8)
+    cycle_beats(7.0, 8.0)
+    color.uniform(light_purple_strip)
+    effect.snake(1.0)
+
+episodes(12, 14)
+violin1end(sticks3)
+
+episode(12)
+violin1end(sticks8)
+violin1end(sticks7)
+
+episode(12)
+violin2end(lifas5)
+violin2end(lifas1)
+violin2end(lifas4)
+
+episodes(12, 13)
+effect.breath(1.0)
+cycle(16)
+elements(flowers)
+color.uniform(coral)
+
+effect.breath(1.0)
+cycle(16)
+elements(cabbages, cup_cakes)
+color.uniform(magenta)
+
+effect.breath(1.0)
+cycle(16)
+elements(bottles, brains)
+color.uniform(red)
+
+effect.breath(1.0)
+cycle(16)
+elements(papers)
+color.uniform(pink_string)
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 100* 1000)
+start_song("essoteric", 120* 1000)
 
 
 
