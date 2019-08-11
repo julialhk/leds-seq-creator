@@ -20,49 +20,49 @@ def yellowopening():
 
     elements(group5)
     cycle(beats=16)
-    cycle_beats(0, 1)
+    cycle_beats(0, 3)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group1)
     cycle(beats=16)
-    cycle_beats(2, 3)
+    cycle_beats(2, 5)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group6)
     cycle(beats=16)
-    cycle_beats(4, 5)
+    cycle_beats(4, 7)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group2)
     cycle(beats=16)
-    cycle_beats(6, 7)
+    cycle_beats(6, 9)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group4)
     cycle(beats=16)
-    cycle_beats(8, 9)
+    cycle_beats(8, 11)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group7)
     cycle(beats=16)
-    cycle_beats(10, 11)
+    cycle_beats(10, 14)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group3)
     cycle(beats=16)
-    cycle_beats(12, 13)
+    cycle_beats(12, 16)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
     elements(group8)
     cycle(beats=16)
-    cycle_beats(14, 15)
+    cycle_beats(14, 16)
     color.uniform(light_yellow_strip)
     effect.saw_tooth(1.0, False)
 
@@ -121,22 +121,29 @@ def coloropening():
 episode(1)
 coloropening()
 
+episode(1)
+effect.blink(0.4)
+cycle(1)
 def clapping(clapping_lights):
 
     elements(clapping_lights)
     cycle(beats=2)
 
+    cycle_beats(0.0, 1.0)
+    effect.saw_tooth(0.2, False)
+    color.uniform(red)
+
     cycle_beats(1.0, 1.37)
-    effect.saw_tooth(0.5, False)
+    effect.saw_tooth(0.2, False)
     color.uniform(coral)
 
-    cycle_beats(1.37, 2.0)
-    effect.saw_tooth(1.0, False)
-    color.uniform(orange_strip)
+    cycle_beats(1.37, 1.67)
+    effect.saw_tooth(0.2, False)
+    color.uniform(pink_strip)
 
-
-
-
+    cycle_beats(1.67, 2.0)
+    effect.saw_tooth(0.2, False)
+    color.uniform(light_pink_strip)
 
 episode(2)
 clapping(all)
@@ -348,7 +355,12 @@ violin2(lifas4)
 
 
 episodes(5, 7)
-clapping(cabbages)
+cycle(8)
+elements(flowers, cabbages, cup_cakes,papers, donuts)
+color.uniform((0.11, 0.8, 0.7))
+effect.breath(0.8)
+
+
 
 
 def small_bit():
@@ -402,9 +414,9 @@ def small_bit():
     beats((16*7) +4.5, (16*7) + 32)
     color.uniform(aquamarine)
 
-    elements([sticks8.stand(2), sticks8.stand(4)])
+    elements(sticks8.stand(2))
     beats((16*7) +5.0, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(magenta)
 
     elements(cup_cake3)
     beats((16*7) +5.37, (16*7) + 32)
@@ -444,11 +456,11 @@ def small_bit():
 
     elements(lifas1.stand(5))
     beats((16*7) +9.0, (16*7) + 32)
-    color.uniform(indigo)
+    color.uniform(turquoise_string)
 
-    elements(cup_cake4)
+    elements(sticks7.stand(6))
     beats((16*7) +9.37, (16*7) + 32)
-    color.uniform(purple_string)
+    color.uniform(blue)
 
     elements(rug6)
     beats((16*7) +9.75, (16*7) + 32)
@@ -464,13 +476,13 @@ def small_bit():
 
     elements(paper5)
     beats((16*7) +11.0, (16*7) + 32)
-    color.uniform(green)
+    color.uniform(light_green)
 
-    elements(flower6)
+    elements(sticks8.stand(4))
     beats((16*7) +11.34, (16*7) + 32)
-    color.uniform(coral)
+    color.uniform(magenta)
 
-    elements(sticks7.stand(2))
+    elements([sticks7.stand(2), sticks7.stand(4)])
     beats((16*7) +11.66, (16*7) + 32)
     color.uniform(blue)
 
@@ -486,13 +498,13 @@ def small_bit():
     beats((16*7) +13.0, (16*7) + 32)
     color.uniform(turquoise_string)
 
-    elements(sticks7.stand(3))
+    elements([sticks7.stand(3), sticks7.stand(5)])
     beats((16*7) +13.37, (16*7) + 32)
     color.uniform(blue)
 
     elements([sticks8.stand(3), sticks8.stand(5)])
     beats((16*7) +13.75, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(magenta)
 
     elements(lifas4.stand(5))
     beats((16*7) +14.0, (16*7) + 32)
@@ -508,7 +520,7 @@ def small_bit():
 
     elements(sticks8.stand(1))
     beats((16*7) +15.34, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(magenta)
 
     elements(lifas4.stand(3))
     beats((16*7) +15.66, (16*7) + 32.0)
@@ -516,12 +528,55 @@ def small_bit():
 
 episodes(7, 9)
 small_bit()
-elements(all)
-effect.hue_breath(0.5)
+
+episode(8)
 cycle(2)
+elements(all)
+effect.hue_saw_tooth(0.2, True)
 
 
+def quickgroupcolorchange():
+    cycle(4)
+    effect.breath(0.1)
 
+    elements(group3)
+    color.alternate(pink_strip, purple_strip, 5)
+    cycle_beats(0.0, 0.5)
+
+    elements(group6)
+    color.alternate(indigo, magenta, 5)
+    cycle_beats(0.50, 1.0)
+
+    elements(group1)
+    color.alternate(green, yellow_string, 5)
+    cycle_beats(1.0, 1.5)
+
+    elements(group4)
+    color.alternate(red, purple_strip, 5)
+    cycle_beats(1.5, 2.0)
+
+    elements(group8)
+    color.alternate(aquamarine, dark_blue, 5)
+    cycle_beats(2.0, 2.5)
+
+    elements(group5)
+    color.alternate(orange_strip, magenta, 5)
+    cycle_beats(2.5, 3.0)
+
+    elements(group2)
+    color.alternate(turquoise_string, purple_strip, 5)
+    cycle_beats(3.0, 3.5)
+
+    elements(group7)
+    color.alternate(coral, yellow_string, 5)
+    cycle_beats(3.5, 4.0)
+
+
+episode(9)
+quickgroupcolorchange()
+
+cycle(16)
+effect.hue_breath(0.6)
 
 
 
