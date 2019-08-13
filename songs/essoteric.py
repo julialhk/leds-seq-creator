@@ -72,49 +72,73 @@ yellowopening()
 def coloropening():
     elements(cabbages)
     cycle(beats=16)
-    cycle_beats(0, 16)
+    cycle_beats(0.0, 0.74)
+    color.uniform(coral)
+    effect.breath(0.4)
+    cycle_beats(0.74, 16)
     color.uniform(coral)
     effect.saw_tooth(1.0, False)
 
     elements(sticks)
     cycle(beats=16)
-    cycle_beats(2, 16)
+    cycle_beats(2.0, 2.74)
+    color.uniform(red)
+    effect.breath(0.4)
+    cycle_beats(2.74, 16)
     color.uniform(red)
     effect.saw_tooth(1.0, False)
 
     elements(flowers)
     cycle(beats=16)
-    cycle_beats(4, 16)
+    cycle_beats(4, 4.74)
+    color.uniform(magenta)
+    effect.breath(0.4)
+    cycle_beats(4.74, 16)
     color.uniform(magenta)
     effect.saw_tooth(1.0, False)
 
     elements(brains, donuts)
     cycle(beats=16)
-    cycle_beats(6, 16)
+    cycle_beats(6, 6.74)
+    color.uniform((0.995, 0.85, 1.0))
+    effect.breath(0.4)
+    cycle_beats(6.74, 16)
     color.uniform((0.995, 0.85, 1.0))
     effect.saw_tooth(1.0, False)
 
     elements(bottles)
     cycle(beats=16)
-    cycle_beats(8, 16)
+    cycle_beats(8, 8.74)
+    color.uniform((1.0, 1.0, 1.0))
+    effect.breath(0.4)
+    cycle_beats(8.74 , 16)
     color.uniform((1.0, 1.0, 1.0))
     effect.saw_tooth(1.0, False)
 
     elements(cup_cakes)
     cycle(beats=16)
-    cycle_beats(10, 16)
+    cycle_beats(10, 10.74)
+    color.uniform(orange_string)
+    effect.breath(0.4)
+    cycle_beats(10.74, 16)
     color.uniform(orange_string)
     effect.saw_tooth(1.0, False)
 
     elements(lifas)
     cycle(beats=16)
-    cycle_beats(12, 16)
+    cycle_beats(12, 12.74)
+    color.uniform(pink_strip)
+    effect.breath(0.4)
+    cycle_beats(12.74, 16)
     color.uniform(pink_strip)
     effect.saw_tooth(1.0, False)
 
     elements(papers)
     cycle(beats=16)
-    cycle_beats(14, 16)
+    cycle_beats(14, 14.74)
+    color.uniform(coral)
+    effect.breath(0.4)
+    cycle_beats(14.74, 16)
     color.uniform(coral)
     effect.saw_tooth(1.0, False)
 
@@ -138,7 +162,7 @@ def clapping(clapping_lights):
     color.uniform(pink_strip)
 
     cycle_beats(1.67, 2.0)
-    effect.saw_tooth(0.2, False)
+    effect.snake(0.2)
     color.uniform((0.98, 0.45, 0.5))
 
 episode(2)
@@ -574,7 +598,7 @@ quickgroupcolorchange()
 episode(9)
 cycle(4)
 elements(all)
-effect.hue_breath(0.4)
+effect.hue_breath(0.1)
 
 def wave():
     cycle(1)
@@ -678,14 +702,174 @@ def wave():
     color.uniform(green)
 
 
-episode(10)
+episode(11)
 wave()
 cycle(8)
 
-episode(10)
+episode(11)
 cycle(2)
 elements(all)
-effect.hue_breath(0.1)
+effect.hue_breath(0.6)
+
+episode(11)
+cycle(16)
+elements(all)
+effect.saw_tooth(1.0, False)
+
+def full_wave():
+    cycle(2)
+
+    elements(flower1)
+    cycle_beats(0.0, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(lifas1, cabbage1)
+    cycle_beats(0.025, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(donut1)
+    cycle_beats(0.05, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks8, paper2, flower6)
+    cycle_beats(0.075, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(cup_cake3, cabbage6, rug6)
+    cycle_beats(0.1, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks3, donut3, brain7)
+    cycle_beats(0.125, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks7, lifas4, rug4)
+    cycle_beats(0.15, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(paper5)
+    cycle_beats(0.175, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(cabbage6, bottle5)
+    cycle_beats(0.2, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(paper5, lifas5, bottle5)
+    cycle_beats(0.225, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+
+
+
+    elements(cabbage6, bottle5)
+    cycle_beats(0.275, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(paper5)
+    cycle_beats(0.3, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks7, lifas4, rug4)
+    cycle_beats(0.325, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks3, donut3, brain7)
+    cycle_beats(0.35, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(cup_cake3, cabbage6, rug6)
+    cycle_beats(0.375, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(sticks8, paper2, flower6)
+    cycle_beats(0.4, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(donut1)
+    cycle_beats(0.425, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(lifas1, cabbage1)
+    cycle_beats(0.45, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+    elements(flower1)
+    cycle_beats(0.475, 1.75)
+    effect.breath(0.1)
+    color.uniform(green)
+
+
+
+episode(10)
+cycle(beats=8)
+
+elements(single_sticks)
+cycle_beats(0.0, 0.5)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(0.5, 1.0)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(2.0, 2.5)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(2.5, 3.0)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(4.0, 4.5)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(4.5, 5.0)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(6.0, 7.0)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+elements(single_sticks)
+cycle_beats(7.0, 8.0)
+color.gradient(purple_strip[0], indigo[0])
+effect.snake_up_down(0.8)
+
+episode(10)
+cycle(0.5)
+
+elements(cup_cakes, papers)
+color.uniform(aquamarine)
+effect.breath(0.7)
+
+
 
 def violin1end(stick_to_light_end):
 
@@ -910,8 +1094,11 @@ cycle(16)
 elements(papers)
 color.uniform(pink_string)
 
+
+episodes(0,17)
+elements(all)
+color.uniform(red)
+
 send_to_mqtt("essoteric")
-start_song("essoteric", 120* 1000)
-
-
+start_song("essoteric", 0* 1000)
 
