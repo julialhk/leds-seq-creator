@@ -9,7 +9,8 @@ from led_objects.groups import group1, group2, group3, group4, group5, group6, g
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1, bottle4, bottle5
 from led_objects.objects_selector import elements
-from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands
+from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
+    single_lifas
 from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
@@ -702,19 +703,6 @@ def wave():
     color.uniform(green)
 
 
-episode(11)
-wave()
-cycle(8)
-
-episode(11)
-cycle(2)
-elements(all)
-effect.hue_breath(0.6)
-
-episode(11)
-cycle(16)
-elements(all)
-effect.saw_tooth(1.0, False)
 
 def full_wave():
     cycle(2)
@@ -832,6 +820,16 @@ cycle_beats(0.5, 1.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
 
+elements(lifas1)
+cycle_beats(1.0, 1.5)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+elements(lifas1)
+cycle_beats(1.5, 2.0)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
 elements(single_sticks)
 cycle_beats(2.0, 2.5)
 color.gradient(purple_strip[0], indigo[0])
@@ -842,6 +840,17 @@ cycle_beats(2.5, 3.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
 
+elements(lifas1)
+cycle_beats(3.0, 3.5)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+elements(lifas1)
+cycle_beats(3.5, 4.0)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+
 elements(single_sticks)
 cycle_beats(4.0, 4.5)
 color.gradient(purple_strip[0], indigo[0])
@@ -851,6 +860,26 @@ elements(single_sticks)
 cycle_beats(4.5, 5.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
+
+elements(lifas1)
+cycle_beats(5.0, 5.5)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+elements(lifas1)
+cycle_beats(5.5, 6.0)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+elements(lifas1)
+cycle_beats(6.0, 6.5)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
+
+elements(lifas1)
+cycle_beats(6.5, 7.5)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake_down_up(0.8)
 
 elements(single_sticks)
 cycle_beats(6.0, 7.0)
@@ -967,6 +996,20 @@ def violin1end(stick_to_light_end):
     cycle_beats(7.0, 8.0)
     color.uniform(light_yellow_strip)
     effect.snake(1.0)
+
+episode(11)
+full_wave()
+cycle(8)
+
+episode(11)
+cycle(2)
+elements(all)
+effect.hue_breath(0.6)
+
+episode(11)
+cycle(16)
+elements(all)
+effect.saw_tooth(1.0, False)
 
 def violin2end (lifa_to_light_end):
 
@@ -1095,10 +1138,6 @@ elements(papers)
 color.uniform(pink_string)
 
 
-episodes(0,17)
-elements(all)
-color.uniform(red)
-
 send_to_mqtt("essoteric")
-start_song("essoteric", 0* 1000)
+start_song("essoteric", 120* 1000)
 
