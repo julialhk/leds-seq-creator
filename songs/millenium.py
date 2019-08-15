@@ -17,6 +17,8 @@ from infra.colors import *
 
 song_settings(bpm=124, beats_per_episode=64)
 
+
+''' Episode 0: groups blink, siren on stands '''
 #main_beat
 episodes(0, 1)
 cycle(2)
@@ -37,6 +39,13 @@ cycle_beats(0,4)
 elements(sticks)
 color.gradient(0.0,0.11)
 effect.breath(medium)
+
+
+''' Episodes 1, 2:
+- Siren: continue on stands, change mood
+- Drums: blinking cabbages, start on episode 2
+- Main Beat: blink between groups  
+'''
 
 #main_beat
 episodes(1, 3)
@@ -68,9 +77,13 @@ color.alternate(red,orange_strip,10)
 effect.snake()
 
 
+"""
+Episodes 3
+"""
+
 # episode3-4
 #drama
-wanted_elements = [group1, group2, group3, group4, group5, group6, group7, group8]
+wanted_elements = [group1, group2, group3, group4, group5, group6, [group7, group8], [] ]
 current_elements = []
 current_beat = 192
 for element in wanted_elements:
@@ -85,20 +98,27 @@ for element in wanted_elements:
 color.uniform(red)
 effect.saw_tooth(total)
 
-#slow_effect
+"""
+Epiosde 4, first 8 beats
+Slow Effect: drama drops, snakes turn off the scene
+"""
+
+#fast drop
 beats(256,257)
 elements(single_stands)
 color.uniform(red)
 effect.snake(1,switch_direction=True)
 
+#slow drop
 beats(256,262)
 elements(cup_cake4,cup_cake4,cabbages,paper2)
 color.uniform(yellow_string)
 effect.snake(1,switch_direction=True)
 
 
-#main_beat
-episodes (4.125,4.5)
+"""
+Episodes 4, 5. start after drop
+"""
 
 def light_one(start_beat, element, c):
     cycle_beats(start_beat, start_beat + 1)
@@ -106,6 +126,9 @@ def light_one(start_beat, element, c):
     color.uniform(c)
     effect.saw_tooth(edge=soft)
 
+
+#main_beat - 3/8
+episodes (4 + 1/8, 4 + 4/8)
 cycle(8)
 light_one(0, cabbage1, blue)
 light_one(1, cabbage5, green)
@@ -117,18 +140,25 @@ light_one(6, paper2, blue)
 light_one(7, flower1, blue)
 
 elements(all)
+cycle(None)
+effect.hue_shift_steps(8, 0.25)
 
-for i in range(1, 16):
-    episodes(4 + i / 8.0, 4 + (i+1) / 8.0)
-    effect.hue_shift(i / 6.0)
 
-episodes (4.5,5)
+"""
+sticks 8 doing something special, lead beat - white blink
+"""
+episodes (4.5,6)
 elements(sticks8)
 cycle(1/3)
 color.uniform((0.98, 0.45, 1))
 effect.blink()
-cycle(8)
 
+
+"""
+main_beat - next 4/8
+"""
+episodes (4 + 4/8, 4 + 8/8)
+cycle(8)
 light_one(0, [cabbage1, flower6,cup_cake4], blue)
 light_one(1, [cabbage5,paper5,donut3], blue)
 light_one(2, [brain7,flower6,flower1], blue)
@@ -139,18 +169,13 @@ light_one(6, [paper2,rug6,flower6], blue)
 light_one(7, [flower1,brain7,cup_cake4], blue)
 
 elements(all)
+effect.hue_shift_steps(8, 0.25)
 
-for i in range(1, 16):
-    episodes(4.5 + i / 8.0, 4 + (i+1) / 8.0)
-    effect.hue_shift(i / 6.0)
-
-episodes (5,5.5)
-elements(sticks8)
-cycle(1/3)
-color.uniform(light_pink_strip)
-effect.blink()
+"""
+main_beat - next 4/8
+"""
+episodes(5, 5.5)
 cycle(8)
-
 light_one(0, [cabbage1, flower6,cup_cake4,bottle4], blue)
 light_one(1, [cabbage5,paper5,donut3,rug6], blue)
 light_one(2, [brain7,flower6,flower1,paper5], blue)
@@ -161,16 +186,12 @@ light_one(6, [paper2,rug6,flower6,bottle5], blue)
 light_one(7, [flower1,brain7,cup_cake4,cabbage5], blue)
 
 elements(all)
+effect.hue_shift_steps(8, 0.25)
 
-for i in range(1, 16):
-    episodes(5 + i / 8.0, 4 + (i+1) / 8.0)
-    effect.hue_shift(i / 6.0)
-
-episodes (5.5,6)
-elements(sticks8)
-cycle(1/3)
-color.uniform(light_pink_strip)
-effect.blink()
+"""
+main_beat - next 4/8
+"""
+episodes (5.5, 6)
 cycle(8)
 
 light_one(0, [group1,group4], blue)
@@ -183,18 +204,18 @@ light_one(6, [group1,group3], blue)
 light_one(7, [group5,group8,group2], blue)
 
 elements(all)
-
-for i in range(1, 16):
-    episodes(5.5 + i / 8.0, 4 + (i+1) / 8.0)
-    effect.hue_shift(i / 6.0)
-
-#drama
+effect.hue_shift_steps(8, 0.25)
 
 
+"""
+end of episodes 4,5 - drop in last beat
+"""
 beats(384,385)
 elements(single_stands)
 color.uniform(red)
 effect.snake(0.5,switch_direction=True)
+
+
 
 #main_beat
 episode(6)
@@ -459,6 +480,4 @@ effect.breath()
 effect.saw_tooth(60)
 
 send_to_mqtt("millenium")
-start_song("millenium",
-
-#shift+fn f10-
+start_song("millenium", 120)
