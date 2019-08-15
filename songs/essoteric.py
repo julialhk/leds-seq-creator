@@ -169,210 +169,149 @@ def clapping(clapping_lights):
 episode(2)
 clapping(all)
 
-def violin1(stick_to_light):
+def violin1(stick_to_light, g1, g2):
 
     elements(stick_to_light.stand(3))
     cycle(beats=8)
     cycle_beats(0.0, 0.55)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
 
     elements(stick_to_light.stand(1))
     cycle(beats=8)
     cycle_beats(0.55, 1.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(2))
     cycle(beats=8)
     cycle_beats(1.0, 1.75)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(5))
     cycle(beats=8)
     cycle_beats(1.75, 2.07)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
 
     elements(stick_to_light.stand(2))
     cycle(beats=8)
     cycle_beats(2.07, 2.48)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(4))
     cycle(beats=8)
     cycle_beats(2.48, 3.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(3))
     cycle(beats=8)
     cycle_beats(3.0, 3.55)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(4))
     cycle(beats=8)
     cycle_beats(3.55, 4.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
 
     elements(stick_to_light.stand(3))
     cycle(beats=8)
     cycle_beats(4.0, 4.5)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
 
     elements(stick_to_light.stand(1))
     cycle(beats=8)
     cycle_beats(4.5, 5.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(2))
     cycle(beats=8)
     cycle_beats(5.0, 5.71)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(5))
     cycle(beats=8)
     cycle_beats(5.71, 6.07)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
-
 
     elements(stick_to_light.stand(2))
     cycle(beats=8)
     cycle_beats(6.07, 6.6)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(4))
     cycle(beats=8)
     cycle_beats(6.6, 7.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
     elements(stick_to_light.stand(3))
     cycle(beats=8)
     cycle_beats(7.0, 8.0)
-    color.gradient(orange_strip[0], yellow_strip[0])
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
-def violin2 (lifa_to_light):
+def light_stick_on_note(lifa_to_light, g1, g2, stand_index, b_start, b_end):
 
-    elements(lifa_to_light.stand(3))
+    if lifa_to_light.num_of_sticks > 4:
+        note_to_stand = {1:1, 2:2, 3:3, 4:4, 5:5}
+    else:
+        note_to_stand = {1:1, 2:2, 3:3, 4:4, 5:1}
+
+    elements(lifa_to_light.stand(note_to_stand[stand_index]))
     cycle(beats=8)
-    cycle_beats(0.0, 0.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(1))
-    cycle(beats=8)
-    cycle_beats(0.55, 1.0)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(2))
-    cycle(beats=8)
-    cycle_beats(1.0, 1.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(5))
-    cycle(beats=8)
-    cycle_beats(1.55, 2.07)
-    color.gradient(purple_strip[0], indigo[0])
+    cycle_beats(b_start, b_end)
+    color.gradient(g1, g2)
     effect.snake(1.0)
 
 
-    elements(lifa_to_light.stand(2))
-    cycle(beats=8)
-    cycle_beats(2.07, 2.48)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
+def violin2 (lifa_to_light, g1, g2):
 
-    elements(lifa_to_light.stand(4))
-    cycle(beats=8)
-    cycle_beats(2.48, 3.0)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 3, 0.0, 0.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 1, 0.55, 1.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 2, 1.0, 1.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 5, 1.55, 2.07)
+    light_stick_on_note(lifa_to_light, g1, g2, 2, 2.07, 2.48)
+    light_stick_on_note(lifa_to_light, g1, g2, 4, 2.48, 3.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 3, 3.0, 3.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 4, 3.55, 4.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 2, 4.0, 4.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 1, 4.55, 5.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 2, 5.0, 5.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 5, 5.55, 6.07)
+    light_stick_on_note(lifa_to_light, g1, g2, 3, 6.07, 6.55)
+    light_stick_on_note(lifa_to_light, g1, g2, 2, 6.55, 7.0)
+    light_stick_on_note(lifa_to_light, g1, g2, 4, 7.0, 8.0)
 
-    elements(lifa_to_light.stand(3))
-    cycle(beats=8)
-    cycle_beats(3.0, 3.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(4))
-    cycle(beats=8)
-    cycle_beats(3.55, 4.0)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(3))
-    cycle(beats=8)
-    cycle_beats(4.0, 4.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(1))
-    cycle(beats=8)
-    cycle_beats(4.55, 5.0)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(2))
-    cycle(beats=8)
-    cycle_beats(5.0, 5.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(5))
-    cycle(beats=8)
-    cycle_beats(5.55, 6.07)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(3))
-    cycle(beats=8)
-    cycle_beats(6.0, 6.55)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(2))
-    cycle(beats=8)
-    cycle_beats(6.55, 7.00)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
-
-    elements(lifa_to_light.stand(3))
-    cycle(beats=8)
-    cycle_beats(7.0, 8.0)
-    color.gradient(purple_strip[0], indigo[0])
-    effect.snake(1.0)
 
 
 episodes(3, 7)
-violin1(sticks3)
+violin1(sticks3, orange_strip[0], yellow_strip[0])
 
 episodes(4, 7)
-violin1(sticks8)
+violin1(sticks8, orange_strip[0], yellow_strip[0])
 
 episodes(4, 7)
-violin1(sticks7)
+violin1(sticks7, orange_strip[0], yellow_strip[0])
 
 episodes(5, 7)
-violin2(lifas5)
-violin2(lifas1)
-violin2(lifas4)
+violin2(lifas5, purple_strip[0], indigo[0])
+violin2(lifas1, purple_strip[0], indigo[0])
+violin2(lifas4, purple_strip[0], indigo[0])
 
 
 episodes(5, 7)
@@ -527,7 +466,7 @@ def small_bit():
     beats((16*7) +13.75, (16*7) + 32)
     color.uniform(magenta)
 
-    elements(lifas4.stand(5))
+    elements(donut1)
     beats((16*7) +14.0, (16*7) + 32)
     color.uniform(yellow_string)
 
@@ -1135,110 +1074,18 @@ effect.snake(0.6)
 # elements(all)
 # effect.saw_tooth(total, False)
 
-def violin2end (lifa_to_light_end):
-
-    elements(lifa_to_light_end.stand(3))
-    cycle(beats=8)
-    cycle_beats(0.0, 0.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(1))
-    cycle(beats=8)
-    cycle_beats(0.55, 1.0)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(2))
-    cycle(beats=8)
-    cycle_beats(1.0, 1.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(5))
-    cycle(beats=8)
-    cycle_beats(1.55, 2.07)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-
-    elements(lifa_to_light_end.stand(2))
-    cycle(beats=8)
-    cycle_beats(2.07, 2.48)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(4))
-    cycle(beats=8)
-    cycle_beats(2.48, 3.0)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(3))
-    cycle(beats=8)
-    cycle_beats(3.0, 3.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(4))
-    cycle(beats=8)
-    cycle_beats(3.55, 4.0)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(3))
-    cycle(beats=8)
-    cycle_beats(4.0, 4.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(1))
-    cycle(beats=8)
-    cycle_beats(4.55, 5.0)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(2))
-    cycle(beats=8)
-    cycle_beats(5.0, 5.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(5))
-    cycle(beats=8)
-    cycle_beats(5.55, 6.07)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(3))
-    cycle(beats=8)
-    cycle_beats(6.0, 6.55)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(2))
-    cycle(beats=8)
-    cycle_beats(6.55, 7.00)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
-
-    elements(lifa_to_light_end.stand(3))
-    cycle(beats=8)
-    cycle_beats(7.0, 8.0)
-    color.uniform(light_purple_strip)
-    effect.snake(1.0)
 
 episodes(12, 14)
-violin1end(sticks3)
+violin1(sticks3, light_yellow_strip[0], light_orange_strip[0])
 
 episode(12)
-violin1end(sticks8)
-violin1end(sticks7)
+violin1(sticks8, light_yellow_strip[0], light_orange_strip[0])
+violin1(sticks7, light_yellow_strip[0], light_orange_strip[0])
 
 episode(12)
-violin2end(lifas5)
-violin2end(lifas1)
-violin2end(lifas4)
+violin2(lifas5, light_purple_strip[0], light_pink_strip[0])
+violin2(lifas1, light_purple_strip[0], light_pink_strip[0])
+violin2(lifas4, light_purple_strip[0], light_pink_strip[0])
 
 episodes(12, 13)
 effect.breath(1.0)
@@ -1263,5 +1110,5 @@ color.uniform(pink_string)
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", * 1000)
+start_song("essoteric", 150)
 
