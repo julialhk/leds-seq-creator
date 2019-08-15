@@ -216,96 +216,96 @@ color.uniform(red)
 effect.snake(0.5,switch_direction=True)
 
 
+"""
+Episode 6:
+breath: some elements, calm
+snake on cabbeges, building drama on last 5/8 - 7/8
+drama at end: all blink white, prepare for episode 7
+"""
 
-#main_beat
 episode(6)
 cycle(8)
 elements(paper2,cup_cakes,flowers,paper5)
 color.uniform(turquoise_string)
 effect.breath(total)
 
-beats(424,440)
+episodes(6 + 5/8, 6+7/8)
 cycle(1)
 elements(cabbages)
 color.uniform(orange_strip)
 effect.snake()
 
 #drama
-beats(440,448)
+episodes(6 + 7/8, 6+8/8)
 cycle(1)
 elements(all)
 color.uniform(light_pink_strip)
 effect.blink(medium)
 
-beats(448,456)
-cycle(1)
-elements(group1)
-color.uniform(light_purple_string)
-effect.saw_tooth()
+"""
+episode 7: drama. groups blink and group fade with snake
+"""
 
-beats(456,457)
-cycle(1)
-elements(group1)
-color.uniform([0.7, 1.0, 1.0])
-effect.snake()
+def blink_part(part_8, e, c_blink):
+    episodes(7 + (part_8)/8, 7 + (part_8+1)/8)
+    cycle(1)
+    elements(e)
+    color.uniform(c_blink)
+    effect.saw_tooth()
 
-beats(456,464)
-cycle(1)
-elements(group2,group3)
-color.uniform([0.7, 1.0, 1.0])
-effect.blink(soft)
+def snake_part(part_8, e, c_snake):
+    # one beat of drop
+    episodes(7 + (part_8+1)/8, 7 + (part_8+1)/8 + 1/64)
+    elements(e)
+    color.uniform(c_snake)
+    effect.snake()
 
-beats(464,465)
-cycle(1)
-elements(group2,group3)
-color.uniform(turquoise_string)
-effect.snake()
+def blink_and_snake_group(part_8, e, c_blink, c_snake):
+    blink_part(part_8, e, c_blink)
+    snake_part(part_8, e, c_snake)
 
-beats(464,472)
-cycle(1)
-elements(bottle4,group5)
-color.uniform(turquoise_string)
-effect.blink(soft)
 
-beats(472,473)
-cycle(1)
-elements(bottle4,group5)
-color.uniform(indigo)
-effect.snake()
+blink_and_snake_group(0, group1, light_purple_string, [0.7, 1.0, 1.0])
+blink_and_snake_group(1, [group2, group3], [0.7, 1.0, 1.0], turquoise_string)
+blink_and_snake_group(2, [bottle4, group5], turquoise_string, indigo)
 
-beats(472,480)
-cycle(1)
-elements(group6,group7,group8)
-color.uniform(indigo)
-effect.blink(total)
+blink_part(3, [group6,group7,group8], indigo)
 
+#drop all scene with snakes
 beats(479,480)
-cycle(1)
 elements(all)
 color.uniform(light_pink_strip)
 effect.snake()
 
+"""
+Episodes: 7.5 - 8.5
+equilaizer on sticks, add graduately
+"""
 
-episode(7)
-beats(480,490)
-elements(sticks8)
-cycle(1.5)
-color.gradient(0.46,0.55)
-effect.snake_down_up(1.0)
+def sticks_eq(e):
+    elements(e)
+    cycle(4/3)
+    color.gradient(0.46, 0.55)
+    effect.snake_down_up(1.0)
 
-beats(490,500)
-elements(sticks8,sticks7)
-cycle(1.5)
-color.gradient(0.46,0.55)
-effect.snake_down_up(1.0)
 
-beats(500,544)
-elements(sticks)
-cycle(1.5)
-color.gradient(0.46,0.55)
-effect.snake_down_up(1.0)
+episodes(7.5, 8.5)
+sticks_eq(sticks8)
 
-# beats(544,734)734
+episodes(7.5 + 1/8, 8.5)
+sticks_eq(sticks7)
+
+episodes(7.5 + 2/8, 8.5)
+sticks_eq(sticks3)
+
+
+
+"""
+Episode 8: 
+we had equilaizer on the sticks until 8.5
+before sticks removed, drama start - shine with red
+"""
+
 beats(536,552)
 cycle(2/3)
 elements(group1,group2,cup_cakes,donut3,group4,group5,group6,cabbages,brains)
@@ -313,25 +313,19 @@ color.uniform(red)
 effect.breath(hard)
 cycle(16)
 effect.saw_tooth(total, True)
-# *****************************************************************************
-# beats(552,564)
-# cycle(4)
-# cycle_beats(0,2)
-# elements(group1,group2,group3,group8,flower6)
-# color.alternate(light_green,green,10)
-# effect.blink_repeat(6)
-# cycle_beats(2,4)
-# elements(group4,group5,group7,rug6,cabbage6)
-# color.alternate(light_pink_strip,orange_strip,10)
-# effect.blink_repeat(6)
+
+"""
+darama start - all blink colorful
+"""
 
 beats(552,564)
 elements(all)
 color.gradient(magenta[0],orange_strip[0])
 effect.blink_repeat(6)
 
-beats(564,576)
 
+
+beats(564,576)
 cycle(2)
 cycle_beats(0,1)
 elements(group1,group2,group3,group8,flower6)
@@ -480,4 +474,4 @@ effect.breath()
 effect.saw_tooth(60)
 
 send_to_mqtt("millenium")
-start_song("millenium", 120)
+start_song("millenium", 250)
