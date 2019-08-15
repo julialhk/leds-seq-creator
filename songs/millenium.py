@@ -101,24 +101,21 @@ effect.snake(1,switch_direction=True)
 #main_beat
 episodes (4.125,4.5)
 
-cycle(8)
-
-def light_one(start_beat, element):
+def light_one(start_beat, element, c):
     cycle_beats(start_beat, start_beat + 1)
     elements(element)
-    color.uniform(blue)
-    if start_beat == 7:
-        color.uniform(light_blue)
+    color.uniform(c)
     effect.saw_tooth(edge=soft)
 
-light_one(0, cabbage1)
-light_one(1, cabbage5)
-light_one(2, brain7)
-light_one(3, cup_cake3)
-light_one(4, donut3)
-light_one(5, cup_cake4)
-light_one(6, paper2)
-light_one(7, flower1)
+cycle(8)
+light_one(0, cabbage1, blue)
+light_one(1, cabbage5, green)
+light_one(2, brain7, yellow_string)
+light_one(3, cup_cake3, blue)
+light_one(4, donut3, blue)
+light_one(5, cup_cake4, blue)
+light_one(6, paper2, blue)
+light_one(7, flower1, blue)
 
 elements(all)
 
@@ -133,22 +130,14 @@ color.uniform((0.98, 0.45, 1))
 effect.blink()
 cycle(8)
 
-def light_one(start_beat, element):
-    cycle_beats(start_beat, start_beat + 1)
-    elements(element)
-    color.uniform(blue)
-    if start_beat == 7:
-        color.uniform(orange_strip)
-    effect.saw_tooth(edge=soft)
-
-light_one(0, [cabbage1, flower6,cup_cake4])
-light_one(1, [cabbage5,paper5,donut3])
-light_one(2, [brain7,flower6,flower1])
-light_one(3, [cup_cake3,paper2,bottle5])
-light_one(4, [donut3,cabbage1,brain7])
-light_one(5, [cup_cake4,bottle4,cabbage5])
-light_one(6, [paper2,rug6,flower6])
-light_one(7, [flower1,brain7,cup_cake4])
+light_one(0, [cabbage1, flower6,cup_cake4], blue)
+light_one(1, [cabbage5,paper5,donut3], blue)
+light_one(2, [brain7,flower6,flower1], blue)
+light_one(3, [cup_cake3,paper2,bottle5], blue)
+light_one(4, [donut3,cabbage1,brain7], blue)
+light_one(5, [cup_cake4,bottle4,cabbage5], blue)
+light_one(6, [paper2,rug6,flower6], blue)
+light_one(7, [flower1,brain7,cup_cake4], blue)
 
 elements(all)
 
@@ -163,23 +152,14 @@ color.uniform(light_pink_strip)
 effect.blink()
 cycle(8)
 
-def light_one(start_beat, element):
-    cycle_beats(start_beat, start_beat + 1)
-    elements(element)
-    color.uniform(blue)
-    if start_beat == 7:
-        color.uniform(red)
-    effect.saw_tooth(edge=soft)
-
-
-light_one(0, [cabbage1, flower6,cup_cake4,bottle4])
-light_one(1, [cabbage5,paper5,donut3,rug6])
-light_one(2, [brain7,flower6,flower1,paper5])
-light_one(3, [cup_cake3,paper2,bottle5,cabbage1])
-light_one(4, [donut3,cabbage1,brain7,paper2])
-light_one(5, [cup_cake4,bottle4,cabbage5,cabbage1])
-light_one(6, [paper2,rug6,flower6,bottle5])
-light_one(7, [flower1,brain7,cup_cake4,cabbage5])
+light_one(0, [cabbage1, flower6,cup_cake4,bottle4], blue)
+light_one(1, [cabbage5,paper5,donut3,rug6], blue)
+light_one(2, [brain7,flower6,flower1,paper5], blue)
+light_one(3, [cup_cake3,paper2,bottle5, cabbage1], blue)
+light_one(4, [donut3,cabbage1,brain7,paper2], blue)
+light_one(5, [cup_cake4,bottle4,cabbage5,cabbage1], blue)
+light_one(6, [paper2,rug6,flower6,bottle5], blue)
+light_one(7, [flower1,brain7,cup_cake4,cabbage5], blue)
 
 elements(all)
 
@@ -194,22 +174,14 @@ color.uniform(light_pink_strip)
 effect.blink()
 cycle(8)
 
-def light_one(start_beat, element):
-    cycle_beats(start_beat, start_beat + 1)
-    elements(element)
-    color.uniform(blue)
-    if start_beat == 7:
-        color.uniform(purple_string)
-    effect.saw_tooth(edge=soft)
-
-light_one(0, [group1,group4])
-light_one(1, [group6,group7,group8])
-light_one(2, [group2,group3])
-light_one(3, [group5,group7])
-light_one(4, [group1,group3])
-light_one(5, [group5,group2])
-light_one(6, [group1,group3])
-light_one(7, [group5,group8,group2])
+light_one(0, [group1,group4], blue)
+light_one(1, [group6,group7,group8], blue)
+light_one(2, [group2,group3], blue)
+light_one(3, [group5,group7], blue)
+light_one(4, [group1,group3], blue)
+light_one(5, [group5,group2], blue)
+light_one(6, [group1,group3], blue)
+light_one(7, [group5,group8,group2], blue)
 
 elements(all)
 
@@ -433,16 +405,23 @@ color.uniform(light_pink_strip)
 effect.saw_tooth()
 #*********************************************************************
 
+def light_8_beats(beats_start, e):
+    beats(beats_start, beats_start + 8)
+    cycle(1)
+    elements(e)
 
-episodes (10.5,10.625)
-cycle(1)
-elements(all)
+
+light_8_beats(672, all)
+color.uniform(blue)
+effect.snake()
+
+light_8_beats(680, [group1,group3,group7])
 color.uniform(blue)
 effect.snake()
 
 episodes (10.625,10.75)
 cycle(1)
-elements(group1,group3,group7)
+elements()
 color.uniform(red)
 effect.snake()
 
