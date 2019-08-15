@@ -23,7 +23,7 @@ def on_publish_callback(client, userdata, mid):
 def start_song(song_name, start_time=0):
     json_data = {
         "file_id": "{}.wav".format(song_name),
-        "start_offset_ms": start_time
+        "start_offset_ms": int(start_time * 1000)
     }
     body = json.dumps(json_data)
     conn = http.client.HTTPConnection(host_name, 8080)
