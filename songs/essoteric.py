@@ -808,6 +808,33 @@ def full_wave():
 
 
 episode(10)
+
+cycle(2)
+cycle_beats(0, 0.5)
+elements(all)
+color.uniform(indigo)
+effect.breath(0.4)
+
+cycle_beats(0.5, 1.0)
+elements(all)
+color.uniform(indigo)
+effect.breath(0.4)
+
+cycle_beats(1.0, 1.55)
+elements(all)
+color.uniform(indigo)
+effect.breath(0.4)
+
+cycle_beats(1.55, 1.8)
+elements(all)
+color.uniform(indigo)
+effect.breath(0.4)
+
+cycle_beats(1.8, 2.0)
+elements(all)
+color.uniform(indigo)
+effect.breath(0.4)
+
 cycle(beats=8)
 
 elements(single_sticks)
@@ -820,15 +847,20 @@ cycle_beats(0.5, 1.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
 
-elements(lifas1)
+elements(donuts)
 cycle_beats(1.0, 1.5)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
 
-elements(lifas1)
+elements(donuts)
 cycle_beats(1.5, 2.0)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
+
+elements(donuts)
+cycle_beats(2.0, 3.0)
+color.gradient(magenta[0], orange_strip[0])
+effect.snake(0.8)
 
 elements(single_sticks)
 cycle_beats(2.0, 2.5)
@@ -840,17 +872,6 @@ cycle_beats(2.5, 3.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
 
-elements(lifas1)
-cycle_beats(3.0, 3.5)
-color.gradient(magenta[0], orange_strip[0])
-effect.snake_down_up(0.8)
-
-elements(lifas1)
-cycle_beats(3.5, 4.0)
-color.gradient(magenta[0], orange_strip[0])
-effect.snake_down_up(0.8)
-
-
 elements(single_sticks)
 cycle_beats(4.0, 4.5)
 color.gradient(purple_strip[0], indigo[0])
@@ -861,23 +882,23 @@ cycle_beats(4.5, 5.0)
 color.gradient(purple_strip[0], indigo[0])
 effect.snake_up_down(0.8)
 
-elements(lifas1)
+elements(donuts)
 cycle_beats(5.0, 5.5)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
 
-elements(lifas1)
+elements(donuts)
 cycle_beats(5.5, 6.0)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
 
-elements(lifas1)
-cycle_beats(6.0, 6.5)
+elements(donuts)
+cycle_beats(6.0, 7.0)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
 
-elements(lifas1)
-cycle_beats(6.5, 7.5)
+elements(donuts)
+cycle_beats(7.0, 8.0)
 color.gradient(magenta[0], orange_strip[0])
 effect.snake_down_up(0.8)
 
@@ -896,7 +917,9 @@ cycle(0.5)
 
 elements(cup_cakes, papers)
 color.uniform(aquamarine)
-effect.breath(0.7)
+effect.blink(0.7)
+
+
 
 
 
@@ -1139,5 +1162,5 @@ color.uniform(pink_string)
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 120* 1000)
+start_song("essoteric", 123* 1000)
 
