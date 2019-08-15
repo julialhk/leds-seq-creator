@@ -17,7 +17,6 @@ from infra.colors import *
 
 song_settings(bpm=124, beats_per_episode=64)
 
-
 #main_beat
 episodes(0, 1)
 cycle(2)
@@ -410,55 +409,17 @@ def light_8_beats(beats_start, e):
     cycle(1)
     elements(e)
 
-
 light_8_beats(672, all)
 color.uniform(blue)
 effect.snake()
 
 light_8_beats(680, [group1,group3,group7])
-color.uniform(blue)
-effect.snake()
-
-episodes (10.625,10.75)
-cycle(1)
-elements()
 color.uniform(red)
 effect.snake()
 
-episodes (10.75,10.875)
-cycle(1)
-elements(group2,group5,group3)
-color.uniform(purple_string)
+light_8_beats(688, [group2,group5,group8])
+color.uniform(pink_string)
 effect.snake()
-
-episodes (11.25,11.5)
-cycle(1)
-elements(cup_cakes,lifas,bottles,donuts,brains)
-color.gradient(0,1)
-effect.snake()
-
-
-# episodes(10.75,11.5)
-# elements(sticks8)
-# cycle(8)
-# color.uniform((0.98, 0.45, 1))
-# effect.blink()
-# cycle(8)
-# def light_one(start_beat, element):
-#     cycle_beats(start_beat, start_beat + 1)
-#     elements(element)
-#     color.gradient(1,0)
-#     effect.snake()
-#
-# light_one(0, [cabbage1, flower6,cup_cake4,bottle4])
-# light_one(1, [cabbage5,paper5,donut3,rug6])
-# light_one(2, [brain7,flower6,flower1,paper5])
-# light_one(3, [cup_cake3,paper2,bottle5,cabbage1])
-# light_one(4, [donut3,cabbage1,brain7,paper2])
-# light_one(5, [cup_cake4,bottle4,cabbage5,cabbage1])
-# light_one(6, [paper2,rug6,flower6,bottle5])
-# light_one(7, [flower1,brain7,cup_cake4,cabbage5])
-
 
 #drums
 
@@ -498,6 +459,6 @@ effect.breath()
 effect.saw_tooth(60)
 
 send_to_mqtt("millenium")
-start_song("millenium",320)
+start_song("millenium",
 
 #shift+fn f10-
