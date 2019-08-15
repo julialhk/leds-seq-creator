@@ -72,7 +72,7 @@ effect.random_brightness()
 effect.breath(total)
 
 episodes(0, 30)
-elements(all)
+elements(lifas4)
 cycle(8)
 color.gradient(0.0, 1.0)
 effect.hue_breath(1.0)
