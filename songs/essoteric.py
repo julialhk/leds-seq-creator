@@ -4,7 +4,7 @@ from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5, cabbages, donut1, donut3, \
     brains, twists, donuts
-from led_objects.flood import cup_cakes, cup_cake3, rug4, rug6
+from led_objects.flood import cup_cakes, cup_cake3, rug4, rug6, rugs
 from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1, bottle4, bottle5
@@ -156,7 +156,7 @@ def clapping(clapping_lights):
 
     cycle_beats(1.0, 1.37)
     effect.saw_tooth(0.2, False)
-    color.uniform(coral)
+    color.uniform(magenta)
 
     cycle_beats(1.37, 1.67)
     effect.saw_tooth(0.2, False)
@@ -395,7 +395,7 @@ def small_bit():
     beats((16*7) +0.5, (16*7) + 32)
     color.uniform(aquamarine)
 
-    elements(lifas5.stand(3))
+    elements(lifas5.stand(3), lifas5.stand(5))
     beats((16*7) +1.0, (16*7) + 32)
     color.uniform(blue)
 
@@ -405,7 +405,7 @@ def small_bit():
 
     elements(lifas4.stand(4))
     beats((16*7) +1.75, (16*7) + 32)
-    color.uniform(yellow_strip)
+    color.uniform(yellow_string)
 
     elements(paper2)
     beats((16*7) +2.0, (16*7) + 32)
@@ -437,7 +437,7 @@ def small_bit():
 
     elements(sticks8.stand(2))
     beats((16*7) +5.0, (16*7) + 32)
-    color.uniform(magenta)
+    color.uniform((0.87, 1.0, 1.0))
 
     elements(cup_cake3)
     beats((16*7) +5.37, (16*7) + 32)
@@ -451,9 +451,9 @@ def small_bit():
     beats((16*7) +6.0, (16*7) + 32)
     color.uniform(light_orange_strip)
 
-    elements(lifas5. stand(1))
+    elements(lifas5.stand(1))
     beats((16*7) +6.55, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(light_blue)
 
     elements(lifas4.stand(2))
     beats((16*7) +7.0, (16*7) + 32)
@@ -473,11 +473,11 @@ def small_bit():
 
     elements(lifas5.stand(4))
     beats((16*7) +8.5, (16*7) + 32)
-    color.uniform(aquamarine)
+    color.uniform(dark_blue)
 
     elements(lifas1.stand(5))
     beats((16*7) +9.0, (16*7) + 32)
-    color.uniform(turquoise_string)
+    color.uniform(light_turquoise_string)
 
     elements(sticks7.stand(6))
     beats((16*7) +9.37, (16*7) + 32)
@@ -501,11 +501,11 @@ def small_bit():
 
     elements(sticks8.stand(4))
     beats((16*7) +11.34, (16*7) + 32)
-    color.uniform(magenta)
+    color.uniform((0.9, 1.0, 1.0))
 
     elements([sticks7.stand(2), sticks7.stand(4)])
     beats((16*7) +11.66, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(dark_blue)
 
     elements(lifas4.stand(1))
     beats((16*7) +12.12, (16*7) + 32)
@@ -517,11 +517,11 @@ def small_bit():
 
     elements(lifas1.stand(2))
     beats((16*7) +13.0, (16*7) + 32)
-    color.uniform(turquoise_string)
+    color.uniform(turquoise_strip)
 
     elements([sticks7.stand(3), sticks7.stand(5)])
     beats((16*7) +13.37, (16*7) + 32)
-    color.uniform(blue)
+    color.uniform(light_blue)
 
     elements([sticks8.stand(3), sticks8.stand(5)])
     beats((16*7) +13.75, (16*7) + 32)
@@ -529,11 +529,11 @@ def small_bit():
 
     elements(lifas4.stand(5))
     beats((16*7) +14.0, (16*7) + 32)
-    color.uniform(yellow_strip)
+    color.uniform(yellow_string)
 
     elements(sticks3.stand(5), sticks3.stand(4))
     beats((16*7) +14.55, (16*7) + 32)
-    color.uniform(orange_string)
+    color.uniform(orange_strip)
 
     elements([lifas1.stand(1), lifas1.stand(4)])
     beats((16*7) +15.0, (16*7) + 32)
@@ -541,7 +541,7 @@ def small_bit():
 
     elements(sticks8.stand(1))
     beats((16*7) +15.34, (16*7) + 32)
-    color.uniform(magenta)
+    color.uniform((0.87, 1.0, 1.0))
 
     elements(lifas4.stand(3))
     beats((16*7) +15.66, (16*7) + 32.0)
@@ -554,6 +554,17 @@ episode(8)
 cycle(2)
 elements(all)
 effect.hue_saw_tooth(0.4, True)
+
+beats(142, 143)
+effect.snake(0.5)
+
+beats(143, 144)
+elements(all)
+color.gradient(red[0], orange_strip[0])
+effect.saw_tooth(total)
+
+
+
 
 
 def quickgroupcolorchange():
@@ -810,7 +821,7 @@ episode(10)
 
 cycle(0.5)
 elements(all)
-color.gradient(orange_strip[0], yellow_strip[0])
+color.gradient(blue[0], aquamarine[0])
 effect.breath(soft)
 
 
@@ -843,68 +854,68 @@ effect.breath(soft)
 cycle(beats=8)
 cycle_beats(0.0, 0.5)
 elements(cup_cakes)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(0.5, 1.0)
 elements(cup_cakes)
 effect.breath(0.8)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 
 
 cycle_beats(1.0, 1.5)
 elements(donuts)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(1.5, 2.0)
 elements(donuts)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(2.0, 2.5)
 elements(rug4, rug6)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(2.5, 2.9)
 elements(rug4,rug6)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(2.9, 4.1)
 elements(cabbages, single_sticks)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(4.0, 4.5)
 elements(cup_cakes)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(4.5, 5.0)
 elements(cup_cakes)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(5.0, 5.5)
 elements(bottles)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(5.5, 6.0)
 elements(bottles)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(6.0, 7.0)
 elements(cabbages, single_sticks)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 cycle_beats(7.0, 8.0)
 elements(papers, single_sticks)
-color.gradient(blue[0], purple_string[0])
+color.gradient(0.78, 0.9)
 effect.breath(0.8)
 
 
@@ -1104,22 +1115,17 @@ elements(all)
 effect.hue_breath(total)
 
 beats(184, 192)
-elements(cabbages, brains)
+elements(cabbages, brains,lifas)
 color.uniform(orange_strip)
 effect.snake(0.6)
 
 beats(186, 192)
-elements(sticks, lifas)
+elements(sticks, flowers, cup_cakes)
 color.uniform(orange_strip)
 effect.snake(0.6)
 
 beats(188, 192)
-elements(flowers, bottles)
-color.uniform(orange_strip)
-effect.snake(0.6)
-
-beats(190, 192)
-elements(papers, cup_cakes)
+elements(papers, bottles, rugs, donuts)
 color.uniform(orange_strip)
 effect.snake(0.6)
 
@@ -1257,5 +1263,5 @@ color.uniform(pink_string)
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 120* 1000)
+start_song("essoteric", * 1000)
 
