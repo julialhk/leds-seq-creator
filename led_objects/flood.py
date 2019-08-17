@@ -13,8 +13,8 @@ cup_cake4 = cabbages.cup_cake4
 
 cup_cakes = [cup_cake4, cup_cake3]
 
-rug6 = Flood(11)
-rug4 = Flood(11)
+rug6 = Flood(300)
+rug4 = Flood(240)
 
 rugs = [rug4, rug6]
 
