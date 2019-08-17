@@ -1,6 +1,7 @@
 import copy
 from enum import Enum
 
+from animations.confetti import ConfettiAnimation
 from animations.rand_brightness import RandBrightnessAnimation
 from animations.rand_sat import RandSaturationAnimation
 from float_func.steps import StepsFloatFunc
@@ -121,6 +122,8 @@ class EffectFactory:
     def random_saturation(self):
         RandSaturationAnimation().apply()
 
+    def confetti(self):
+        ConfettiAnimation(ConstFloatFunc(0.5)).apply()
 
 effect = EffectFactory()
 
