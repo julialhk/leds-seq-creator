@@ -15,7 +15,7 @@ from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
-song_settings(bpm=124, beats_per_episode=64,start_offset = 0)
+song_settings(bpm=124, beats_per_episode=64,start_offset = 3)
 
 
 ''' Episode 0: groups blink, siren on stands '''
@@ -56,7 +56,7 @@ color.gradient(0.61,0.995)
 cycle_beats(1,2)
 elements(paper5,flower6,cup_cake4,donut3)
 color.gradient(0.39,0.695)
-#effect.random_saturation()
+
 
 #drums
 episodes(2, 3)
@@ -403,10 +403,10 @@ def light_8_beats(beats_start, e):
     elements(e)
 
 light_8_beats(672, all)
-color.alternate(indigo,aquamarine,5)
+color.alternate(indigo,turquoise_string,10)
 effect.snake()
 
-# drum - make one beat of white
+# drum - make one beat of white (320s)
 beats(672,673)
 elements(all)
 color.uniform(black)
@@ -415,11 +415,11 @@ color.uniform(light_pink_strip)
 effect.saw_tooth()
 
 light_8_beats(680, [group1,group3,group5])
-color.alternate(red,light_pink_strip,10)
+color.alternate(coral,light_pink_strip,10)
 effect.snake()
 
 light_8_beats(688, [group2,group6,group4,group7,group8])
-color.alternate(pink_string,purple_string,10)
+color.alternate(light_pink_strip,orange_strip,10)
 effect.snake()
 
 light_8_beats(696, [stands])
@@ -474,4 +474,4 @@ effect.snake(0.4,True)
 
 
 send_to_mqtt("millenium")
-start_song("millenium", 260)
+start_song("millenium", 0)
