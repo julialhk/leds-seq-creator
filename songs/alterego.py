@@ -5,7 +5,7 @@ from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5, cabbages, donut1, donut3, \
     brains, twists, donuts
-from led_objects.flood import cup_cakes
+from led_objects.flood import cup_cakes, rug4
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1
 from led_objects.objects_selector import elements
@@ -72,10 +72,10 @@ effect.random_brightness()
 effect.breath(total)
 
 episodes(0, 30)
-elements(lifas4)
-cycle(8)
-color.gradient(0.0, 1.0)
-effect.hue_breath(1.0)
+elements(all)
+color.uniform((0.95, 0.8, 0.5))
+cycle(4)
+effect.breath()
 
 send_to_mqtt("alterego")
 start_song("alterego", 0)
