@@ -15,7 +15,7 @@ from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
-song_settings(bpm=123, beats_per_episode=32)
+song_settings(bpm=123, beats_per_episode=32, start_offset=3)
 
 flower1.random
 flower6.random
@@ -77,7 +77,12 @@ color.uniform((0.95, 0.8, 0.5))
 cycle(4)
 effect.breath()
 
-send_to_mqtt("alterego")
-start_song("alterego", 0)
+episodes(0, 1)
+elements(flower6)
+color.uniform(red)
+effect.confetti()
+
+send_to_mqtt("alterego_3")
+start_song("alterego_3", 0)
 
 
