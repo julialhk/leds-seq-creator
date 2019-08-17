@@ -17,7 +17,19 @@ from infra.colors import *
 
 song_settings(bpm=60, beats_per_episode=60)
 
+episodes(0, 2)
+cycle(3)
+elements(all)
+color.uniform((0.5, 1.0, 1.0))
+effect.snake_down_up(0.05)
 
+cycle(4)
+elements(all)
+effect.hue_breath(medium)
 
-#send_to_mqtt("background")
+cycle(6)
+elements(all)
+effect.breath(total)
+
+send_to_mqtt("background")
 start_song("background", 0)
