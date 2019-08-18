@@ -8,6 +8,7 @@ from led_objects.flood import floods, cup_cakes
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, strings, flower1, bottles, papers
 from led_objects.objects_selector import elements
+from led_objects.sheep import sheep
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, lifas, single_lifas, \
     stands, single_stands
 from network.send_to_mqtt import send_to_mqtt, start_song
@@ -322,9 +323,9 @@ beats(732, 734)
 elements(all)
 color.gradient(0, 1)
 effect.blink()
-beats(734, 737)
+beats(734, 736)
 cycle(2/3)
-effect.breath()
+effect.breath(reverse=True)
 
 
 # episodes 23, 24 cabbages soft beat only with increasing music over 2 episodes
@@ -340,24 +341,120 @@ effect.blink_repeat(16)
 episodes(23.5, 25)
 elements(cabbages)
 color.gradient(0.61, 0.995)
-effect.saw_tooth()
+effect.saw_tooth(reverse=True)
+
+episodes(24, 25)
+elements(single_sticks)
+color.gradient(0.61, 0.995)
+effect.saw_tooth(reverse=True)
 
 
 # episode 25 adds drama violin ending with 2 drama beats
 
-# episodes 26, 27 full beat with music
+# episodes 26 big crash at end
+beats(859, 862)
+elements(all)
+color.gradient(0, 1)
+effect.blink()
+beats(862, 864)
+cycle(2/3)
+effect.breath(reverse=True)
 
-# episode 28, 29 changes to a little softer beat
+# episodes 27, 28, 29, 30 full beat with music
+episodes(27, 31)
+elements(floods, cabbages)
+cycle(2/3)
+color.gradient(0, 1)
+effect.breath(edge=soft)
+cycle(16)
+effect.hue_blink(edge=0.1)
+
+episodes(27, 31)
+elements(strings)
+cycle(2)
+color.gradient(0, 1)
+effect.hue_blink(edge=0.1)
+cycle(16)
+effect.hue_blink(edge=0.1)
+
+# stands for violins
+episodes(27, 31)
+elements(stands)
+cycle(32)
+cycle_beats(0, 8)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(8, 16)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(16, 24)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(24, 32)
+color.gradient(0, 1)
+effect.snake_down_up(tail=1)
 
 # episode 29 second half has downwards music
 
-# episodes 30, 31 fade down music all through 2 episodes to soft crash at end
+# episodes 31, 32 fade down music all through 2 episodes to soft crash at end
+episodes(31, 33)
+elements(floods)
+cycle(2/3)
+color.gradient(0, 1)
+effect.breath(edge=soft)
+cycle(16)
+effect.hue_blink(edge=0.1)
 
-# episodes 32, 33 continue fade, some drum sounds at end of 33
+episodes(31, 33)
+elements(single_stands)
+cycle(32)
+cycle_beats(0, 8)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(8, 16)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(16, 24)
+color.gradient(0, 1)
+effect.snake(tail=1)
+cycle_beats(24, 32)
+color.gradient(0, 1)
+effect.snake_down_up(tail=1)
 
-# episodes 34 continue fade drums at end of 34
+# episodes 33, 34 fade
+episodes(33, 34)
+elements(strings)
+cycle(2)
+color.alternate(pink_strip, purple_strip)
+effect.breath()
+
+#some drum sounds at end of 33
+beats(1086, 1088)
+cycle(2/3)
+elements(floods)
+color.uniform(pink_strip)
+effect.breath(edge=soft,reverse=True)
+
+episodes(34, 35)
+elements(flowers)
+cycle(2)
+color.alternate(pink_strip, purple_strip)
+effect.breath()
+cycle(None)
+effect.saw_tooth(reverse=True)
+
+# drum sounds at end of 34
+beats(1118, 1120)
+cycle(2/3)
+elements(floods)
+color.uniform(purple_strip)
+effect.breath(edge=soft,reverse=True)
 
 # episode 35 final fade, no beat, one element fade to dark
+episode(35)
+elements(sheep)
+color.uniform((1.0, 0.0, 1.0))
+effect.saw_tooth(reverse=True)
 
 send_to_mqtt("nocturne")
-start_song("nocturne", 340)
+start_song("nocturne", 0)
