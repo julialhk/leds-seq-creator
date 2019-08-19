@@ -51,16 +51,16 @@ cycle_beats(1, 2)
 elements(single_sticks)
 effect.blink(edge=medium)
 
-# cabbages and strings hold the main beat
+# twists and strings hold the main beat
 episodes(1, 3)
-elements(cabbages)
+elements(twists)
 cycle(beats=2/3)
 color.uniform(pink_strip)
 effect.breath(edge=soft)
 
 # beat maintained episodes 3,4,5,6,7
 episodes(3, 8)
-elements(cabbages)
+elements(twists)
 cycle(2/3)
 color.uniform(turquoise_strip)
 effect.breath(edge=soft)
@@ -70,7 +70,7 @@ cycle(2)
 color.alternate(turquoise_strip, green)
 effect.blink()
 
-elements(cabbages, strings)
+elements(twists, strings)
 cycle(16)
 effect.hue_blink(edge=0.1)
 
@@ -92,26 +92,26 @@ cycle_beats(24, 32)
 color.gradient(0.8, 1.2)
 effect.snake_down_up(tail=1)
 
-# light crash at end of episode 5 and 6
-beats(190,192)
+# light crash at end of episode 5
+beats(190, 192)
 cycle(2/3)
 elements(floods)
 color.uniform((1.0, 0.0, 1.0))
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
-beats(222,224)
+# light crash at end of episode 6 with crash at beginning of 7
+beats(222, 224)
 cycle(2/3)
 elements(floods)
 color.uniform((1.0, 0.0, 1.0))
-effect.breath(edge=soft,reverse=True)
-
-# crash at beginning of episode 7
+effect.breath(edge=soft, reverse=True)
 beats(224, 230)
 elements(floods)
 color.uniform((1.0, 0.0, 1.0))
 effect.saw_tooth(total, reverse=False)
 
-beats(254,256)
+# light crash at end of episode 7
+beats(254, 256)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
@@ -120,22 +120,28 @@ effect.breath(edge=soft,reverse=True)
 # along episode 8 increasing tempo
 episodes(8, 9)
 cycle(2/3)
-elements(floods)
+elements(floods, donuts)
 color.uniform(turquoise_strip)
 effect.saw_tooth()
 cycle(None)
 effect.saw_tooth(edge=hard, reverse=True)
 
-beats(286,288)
+beats(286, 288)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
+
+# boom at the start of episode 9
+beats(288, 290)
+elements(floods, donuts)
+color.uniform(dark_green)
+effect.saw_tooth(edge=hard, reverse=True)
 
 # episode 9, 10 strong violins
 episodes(9, 10.75)
 cycle(8)
-elements(stands, cabbages)
+elements(stands, twists)
 color.uniform(dark_green)
 effect.snake(tail=1.0)
 
@@ -166,13 +172,13 @@ color.uniform(red)
 effect.blink(hard)
 
 episodes(10.75, 11.25)
-elements(stands, floods, cabbages, papers)
+elements(stands, floods, twists, papers, donuts)
 color.uniform(dark_green)
 effect.breath(total)
 
-# episodes 11, 12, 13, 14, 15, 16 return to main beat with cabbages and strings new color
+# episodes 11, 12, 13, 14, 15, 16 return to main beat with twists and strings new color
 episodes(11, 15)
-elements(cabbages)
+elements(twists)
 cycle(2/3)
 color.uniform(aquamarine)
 effect.breath(edge=soft)
@@ -188,7 +194,7 @@ cycle(16)
 effect.hue_blink(edge=0.1)
 
 # light crash at end of 11
-beats(382,384)
+beats(382, 384)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
@@ -214,38 +220,38 @@ cycle(None)
 effect.saw_tooth(reverse=True)
 
 # light crash at end of 12 and begin of 13
-beats(414,416)
+beats(414, 416)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 beats(416, 422)
-elements(floods)
+elements(floods, donuts)
 color.uniform(turquoise_strip)
 effect.saw_tooth(total, reverse=False)
 
 # light crash at end of 13
-beats(446,448)
+beats(446, 448)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 # episodes 14 big crash
 beats(472, 478)
-elements(cabbages, strings, stands)
+elements(twists, strings, stands, donuts)
 color.uniform(aquamarine)
 effect.saw_tooth(reverse=False)
 
 beats(478, 480)
-elements(all)
+elements(all, meduza, sheep)
 color.gradient(0, 1)
 cycle(2/3)
 effect.blink()
 
-# episodes 15,16 high level remains
+# episodes 15, 16 high level remains
 episodes(15, 17)
-elements(floods, cabbages)
+elements(floods, twists, donuts)
 cycle(2/3)
 color.gradient(0, 1)
 effect.breath(edge=soft)
@@ -277,7 +283,23 @@ cycle_beats(24, 32)
 color.gradient(0, 1)
 effect.snake_down_up(tail=1)
 
-# episodes 17,18 stay like 15,16 but episode 18 needs some freak on
+# episodes 17,18 stay like 15,16
+# light crash at end of 17
+beats(574, 576)
+cycle(2/3)
+elements(floods, donuts)
+color.gradient(0, 1)
+effect.breath(edge=soft, reverse=True)
+
+# episode 18 freak on
+beats(584, 588)
+elements(floods, donuts)
+color.gradient(0, 1)
+# no effect on purpose here
+beats(588, 600)
+elements(floods, donuts)
+color.gradient(0, 1)
+effect.snake()
 
 # episodes 19, 20 violin
 episodes(19, 22.75)
@@ -315,20 +337,20 @@ effect.hue_blink(edge=0.5)
 
 # episodes 22 big crash
 beats(728, 732)
-elements(cabbages, strings, stands)
+elements(twists, strings, stands)
 color.gradient(0, 1)
 effect.saw_tooth(reverse=False)
 
 beats(732, 734)
-elements(all)
+elements(all, meduza, sheep)
 color.gradient(0, 1)
 effect.blink()
 beats(734, 736)
-cycle(2/3)
+cycle(1/3)
 effect.breath(reverse=True)
 
 
-# episodes 23, 24 cabbages soft beat only with increasing music over 2 episodes
+# episodes 23, 24 twists soft beat only with increasing music over 2 episodes
 episodes(23, 24)
 cycle(2/3)
 elements(cup_cakes)
@@ -339,30 +361,70 @@ color.uniform(purple_strip)
 effect.blink_repeat(16)
 
 episodes(23.5, 25)
-elements(cabbages)
+elements(twists)
 color.gradient(0.61, 0.995)
 effect.saw_tooth(reverse=True)
+cycle(8)
+effect.hue_breath()
 
 episodes(24, 25)
 elements(single_sticks)
 color.gradient(0.61, 0.995)
 effect.saw_tooth(reverse=True)
+cycle(8)
+effect.hue_breath()
 
+# light crash at end of 24
+beats(798, 800)
+cycle(2/3)
+elements(floods, donuts)
+color.gradient(0.61, 0.995)
+effect.breath(edge=soft, reverse=True)
 
 # episode 25 adds drama violin ending with 2 drama beats
+episodes(25, 27)
+elements(strings)
+cycle(8)
+color.gradient(0, 0.5)
+effect.saw_tooth(edge=total)
+cycle(16)
+effect.hue_blink(edge=0.5)
+
+episodes(25, 27)
+elements(twists, donuts)
+cycle(8)
+cycle_beats(0, 2)
+color.uniform(aquamarine)
+effect.blink(hard)
+cycle_beats(2, 4)
+color.uniform(turquoise_strip)
+effect.blink(hard)
+cycle_beats(4, 6)
+color.uniform(magenta)
+effect.blink(hard)
+cycle_beats(6, 6.66)
+color.uniform(indigo)
+effect.blink(hard)
+cycle_beats(6.66, 7.33)
+color.uniform(indigo)
+effect.blink(hard)
+cycle_beats(7.33, 8)
+color.uniform(indigo)
+effect.blink(hard)
 
 # episodes 26 big crash at end
-beats(859, 862)
+beats(858, 862)
+cycle(2)
 elements(all)
 color.gradient(0, 1)
-effect.blink()
+effect.blink(reverse=True)
 beats(862, 864)
-cycle(2/3)
+cycle(1/3)
 effect.breath(reverse=True)
 
 # episodes 27, 28, 29, 30 full beat with music
 episodes(27, 31)
-elements(floods, cabbages)
+elements(floods, twists)
 cycle(2/3)
 color.gradient(0, 1)
 effect.breath(edge=soft)
@@ -370,7 +432,7 @@ cycle(16)
 effect.hue_blink(edge=0.1)
 
 episodes(27, 31)
-elements(strings)
+elements(strings, donuts)
 cycle(2)
 color.gradient(0, 1)
 effect.hue_blink(edge=0.1)
@@ -379,7 +441,7 @@ effect.hue_blink(edge=0.1)
 
 # stands for violins
 episodes(27, 31)
-elements(stands)
+elements(single_stands)
 cycle(32)
 cycle_beats(0, 8)
 color.gradient(0, 1)
@@ -421,6 +483,19 @@ cycle_beats(24, 32)
 color.gradient(0, 1)
 effect.snake_down_up(tail=1)
 
+# some drum sounds at end of 31
+beats(1022, 1024)
+cycle(2/3)
+elements(donuts)
+color.gradient(0, 1)
+effect.breath(edge=soft,reverse=True)
+
+# some drum sounds at end of 32
+beats(1054, 1058)
+elements(floods, donuts)
+color.gradient(0, 1)
+effect.breath(edge=soft,reverse=True)
+
 # episodes 33, 34 fade
 episodes(33, 34)
 elements(strings)
@@ -428,7 +503,13 @@ cycle(2)
 color.alternate(pink_strip, purple_strip)
 effect.breath()
 
-#some drum sounds at end of 33
+beats(1062, 1080)
+cycle(8)
+cycle_beats(0, 1)
+color.gradient(pink_strip[0], purple_strip[0])
+effect.snake()
+
+# some drum sounds at end of 33
 beats(1086, 1088)
 cycle(2/3)
 elements(floods)
@@ -443,6 +524,12 @@ effect.breath()
 cycle(None)
 effect.saw_tooth(reverse=True)
 
+beats(1094, 1112)
+cycle(8)
+cycle_beats(0, 1)
+color.gradient(pink_strip[0], purple_strip[0])
+effect.snake()
+
 # drum sounds at end of 34
 beats(1118, 1120)
 cycle(2/3)
@@ -450,10 +537,13 @@ elements(floods)
 color.uniform(purple_strip)
 effect.breath(edge=soft,reverse=True)
 
-# episode 35 final fade, no beat, one element fade to dark
-episode(35)
+# episode 35 final fade, no beat, elements fade to dark
+episodes(35, 35.5)
 elements(sheep)
 color.uniform((1.0, 0.0, 1.0))
+effect.saw_tooth(reverse=True)
+elements(meduza)
+color.uniform(indigo)
 effect.saw_tooth(reverse=True)
 
 send_to_mqtt("nocturne")
