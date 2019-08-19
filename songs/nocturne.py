@@ -25,7 +25,7 @@ cycle(beats=2.5)
 color.uniform(indigo)
 effect.saw_tooth()
 cycle(None)
-effect.saw_tooth(edge=hard, reverse=False)
+effect.fade_out()
 
 # fade in for main beat
 episodes(0.5, 1)
@@ -34,7 +34,7 @@ cycle(beats=2)
 color.uniform(indigo)
 effect.saw_tooth()
 cycle(None)
-effect.saw_tooth(edge=hard, reverse=True)
+effect.fade_in()
 
 # episodes 1,2 establish main beat
 # main beat continues pulsing between sticks and lifas
@@ -45,11 +45,11 @@ color.gradient(0.61, 0.995)
 
 cycle_beats(0, 1)
 elements(single_lifas)
-effect.blink(edge=medium)
+effect.blink(edge=hard)
 
 cycle_beats(1, 2)
 elements(single_sticks)
-effect.blink(edge=medium)
+effect.blink(edge=hard)
 
 # twists and strings hold the main beat
 episodes(1, 3)
@@ -124,7 +124,7 @@ elements(floods, donuts)
 color.uniform(turquoise_strip)
 effect.saw_tooth()
 cycle(None)
-effect.saw_tooth(edge=hard, reverse=True)
+effect.fade_in()
 
 beats(286, 288)
 cycle(2/3)
@@ -136,7 +136,7 @@ effect.breath(edge=soft, reverse=True)
 beats(288, 290)
 elements(floods, donuts)
 color.uniform(dark_green)
-effect.saw_tooth(edge=hard, reverse=True)
+effect.fade_out()
 
 # episode 9, 10 strong violins
 episodes(9, 10.75)
@@ -335,7 +335,7 @@ effect.saw_tooth(edge=total)
 cycle(16)
 effect.hue_blink(edge=0.5)
 
-# episodes 22 big crash
+# episode 22 big crash
 beats(728, 732)
 elements(twists, strings, stands)
 color.gradient(0, 1)
@@ -345,9 +345,10 @@ beats(732, 734)
 elements(all, meduza, sheep)
 color.gradient(0, 1)
 effect.blink()
-beats(734, 736)
-cycle(1/3)
-effect.breath(reverse=True)
+# beats(734, 736)
+# cycle(1/3)
+# color.gradient(0, 1)
+# effect.breath(reverse=True)
 
 
 # episodes 23, 24 twists soft beat only with increasing music over 2 episodes
@@ -412,15 +413,16 @@ cycle_beats(7.33, 8)
 color.uniform(indigo)
 effect.blink(hard)
 
-# episodes 26 big crash at end
+# episode 26 big crash at end
 beats(858, 862)
 cycle(2)
 elements(all)
 color.gradient(0, 1)
 effect.blink(reverse=True)
-beats(862, 864)
-cycle(1/3)
-effect.breath(reverse=True)
+# beats(862, 864)
+# cycle(1/3)
+# color.gradient(0, 1)
+# effect.breath(reverse=True)
 
 # episodes 27, 28, 29, 30 full beat with music
 episodes(27, 31)
@@ -544,7 +546,7 @@ color.uniform((1.0, 0.0, 1.0))
 effect.saw_tooth(reverse=True)
 elements(meduza)
 color.uniform(indigo)
-effect.saw_tooth(reverse=True)
+effect.fade_out()
 
 send_to_mqtt("nocturne")
-start_song("nocturne", 0)
+start_song("nocturne", 5*60 + 40)
