@@ -2,6 +2,7 @@ from animations import brightness
 from infra.animations_factory import color, effect
 from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
+from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.meduza import meduza
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, cabbages, brains, donut1, donut3, twists, donuts
 from led_objects.flood import floods, cup_cakes
@@ -345,11 +346,18 @@ beats(732, 734)
 elements(all, meduza, sheep)
 color.gradient(0, 1)
 effect.blink()
-# beats(734, 736)
-# cycle(1/3)
-# color.gradient(0, 1)
-# effect.breath(reverse=True)
-
+beats(734, 734.66)
+elements(group1, group2)
+color.gradient(0, 1)
+effect.fade_out()
+beats(734.66, 735.33)
+elements(group3, group4, group5)
+color.gradient(0, 1)
+effect.fade_out()
+beats(735.33, 736)
+elements(group6, group7, group8)
+color.gradient(0, 1)
+effect.fade_out()
 
 # episodes 23, 24 twists soft beat only with increasing music over 2 episodes
 episodes(23, 24)
@@ -419,10 +427,18 @@ cycle(2)
 elements(all)
 color.gradient(0, 1)
 effect.blink(reverse=True)
-# beats(862, 864)
-# cycle(1/3)
-# color.gradient(0, 1)
-# effect.breath(reverse=True)
+beats(862, 862.66)
+elements(group1, group2)
+color.gradient(0, 1)
+effect.fade_out()
+beats(862.66, 863.33)
+elements(group3, group4, group5)
+color.gradient(0, 1)
+effect.fade_out()
+beats(863.33, 864)
+elements(group6, group7, group8)
+color.gradient(0, 1)
+effect.fade_out()
 
 # episodes 27, 28, 29, 30 full beat with music
 episodes(27, 31)
@@ -549,4 +565,4 @@ color.uniform(indigo)
 effect.fade_out()
 
 send_to_mqtt("nocturne")
-start_song("nocturne", 5*60 + 40)
+start_song("nocturne", 0)
