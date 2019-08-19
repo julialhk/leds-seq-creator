@@ -20,7 +20,7 @@ client.connect(host_name)
 
 for obj_with_thing in obj_to_thing.items():
     thing_name = obj_with_thing[1]
-    if thing_name != "sheep":
+    if thing_name != "sticks8":
         continue
     led_object = obj_with_thing[0]
     json_str = json.dumps(ledObjectToJson(led_object))
