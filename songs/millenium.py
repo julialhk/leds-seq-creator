@@ -11,6 +11,7 @@ from led_objects.flowers import flower6, flowers, paper5, papers, bottles, flowe
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
     single_stands, single_lifas
+from led_objects.meduza import meduza
 from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
@@ -95,7 +96,7 @@ for element in wanted_elements:
     effect.saw_tooth(total)
     current_beat += 8
 
-color.uniform(red)
+color.uniform(purple_string)
 effect.saw_tooth(total)
 
 """
@@ -148,7 +149,7 @@ effect.hue_shift_steps(8, 0.25)
 sticks 8 doing something special, lead beat - white blink
 """
 episodes (4.5,6)
-elements(sticks8)
+elements(sticks8,meduza)
 cycle(1/3)
 color.uniform((0.98, 0.45, 1))
 effect.blink()
@@ -228,6 +229,10 @@ cycle(8)
 elements(paper2,cup_cakes,flowers,paper5)
 color.gradient(turquoise_string[0],aquamarine[0])
 effect.breath(total)
+elements(meduza)
+color.uniform(purple_string)
+effect.breath(total)
+
 
 episodes(6 + 5/8, 6+7/8)
 cycle(1)
@@ -308,8 +313,8 @@ before sticks removed, drama start - shine with red
 
 beats(536,552)
 cycle(2/3)
-elements(group1,group2,cup_cakes,donuts,group4,group5,group6,cabbages,brains,rugs)
-color.uniform(red)
+elements(group1,group2,cup_cakes,donuts,group4,group5,group6,cabbages,brains,rugs,meduza)
+color.uniform(purple_string)
 effect.breath(hard)
 cycle(16)
 effect.saw_tooth(total, True)
@@ -410,7 +415,7 @@ effect.snake()
 beats(672,673)
 elements(all)
 color.uniform(black)
-elements(stands,cabbages)
+elements(stands,cabbages,meduza)
 color.uniform(light_pink_strip)
 effect.saw_tooth()
 
@@ -468,8 +473,8 @@ effect.saw_tooth(soft)
 
 beats(828,840)
 cycle(12)
-elements(single_lifas)
-color.uniform(dark_blue)
+elements(single_lifas,meduza)
+color.uniform(purple_string)
 effect.snake(0.4,True)
 
 
