@@ -15,7 +15,7 @@ from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
-song_settings(bpm=73.5, beats_per_episode=16, start_offset=0)
+song_settings(bpm=73.5, beats_per_episode=16, start_offset=3)
 
 def yellowopening():
 
@@ -945,5 +945,5 @@ color.uniform((0.9, 0.9, 1.0))
 effect.breath(1.0)
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 150)
+start_song("essoteric", 0)
 

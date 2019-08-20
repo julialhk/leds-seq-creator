@@ -9,6 +9,7 @@ from led_objects.flood import cup_cakes, rug4
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1
 from led_objects.objects_selector import elements
+from led_objects.sheep import sheep
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
     single_lifas, single_stands
 from network.send_to_mqtt import send_to_mqtt, start_song
@@ -77,12 +78,13 @@ color.uniform((0.95, 0.8, 0.5))
 cycle(4)
 effect.breath()
 
-episodes(0, 1)
-elements(flower6)
-color.uniform(red)
-effect.confetti()
+episodes(0, 30)
+elements(all)
+color.gradient(0.2, 0.5)
+cycle(4)
+effect.breath()
 
-send_to_mqtt("alterego_3")
-start_song("alterego_3", 0)
+send_to_mqtt("alterego")
+start_song("alterego", 3)
 
 
