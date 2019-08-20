@@ -79,8 +79,10 @@ cycle(4)
 effect.breath()
 
 episodes(0, 30)
-elements(sheep.eyes())
-color.uniform(( 0.8, 0.0, 1.0))
+elements(all)
+color.gradient(0.2, 0.5)
+cycle(4)
+effect.breath()
 
 send_to_mqtt("alterego")
 start_song("alterego", 3)
