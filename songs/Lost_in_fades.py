@@ -19,10 +19,10 @@ from infra.colors import *
 
 song_settings(bpm=118, beats_per_episode=8,start_offset = 3)
 episode_length = 8
-background_elements = [bottles, flowers, cabbages, rugs, donuts, sheep]
+background_elements = [sheep] + cabbages + brains + donuts + rugs + flowers + bottles
 def snakes_grdiant(first_episode, last_episode, fade_out_intense=0):
     episodes(first_episode, last_episode)
-    elements(background_elements + [stands + cup_cakes + brains + papers])
+    elements(background_elements + [stands + cup_cakes + brains + papers, meduza])
     cycle(2)
     color.gradient(0.61,0.46)
     effect.snake(0.2)
@@ -30,6 +30,7 @@ def snakes_grdiant(first_episode, last_episode, fade_out_intense=0):
     number_of_episodes = last_episode - first_episode
     cycle(number_of_episodes*episode_length)
     effect.saw_tooth(edge=fade_out_intense)
+snakes_grdiant(0,4)
 
 
 #Snear
@@ -39,14 +40,19 @@ def snear(episodes_p):
     color.uniform(light_indigo)
     cycle(1)
     effect.blink()
-snakes_grdiant(0,4)
 snear([4,12])
 
 episodes(6, 9)
-elements(stands)
-cycle(8)
-color.gradient(2/12, 4/12)
-effect.breath(1)
+elements(sticks3.stand(1), sticks3.stand(2), sticks3.stand(3), sticks3.stand(4), sticks3.stand(5),
+         sticks7.stand(1), sticks7.stand(2), sticks7.stand(3), sticks7.stand(4), sticks7.stand(5),
+         sticks8.stand(1), sticks8.stand(2), sticks8.stand(3), sticks8.stand(4), sticks8.stand(5),
+         lifas5.stand(1), lifas5.stand(2), lifas5.stand(3), lifas5.stand(4), lifas5.stand(5),
+        lifas4.stand(1), lifas4.stand(2), lifas4.stand(3), lifas4.stand(4),
+         lifas1.stand(1), lifas1.stand(2), lifas1.stand(3), lifas1.stand(4), lifas1.stand(5),
+         )
+cycle(4)
+color.gradient(5/12, 6/12)
+effect.snake_up_down(1)
 
 episodes(6, 10)
 elements(flowers, bottles, cabbages, donuts, rugs)#, sticks7, sticks8)
@@ -100,12 +106,12 @@ groups_cycle(group8)
 
 
 
-def grrrrr(first_episode, last_episode):
+def  grrrrr(first_episode, last_episode):
     episodes(first_episode, last_episode)
     elements(meduza)
-    color.uniform(purple_strip)
     cycle(4)
-    cycle_beats(0,2)
+    cycle_beats(1,2)
+    color.uniform(purple_strip)
     effect.blink_repeat(16)
 grrrrr(22,30)
 
@@ -117,13 +123,16 @@ elements(background_elements)
 cycle(2)
 #effect.blink()
 cycle_beats(0,1)
-color.uniform(indigo)
+color.alternate(indigo, aquamarine)
 cycle_beats(1,2)
-color.uniform(aquamarine)
+color.alternate(aquamarine, indigo)
 
 
 episodes(30,32)
-elements(background_elements + [brains, cup_cakes])
+elems = background_elements + brains + cup_cakes
+for e in elems:
+    e.random
+elements(elems)
 cycle(2)
 color.gradient(9/12,6/12)
 effect.snake()
@@ -131,7 +140,7 @@ effect.snake()
 episodes(32,34)
 elements(background_elements + [stands, brains, cup_cakes])
 cycle(2)
-color.gradient(5/12,2/12)
+color.alternate(indigo, light_blue, number_of_pixels=10)
 effect.snake()
 
 #Ahhh
@@ -148,82 +157,98 @@ vocalUpAndDown(308,320)
 vocalUpAndDown(324,336)
 
 
-def pattern(first_episode, last_episode, element):
-    episodes(first_episode, last_episode)
-    cycle(4)
-    offset = 1.25
+def pattern(first_episode, last_episode, stand_elements, stand_colors,double=False):
+    for element in stand_elements:
+        episodes(first_episode, last_episode)
+        cycle(4)
+        offset = 1.25
 
-    cycle_beats(0,offset)
-    elements(element.stand(5))
-    color.uniform(indigo)
+        cycle_beats(0,offset)
+        elements(element.stand(5))
+        color.uniform(indigo)
 
-    stand_color = light_turquoise_string
-    cycle_beats(offset,offset + 0.25)
-    elements(element.stand(1))
-    color.uniform(stand_color)
+        #stand_color = light_turquoise_string
+        cycle_beats(offset,offset + 0.25)
+        elements(element.stand(1))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 0.25, offset + 0.5)
-    elements(element.stand(2))
-    color.uniform(stand_color)
+        cycle_beats(offset + 0.25, offset + 0.5)
+        elements(element.stand(2))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 0.5, offset + 0.75)
-    elements(element.stand(3))
-    color.uniform(stand_color)
+        cycle_beats(offset + 0.5, offset + 0.75)
+        elements(element.stand(3))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 0.75,offset + 1.25)
-    elements(element.stand(4))
-    color.uniform(stand_color)
+        cycle_beats(offset + 0.75,offset + 1.25)
+        elements(element.stand(4))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 1.25, offset + 1.5)
-    elements(element.stand(1))
-    color.uniform(stand_color)
+        cycle_beats(offset + 1.25, offset + 1.5)
+        elements(element.stand(1))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 1.5, offset + 2)
-    elements(element.stand(2))
-    color.uniform(stand_color)
+        cycle_beats(offset + 1.5, offset + 2)
+        elements(element.stand(2))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 2, offset + 2.25)
-    elements(element.stand(3))
-    color.uniform(stand_color)
+        cycle_beats(offset + 2, offset + 2.25)
+        elements(element.stand(3))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
-    cycle_beats(offset + 2.25, offset + 2.75)
-    elements(element.stand(4))
-    color.uniform(stand_color)
+        cycle_beats(offset + 2.25, offset + 2.75)
+        elements(element.stand(4))
+        color.gradient(stand_colors[0], stand_colors[1])
+        if double:
+            effect.blink_repeat(2)
 
 
-
-pattern(36,58, sticks8)
-#pattern(38,58, sticks7)
-pattern(42,58, sticks7)
-pattern(42,58, sticks3)
-pattern(42,58, lifas1)
-#pattern(42,58, lifas4)
-pattern(42,58, lifas5)
-
+pattern(35,42, [lifas1], [0.61,9/12])#sticks8)
+pattern(42,46, [lifas1, lifas5, sticks3,sticks7,sticks8], [9/12,0.61])
 
 episodes(42,46)
 cycle(1)
-elements(cabbages, brains, donuts, bottles, flowers, rugs)
+elements(cabbages, brains, donuts, bottles, flowers, rugs, cup_cakes)
 color.uniform([0.7,1,1])
 effect.saw_tooth(reverse=True)
 
-#pattern(46,58, lifas1)
 grrrrr(46,58)
+pattern(46,50,  [lifas1, lifas5, sticks3,sticks7,sticks8], [0.61,9/12], double=True)
+pattern(50,54,  [lifas1, lifas5, sticks3,sticks7,sticks8], [9/12,0.61], double=True)
 
-episodes(50,54)
+
+episodes(50,52)
 cycle(1)
-elements(flowers, rugs)
-color.uniform([0.5,1,1])
+elements(flowers, bottles)
+color.uniform(turquoise_string)
 effect.saw_tooth(reverse=True)
-
-#pattern(50,58, lifas4)
+effect.hue_breath()
 
 episodes(52,54)
 cycle(1)
-elements(cabbages, brains, donuts, bottles)
-color.uniform([7/12,1,1])
+elements(cabbages, brains, donuts, flowers, bottles)
+color.uniform(blue)
 effect.saw_tooth(reverse=True)
-pattern(54,58, lifas5)
+effect.hue_breath()
+
+pattern(54,58,  [lifas1, lifas5, sticks3,sticks7,sticks8], [0.61,9/12], double=True)
+
+#Ammm
+vocalUpAndDown(432,440)
 #Lost in fades
 vocalUpAndDown(451,467)
 
@@ -232,6 +257,4 @@ snakes_grdiant(62,65)
 snakes_grdiant(65,66, fade_out_intense=1)
 
 send_to_mqtt("lost")
-start_song("lost", 33*8*60/118+3)
-
-
+start_song("lost", 31*8*60/118+3)
