@@ -928,7 +928,7 @@ violin2end(lifas4, (0.74, 0.65, 1.0))
 
 episode(12)
 cycle(16)
-elements(lifas, sticks8, sticks8)
+elements(lifas, sticks8, sticks8, meduza)
 effect.fade_out()
 
 # for e in all:
@@ -972,15 +972,24 @@ effect.fade_out()
 # elements(rugs,flowers,bottles,papers,cup_cakes,cabbages)
 # effect.random_saturation()
 
-episodes(0, 12)
+episodes(0, 13)
 cycle(2)
 elements(meduza)
 color.uniform((1.0, 0.1, 1.0))
-effect.breath(hard)
+effect.saw_tooth(medium)
+
+episodes(0, 2)
+elements(meduza)
+cycle(32)
+effect.fade_in()
+
+episodes(2, 13)
+elements(meduza)
 cycle(16)
-effect.breath(total)
+effect.breath(hard)
+
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 140)
+start_song("essoteric", 0)
 
