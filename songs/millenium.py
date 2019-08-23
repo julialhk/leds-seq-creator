@@ -457,17 +457,21 @@ color.gradient(0,1)
 effect.snake()
 #drums
 
+paper2.random
+flower6.random
+flower1.random
+paper5.random
 
 beats (736,808)
 cycle(32)
 cycle_beats(0,12)
 elements(paper2,flowers,paper5)
 color.uniform(turquoise_string)
-effect.breath(total)
+effect.snake()
 cycle_beats(12,32)
 elements(paper2,flowers, paper5)
 color.uniform(pink_string)
-effect.breath(total)
+effect.snake()
 
 beats(736,832)
 cycle(2)
@@ -477,7 +481,7 @@ color.uniform(light_coral)
 effect.saw_tooth(soft)
 effect.blink_repeat(3)
 cycle_beats(1,2)
-color.uniform(red)
+color.uniform(orange)
 effect.saw_tooth(soft)
 
 cycle(None)
@@ -498,4 +502,4 @@ color.uniform(purple_string)
 effect.breath(1.0)
 
 send_to_mqtt("millenium")
-start_song("millenium", 390)
+start_song("millenium", 350)
