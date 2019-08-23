@@ -722,12 +722,12 @@ def full_wave():
     effect.breath(0.1)
     color.uniform(aquamarine)
 
-    elements(paper5)
+    elements(cup_cake4)
     cycle_beats(0.175, 0.47)
     effect.breath(0.1)
     color.uniform(aquamarine)
 
-    elements(cabbage6, bottle5)
+    elements(cabbage6, bottle4)
     cycle_beats(0.2, 0.47)
     effect.breath(0.1)
     color.uniform(aquamarine)
@@ -787,26 +787,39 @@ cycle(8)
 elements(all)
 effect.hue_breath(medium)
 
+
+for e in all:
+    e.random
+
 beats(184, 192)
 elements(cabbages, brains,lifas)
-color.uniform(orange_strip)
+color.gradient(yellow_strip[0], red[0])
 effect.snake(0.6)
 
 beats(186, 192)
 elements(sticks, flowers, cup_cakes)
-color.uniform(orange_strip)
+color.gradient(yellow_strip[0], red[0])
 effect.snake(0.6)
 
 beats(188, 192)
 elements(papers, bottles, rugs, donuts)
-color.uniform(orange_strip)
+color.gradient(yellow_strip[0], red[0])
 effect.snake(0.6)
-
+#
+# beats(190, 192)
+# elements(all)
+# color.gradient(yellow_strip[0], red[0])
+# effect.snake(0.3)
+# effect.hue_breath(soft)
+# effect.fade_out()
 
 # episode(11)
 # cycle(16)
 # elements(all)
 # effect.saw_tooth(total, False)
+
+for e in all:
+    e.straight
 
 def light_stick_on_note_end(stick_to_light, c, stand_index, b_start, b_end):
 
@@ -900,6 +913,7 @@ def violin2end (lifa_to_light, c):
 #     light_lifa_on_note(lifa_to_light, c, 4, 7.0, 8.0)
 
 
+
 episodes(12, 14)
 violin1end(sticks3, light_yellow_strip)
 
@@ -916,34 +930,49 @@ violin2end(lifas4, (0.74, 0.6, 1.0))
 episode(12)
 cycle(16)
 elements(lifas, sticks8, sticks8)
-effect.saw_tooth(1.0, False)
+effect.fade_out()
+
+for e in all:
+    e.random
 
 episodes(12, 13)
 cycle(16)
 elements(donut1, rug4, flower6)
-color.uniform(coral)
-effect.breath(1.0)
-
-elements(bottle5, paper2)
-color.uniform(pink_string)
-effect.breath(1.0)
-
-elements(cup_cake4, cabbage6)
 color.uniform(light_coral)
 effect.breath(1.0)
 
-elements(cabbage5, bottle4, donut3)
-color.uniform(magenta)
-effect.breath(1.0)
-
-elements(flower1, cup_cake3, brain7)
+elements(bottle5, paper2)
 color.uniform(red)
 effect.breath(1.0)
 
-elements(cabbage1, paper5, rug6)
-color.uniform((0.9, 0.9, 1.0))
+elements(cup_cake4, cabbage6, donut3)
+color.uniform(light_pink_strip)
 effect.breath(1.0)
 
+elements(cabbage5, bottle4)
+color.uniform(coral)
+effect.breath(1.0)
+
+elements(flower1, cup_cake3)
+color.uniform((0.02, 1.0, 1.0))
+effect.breath(1.0)
+
+elements(brain7)
+color.uniform(light_orange_strip)
+effect.breath(1.0)
+
+elements(cabbage1, paper5)
+color.uniform(pink_strip)
+effect.breath(1.0)
+
+elements(rug6)
+color.uniform(pink_string)
+effect.breath(1.0)
+
+
+
+
+
 send_to_mqtt("essoteric")
-start_song("essoteric", 0)
+start_song("essoteric", 130)
 
