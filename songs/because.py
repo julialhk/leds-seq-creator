@@ -35,79 +35,76 @@ effect.breath(edge=0.5)
 beats(7, 9)
 effect.fade_out()
 
-def note(start, end, elem):
-    beats(start, end)
-    elements(elem)
-    color.uniform((0.39, 0.55, 1.0))
-    effect.fade_out()
+half_all_1 = all[0: len(all) / 2]
+half_all_2 = all[len(all) / 2: len(all)]
 
-def note_list(start_vec, end, elem_vec, change_color = False):
-    for i in range(0, len(start_vec)):
-        elem_index = elem_vec[i] % len(all)
-        elem = all[elem_index]
-        note(start_vec[i], end, elem)
+for e in all:
+    e.random
 
-        if change_color:
-            effect.hue_shift(i / 10.0)
+beats(9, 21)
+elements(all)
+color.uniform((0.39, 0.55, 1.0))
+cycle(6)
+effect.segment_breath(0.5)
 
-def note_list_groups(start_vec, end, elem_vec, change_color = False):
-    for i in range(0, len(start_vec)):
-        note(start_vec[i], end, elem_vec[i])
-        if change_color:
-            effect.hue_shift(i / 6.0)
+beats(9, 11)
+effect.fade_in()
+beats(19, 21)
+effect.fade_out()
 
-note_list([9.1, 9.87, 10.86, 11.43, 12, 12.89], 13.72, range(0, 6))
+for e in all:
+    e.straight
 
-note_list([14.08, 14.39, 15.13], 20.7, range(6, 9))
+beats(21.73, 33.5)
+elements(all)
+color.uniform((0.39, 0.55, 1.0))
+cycle(6)
+effect.segment_breath(0.5)
 
-note_list([15.85, 17.31, 17.75, 18.1, 18.45, 18.8, 19.2], 20.7, range(9, 16), True)
-
-
-note_list_groups([21.7, 22.13], 24.69, [flowers, sticks])
-
-note_list_groups([24.69, 25.24], 27, [papers, lifas])
-
-note_list_groups([27.45, 28.13], 33.55, [bottles, cup_cakes])
-note_list_groups([30.85, 31.12, 31.47], 33.55, [cabbage1, cabbage5, cabbage6], True)
+beats(21.73, 23.73)
+effect.fade_in()
+beats(31.5, 33.5)
+effect.fade_out()
 
 
-
-
-
-# breath_on_sing(14.08)
-# breath_on_sing(14.39)
-# breath_on_sing(15.13)
-# breath_on_sing(20.7)
-# beats(15.13, 20.7)
-# effect.fade_out()
-#
-# def fade_one_element(start_time, e):
-#     beats(start_time, 20.7)
-#     elements(e)
-#     color.uniform((0.39, 0.55, 0.5))
+# def note(start, end, elem):
+#     beats(start, end)
+#     elements(elem)
+#     color.uniform((0.39, 0.55, 1.0))
 #     effect.fade_out()
 #
-# fade_one_element(17.3, flower6)
-# fade_one_element(17.75, cup_cake3)
-# fade_one_element(18, lifas5)
-# fade_one_element(18.35, brain7)
-# fade_one_element(18.84, bottle4)
+# def note_list(start_vec, end, elem_vec, change_color = False):
+#     for i in range(0, len(start_vec)):
+#         elem_index = elem_vec[i] % len(all)
+#         elem = all[elem_index]
+#         note(start_vec[i], end, elem)
+#
+#         if change_color:
+#             effect.hue_shift(i / 10.0)
+#
+# def note_list_groups(start_vec, end, elem_vec, change_color = False):
+#     for i in range(0, len(start_vec)):
+#         note(start_vec[i], end, elem_vec[i])
+#         if change_color:
+#             effect.hue_shift(i / 6.0)
+#
+# note_list([9.1, 9.87, 10.86, 11.43, 12, 12.89], 13.72, range(0, 6))
+#
+# note_list([14.08, 14.39, 15.13], 20.7, range(6, 9))
+#
+# note_list([15.85, 17.31, 17.75, 18.1, 18.45, 18.8, 19.2], 20.7, range(9, 16), True)
 #
 #
-# beats(21.7, 24.69)
-# color.uniform((0.39, 0.55, 1.0))
+# note_list_groups([21.7, 22.13], 24.69, [flowers, sticks])
 #
-# last_timestamp = 21.7
-# breath_on_sing(22.11)
-# breath_on_sing(24.69)
+# note_list_groups([24.69, 25.24], 27, [papers, lifas])
+#
+# note_list_groups([27.45, 28.13], 33.55, [bottles, cup_cakes])
+# note_list_groups([30.85, 31.12, 31.47], 33.55, [cabbage1, cabbage5, cabbage6], True)
 
-# breath_on_sing()
-# breath_on_sing()
-# breath_on_sing()
-# breath_on_sing()
-# breath_on_sing()
-# breath_on_sing()
-# breath_on_sing()
+
+
+
 
 
 send_to_mqtt("because")
