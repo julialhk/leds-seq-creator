@@ -72,6 +72,13 @@ elements(all)
 color.gradient(0.8, 1.1)
 effect.breath(1.0)
 
+beats(27.45, 28.13)
+elements(all)
+effect.fade_out()
+
+beats(28.13, 33.47)
+elements(all)
+effect.breath(medium)
 #Second singing
 for e in all:
     e.random
@@ -203,27 +210,33 @@ elements(lifas1, paper2, cabbage6, donut1, lifas5, brain7, flower1, paper5, stic
 effect.fade_out()
 
 
-beats(89.5, 96)
+
+beats(89.5, 94)
 elements(sticks3.all)
 color.uniform(light_coral)
 effect.fill()
 
-beats(91, 96)
+beats(91, 94)
 elements(sticks8.all)
 color.uniform(light_coral)
 effect.fill()
 
-beats(92.5, 96)
+
+
+beats(92.5, 94)
 elements(sticks7.all)
 color.uniform(light_coral)
 effect.fill()
 
-beats(93.5, 96)
+beats(94, 95)
 elements(sticks)
 color.uniform(light_coral)
+
+beats(94, 95)
+elements(sticks)
 effect.fade_out()
 
-beats(96, 98)
+beats(95, 96)
 elements(sticks)
 effect.fade_in()
 
