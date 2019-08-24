@@ -137,7 +137,7 @@ BrightnessAnimation(SinFloatFunc(0.2, 1.0, 0.25, 1)).apply()
 elements([group6, group7])
 BrightnessAnimation(SinFloatFunc(0.2, 1.0, 0.5, 1)).apply()
 elements([group5, group4])
-BrightnessAnimation(SinFloatFunc(0.2, 1.0, 1.0, 1)).apply()
+BrightnessAnimation(SinFloatFunc(0.2, 1.0, 0.75, 1)).apply()
 
 
 
@@ -196,22 +196,51 @@ effect.breath(medium)
 beats(82, 83)
 elements(lifas1)
 color.uniform(light_coral)
-effect.breath(total)
+effect.breath(soft)
+beats(82.5, 83)
+elements(lifas1)
+effect.fade_out()
+
 
 beats(89.5, 94)
 elements(sticks3.all)
 color.uniform(light_coral)
-effect.fill_in_out()
+effect.fill()
 
 beats(91, 94)
 elements(sticks8.all)
 color.uniform(light_coral)
-effect.fill_in_out()
+effect.fill()
 
 beats(92.5, 94)
 elements(sticks7.all)
 color.uniform(light_coral)
-effect.fill_in_out()
+effect.fill()
+
+beats(93.5, 96)
+elements(sticks)
+color.uniform(light_coral)
+effect.fade_out()
+
+beats(96, 98)
+elements(sticks)
+effect.fade_in()
+
+beats(107.5, 145)
+cycle(1.5)
+elements(meduza)
+color.uniform(indigo)
+effect.breath(soft)
+effect.random_saturation()
+
+beats(107.5, 110.5)
+elements(meduza)
+effect.fade_in()
+
+beats(139, 145)
+elements(meduza)
+effect.fade_out()
+
 
 beats(107.7, 117)
 elements(all)
@@ -224,6 +253,37 @@ elements(all)
 color.uniform((0.2, 0.8, 1.0))
 effect.breath(1.0)
 effect.blink_repeat(64, 0.03)
+
+beats(123.1, 127.45)
+elements(lifas1.all)
+color.uniform(orange_strip)
+effect.saw_tooth(total, False)
+
+beats(124, 127.45)
+elements(sticks3.all)
+color.uniform(orange_strip)
+effect.saw_tooth(total, False)
+
+beats(124.78, 127.45)
+elements(lifas4.all)
+color.uniform(orange_strip)
+effect.saw_tooth(total, False)
+
+beats(125.57, 127.45)
+elements(lifas5.all)
+color.uniform(orange_strip)
+effect.saw_tooth(total, False)
+
+beats(126.3, 127.45)
+elements(sticks7.all, sticks8.all)
+color.uniform(orange_strip)
+effect.saw_tooth(total, False)
+
+
+
+
+
+
 
 beats(132.2, 137.5)
 elements(all)
@@ -281,6 +341,6 @@ effect.brightness(0.5)
 
 
 send_to_mqtt("because")
-start_song("because", 60)
+start_song("because", 0)
 
 
