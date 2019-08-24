@@ -48,6 +48,8 @@ effect.segment_breath(0.5)
 
 beats(9, 11)
 effect.fade_in()
+beats(15.85, 21)
+effect.hue_breath(hard)
 beats(19, 21)
 effect.fade_out()
 
@@ -85,6 +87,9 @@ effect.fade_in()
 beats(49, 51)
 effect.fade_out()
 
+
+
+
 for e in all:
     e.straight
 
@@ -100,6 +105,15 @@ effect.fade_in()
 beats(62, 64)
 effect.fade_out()
 
+elements(papers, cabbages)
+beats(40.3, 65)
+cycle(0.03)
+color.uniform((0.045, 0.75, 1.0))
+effect.breath(0.25)
+beats(40.3, 42)
+effect.fade_in()
+beats(62, 65)
+effect.fade_out()
 
 beats(65, 68.5)
 elements(all)
@@ -125,12 +139,79 @@ BrightnessAnimation(SinFloatFunc(0.2, 1.0, 0.5, 1)).apply()
 elements([group5, group4])
 BrightnessAnimation(SinFloatFunc(0.2, 1.0, 1.0, 1)).apply()
 
+
+
 elements(all)
 beats(83, 87)
 effect.fade_in()
 beats(103, 107)
 effect.fade_out()
 
+
+beats(78, 83)
+elements(bottle4)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+4/9, 83)
+elements(paper2)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+8/9, 83)
+elements(sticks7)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+12/9, 83)
+elements(flower1)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+16/9, 83)
+elements(brain7)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+20/9, 83)
+elements(lifas5)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+24/9, 83)
+elements(donut1)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+28/9, 83)
+elements(cabbage6)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(78+32/9, 83)
+elements(paper2)
+color.uniform(light_coral)
+effect.breath(medium)
+
+beats(82, 83)
+elements(lifas1)
+color.uniform(light_coral)
+effect.breath(total)
+
+beats(89.5, 94)
+elements(sticks3.all)
+color.uniform(light_coral)
+effect.fill_in_out()
+
+beats(91, 94)
+elements(sticks8.all)
+color.uniform(light_coral)
+effect.fill_in_out()
+
+beats(92.5, 94)
+elements(sticks7.all)
+color.uniform(light_coral)
+effect.fill_in_out()
 
 beats(107.7, 117)
 elements(all)
@@ -200,6 +281,6 @@ effect.brightness(0.5)
 
 
 send_to_mqtt("because")
-start_song("because", 0)
+start_song("because", 60)
 
 
