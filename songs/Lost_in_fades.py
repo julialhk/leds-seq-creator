@@ -4,7 +4,7 @@ from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, load
 from infra.timing import beats
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, cabbages, brains, donut1, donut3, donuts
-from led_objects.flood import cup_cakes, cup_cake3, rugs
+from led_objects.flood import cup_cakes, cup_cake3, cup_cake4, rugs
 from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.led_object import all
 from led_objects.sheep import  sheep
@@ -19,7 +19,7 @@ from infra.colors import *
 
 song_settings(bpm=118, beats_per_episode=8,start_offset = 3)
 episode_length = 8
-background_elements = [sheep] + cabbages + brains + donuts + rugs + flowers + bottles
+background_elements = [sheep, cup_cake4] + cabbages + brains + donuts + rugs + flowers + bottles
 def snakes_grdiant(first_episode, last_episode, fade_out_intense=0):
     episodes(first_episode, last_episode)
     elements(background_elements + [stands + cup_cakes + brains + papers, meduza])
@@ -217,7 +217,7 @@ def pattern(first_episode, last_episode, stand_elements, stand_colors,double=Fal
             effect.blink_repeat(2)
 
 
-pattern(35,42, [lifas1], [0.61,9/12])#sticks8)
+pattern(35,42, [sticks8], [0.61,9/12])#sticks8)
 pattern(42,46, [lifas1, lifas5, sticks3,sticks7,sticks8], [9/12,0.61])
 
 episodes(42,46)
@@ -257,4 +257,4 @@ snakes_grdiant(62,65)
 snakes_grdiant(65,66, fade_out_intense=1)
 
 send_to_mqtt("lost")
-start_song("lost", 31*8*60/118+3)
+start_song("lost", 25*8*60/118+0)
