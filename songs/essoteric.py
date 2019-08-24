@@ -776,9 +776,23 @@ def full_wave():
     effect.fill()
     color.uniform(aquamarine)
 
+def stopmotion():
+
+    cycle(4)
+    elements(all)
+    color.uniform(red)
+    effect.breath()
+
+    cycle(0.5)
+    elements(all)
+    color.uniform(red)
+    effect.random_brightness()
+    cycle(4)
+    elements(all)
+    effect.hue_shift_steps(6, 0.1)
 
 episode(11)
-full_wave()
+stopmotion()
 cycle(8)
 
 beats(176, 192)
@@ -991,5 +1005,5 @@ effect.breath(hard)
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 0)
+start_song("essoteric", 140)
 
