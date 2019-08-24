@@ -235,7 +235,7 @@ elems = background_elements + brains + cup_cakes
 for e in elems:
     e.straight
 
-episodes(50,52)
+episodes(50,54)
 cycle(8)
 elements(background_elements)#flowers, bottles)
 color.uniform(turquoise_string)
@@ -243,23 +243,6 @@ color.uniform(turquoise_string)
 #effect.hue_breath()
 effect.fill_in_out()
 
-episodes(52,54)
-cycle(8)
-elements(background_elements)#flowers, bottles)
-color.uniform(light_turquoise_string)
-#effect.saw_tooth(reverse=True)
-#effect.hue_breath()
-effect.fill_in_out()
-
-"""
-episodes(52,54)
-cycle(1)
-elements(cabbages, brains, donuts, flowers, bottles)
-color.uniform(blue)
-effect.saw_tooth(reverse=True)
-effect.hue_breath()
-
-"""
 
 pattern(54,58,  [lifas1, lifas5, sticks3,sticks7,sticks8], [0.61,9/12], double=True)
 

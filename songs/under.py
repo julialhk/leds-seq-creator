@@ -22,6 +22,62 @@ elements(all)
 beats(0, 2)
 color.uniform((0.0, 0.9, 1.0))
 
+
+def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sticks8):
+    beats(first_beat,first_beat+8)
+    cycle(8)
+    offset = 0
+    def pattern_inner(offset):
+        cycle_beats(offset, offset + 0.25)
+        elements(standing_elem.stand(1))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 0.25, offset + 0.5)
+        elements(standing_elem.stand(2))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 0.5, offset + 0.75)
+        elements(standing_elem.stand(3))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 0.75, offset + 1.25)
+        elements(standing_elem.stand(4))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 1.25, offset + 1.75)
+        elements(standing_elem.stand(5))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 1.75, offset + 2)
+        elements(standing_elem.stand(1))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 2, offset + 2.5)
+        elements(standing_elem.stand(2))
+        color.uniform(main_color)
+
+        cycle_beats(offset + 2.5, offset + 3)
+        elements(standing_elem.stand(3))
+        color.uniform(main_color)
+
+    pattern_inner(0)
+    cycle_beats(3, 3.5)
+    elements(standing_elem.stand(4))
+    color.uniform(second_color)
+
+    cycle_beats(3.5, 4)
+    elements(standing_elem.stand(5))
+    color.uniform(main_color)
+
+    pattern_inner(4)
+
+    cycle_beats(7, 8)
+    elements(standing_elem.stand(4))
+    color.uniform(main_color)
+pattern(2, sticks8)
+pattern(10, sticks7)
+
+
 beats(2, 18)
 color.gradient(0.0, 2.0)
 
