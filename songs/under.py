@@ -5,7 +5,7 @@ from infra.length import short, medium, long, soft, hard, total
 from infra.stored_animations import save, beat, load
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cup_cake4, cabbage5, cabbages, donut1, donut3, \
     brains, twists, donuts
-from led_objects.flood import cup_cakes
+from led_objects.flood import cup_cakes, rugs
 from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1
 from led_objects.objects_selector import elements
@@ -94,14 +94,62 @@ effect.snake(1.0, False)
 
 elements(all)
 
+#BEAT
+
 beats(18, 52)
 color.uniform((0.7, 0.9, 1.0))
 
+def grad_everry_beat():
+    color.gradient(0.0, 4.0)
+    cycle(1)
+    effect.saw_tooth()
+
 beats(52, 80)
-color.uniform((0.2, 0.9, 1.0))
+elements([cabbages, rugs])
+grad_everry_beat()
+
+beats(56, 80)
+elements(donuts)
+grad_everry_beat()
+
+beats(60, 80)
+elements(cup_cakes)
+grad_everry_beat()
+
+beats(64, 80)
+elements(bottles)
+grad_everry_beat()
+
+beats(68, 80)
+elements(flowers)
+grad_everry_beat()
+
+beats(72, 80)
+elements(papers)
+grad_everry_beat()
+
+
+# STICKS RING
 
 beats(80, 112)
-color.uniform((0.9, 0.9, 1.0))
+elements(single_stands)
+color.gradient(0.0, 2.0)
+
+beats(80, 112)
+for e in all:
+    e.random
+elements(stands)
+cycle(2.0)
+effect.segment_breath(0.5)
+for e in all:
+    e.straight
+
+elements(single_stands)
+cycle(8)
+cycle_beats(0, 4)
+effect.snake(4.0)
+cycle_beats(4, 8)
+effect.snake(4.0, True)
 
 beats(112, 116)
 color.uniform((0.6, 0.9, 1.0))
@@ -125,6 +173,6 @@ color.uniform((0.0, 0.9, 1.0))
 
 
 send_to_mqtt("under")
-start_song("under", 0)
+start_song("under", 40)
 
 
