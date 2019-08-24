@@ -15,7 +15,7 @@ from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
 
-song_settings(bpm=128, beats_per_episode=32)
+song_settings(bpm=128, beats_per_episode=32, start_offset=3)
 
 elements(all)
 

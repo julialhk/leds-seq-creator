@@ -22,7 +22,7 @@ episode_length = 8
 background_elements = [sheep] + cabbages + brains + donuts + rugs + flowers + bottles
 
 def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sticks8):
-    beats(first_beat,first_beat+4)
+    beats(first_beat,first_beat+8)
     cycle(8)
     offset = 0
     def pattern_inner(offset):
@@ -72,8 +72,8 @@ def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sti
     cycle_beats(7, 8)
     elements(standing_elem.stand(4))
     color.uniform(main_color)
-pattern(2, sticks8)
-pattern(10, sticks7)
+#pattern(2, sticks8)
+#pattern(10, sticks7)
 
 send_to_mqtt("under")
 start_song("under", 0)

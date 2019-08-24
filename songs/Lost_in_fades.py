@@ -231,19 +231,35 @@ pattern(46,50,  [lifas1, lifas5, sticks3,sticks7,sticks8], [0.61,9/12], double=T
 pattern(50,54,  [lifas1, lifas5, sticks3,sticks7,sticks8], [9/12,0.61], double=True)
 
 
-episodes(50,52)
-cycle(1)
-elements(flowers, bottles)
-color.uniform(turquoise_string)
-effect.saw_tooth(reverse=True)
-effect.hue_breath()
+elems = background_elements + brains + cup_cakes
+for e in elems:
+    e.straight
 
+episodes(50,52)
+cycle(8)
+elements(background_elements)#flowers, bottles)
+color.uniform(turquoise_string)
+#effect.saw_tooth(reverse=True)
+#effect.hue_breath()
+effect.fill_in_out()
+
+episodes(52,54)
+cycle(8)
+elements(background_elements)#flowers, bottles)
+color.uniform(light_turquoise_string)
+#effect.saw_tooth(reverse=True)
+#effect.hue_breath()
+effect.fill_in_out()
+
+"""
 episodes(52,54)
 cycle(1)
 elements(cabbages, brains, donuts, flowers, bottles)
 color.uniform(blue)
 effect.saw_tooth(reverse=True)
 effect.hue_breath()
+
+"""
 
 pattern(54,58,  [lifas1, lifas5, sticks3,sticks7,sticks8], [0.61,9/12], double=True)
 
@@ -257,4 +273,4 @@ snakes_grdiant(62,65)
 snakes_grdiant(65,66, fade_out_intense=1)
 
 send_to_mqtt("lost")
-start_song("lost", 25*8*60/118+0)
+start_song("lost", 49*8*60/118+0)
