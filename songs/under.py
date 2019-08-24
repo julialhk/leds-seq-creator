@@ -10,7 +10,7 @@ from led_objects.led_object import all
 from led_objects.flowers import flower6, flowers, paper5, papers, bottles, paper2, flower1
 from led_objects.objects_selector import elements
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, sticks, lifas, stands, \
-    single_lifas, single_stands
+    single_lifas, single_stands, single_stands_per_stand
 from network.send_to_mqtt import send_to_mqtt, start_song
 from infra.timing import song_settings, episodes, episode, cycle, cycle_beats, beats
 from infra.colors import *
@@ -21,66 +21,41 @@ elements(all)
 
 beats(0, 2)
 color.uniform((0.0, 0.9, 1.0))
-
-
-def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sticks8):
+single_sticks
+stands
+import random
+def pattern(first_beat, main_color=coral):
     beats(first_beat,first_beat+8)
     cycle(8)
     offset = 0
-    def pattern_inner(offset, standing_elem, main_color=pink_string):
-        cycle_beats(offset, offset + 0.25)
-        elements(standing_elem.stand(1))
-        color.uniform(main_color)
 
-        cycle_beats(offset + 0.25, offset + 0.5)
-        elements(standing_elem.stand(2))
-        color.uniform(main_color)
+    def turn_on_stick(first_addition, second_addition):
+        curr_elem_list = single_stands_per_stand[random.randint(0, len(single_stands_per_stand)-1)]
+        curr_stand = curr_elem_list[random.randint(0,len(curr_elem_list)-1)]
+        cycle_beats(offset+first_addition, offset + second_addition)
+        elements(curr_stand)
+        color.gradient(0,1)
 
-        cycle_beats(offset + 0.5, offset + 0.75)
-        elements(standing_elem.stand(3))
-        color.uniform(main_color)
+    def pattern_inner(offset):
+        turn_on_stick(offset + 0, offset + 0.25)
+        turn_on_stick(offset + 0.25, offset + 0.5)
+        turn_on_stick(offset + 0.5, offset + 0.75)
+        turn_on_stick(offset + 0.75, offset + 1.25)
+        turn_on_stick(offset + 1.25, offset +  1.75)
+        turn_on_stick(offset + 1.75, offset +  2)
+        turn_on_stick(offset + 2, offset + 2.5)
+        turn_on_stick(offset + 2.5, offset + 3)
 
-        cycle_beats(offset + 0.75, offset + 1.25)
-        elements(standing_elem.stand(4))
-        color.uniform(main_color)
+    pattern_inner(0)
+    turn_on_stick(3,3.5)
+    turn_on_stick(3.5,4)
+    pattern_inner(4)
+    turn_on_stick(7, 8)
 
-        cycle_beats(offset + 1.25, offset + 1.75)
-        elements(standing_elem.stand(5))
-        color.uniform(main_color)
+pattern(2)
+pattern(10)
 
-        cycle_beats(offset + 1.75, offset + 2)
-        elements(standing_elem.stand(1))
-        color.uniform(main_color)
-
-        cycle_beats(offset + 2, offset + 2.5)
-        elements(standing_elem.stand(2))
-        color.uniform(main_color)
-
-        cycle_beats(offset + 2.5, offset + 3)
-        elements(standing_elem.stand(3))
-        color.uniform(main_color)
-
-
-    pattern_inner(0, standing_elem)
-
-    cycle_beats(3, 3.5)
-    elements(standing_elem.stand(4))
-    color.uniform(second_color)
-
-    cycle_beats(3.5, 4)
-    elements(standing_elem.stand(5))
-    color.uniform(main_color)
-
-    pattern_inner(4, standing_elem)
-
-    cycle_beats(7, 8)
-    elements(standing_elem.stand(4))
-    color.uniform(main_color)
-
-pattern(2, standing_elem=sticks8, main_color=light_indigo)
-pattern(10, standing_elem=sticks7, main_color=light_indigo)
-
-
+"""
 beats(2, 18)
 color.gradient(0.0, 2.0)
 
@@ -90,6 +65,8 @@ cycle_beats(0, 4)
 effect.snake(1.0, True)
 cycle_beats(4, 8)
 effect.snake(1.0, False)
+
+"""
 
 
 elements(all)
