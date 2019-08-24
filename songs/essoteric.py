@@ -778,18 +778,18 @@ def full_wave():
 
 def stopmotion():
 
-    cycle(4)
+    cycle(2)
     elements(all)
-    color.uniform(red)
+    color.gradient(turquoise_strip[0], purple_strip[0])
     effect.breath()
 
-    cycle(0.5)
+    cycle(0.25)
     elements(all)
-    color.uniform(red)
+    color.uniform(indigo)
     effect.random_brightness()
-    cycle(4)
+    cycle(8)
     elements(all)
-    effect.hue_shift_steps(6, 0.1)
+    effect.hue_shift_steps(4, 0.08)
 
 episode(11)
 stopmotion()
@@ -798,7 +798,7 @@ cycle(8)
 beats(176, 192)
 cycle(8)
 elements(all)
-effect.hue_breath(medium)
+effect.hue_shift(medium)
 
 
 # for e in all:
@@ -806,17 +806,17 @@ effect.hue_breath(medium)
 
 beats(184, 192)
 elements(cabbages, brains,lifas)
-color.gradient(yellow_strip[0], 0.01)
+color.uniform(yellow_strip)
 effect.snake(0.6)
 
 beats(186, 192)
 elements(sticks, flowers, cup_cakes)
-color.gradient(yellow_strip[0], 0.01)
+color.uniform(yellow_strip)
 effect.snake(0.6)
 
 beats(188, 192)
 elements(papers, bottles, rugs, donuts)
-color.gradient(yellow_strip[0], 0.01)
+color.uniform(yellow_strip)
 effect.snake(0.6)
 
 # beats(190, 192)
@@ -1005,5 +1005,5 @@ effect.breath(hard)
 
 
 send_to_mqtt("essoteric")
-start_song("essoteric", 140)
+start_song("essoteric", 145)
 
