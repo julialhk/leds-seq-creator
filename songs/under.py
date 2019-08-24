@@ -27,7 +27,7 @@ def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sti
     beats(first_beat,first_beat+8)
     cycle(8)
     offset = 0
-    def pattern_inner(offset):
+    def pattern_inner(offset, standing_elem, main_color=pink_string):
         cycle_beats(offset, offset + 0.25)
         elements(standing_elem.stand(1))
         color.uniform(main_color)
@@ -60,7 +60,9 @@ def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sti
         elements(standing_elem.stand(3))
         color.uniform(main_color)
 
-    pattern_inner(0)
+
+    pattern_inner(0, standing_elem)
+
     cycle_beats(3, 3.5)
     elements(standing_elem.stand(4))
     color.uniform(second_color)
@@ -69,13 +71,14 @@ def pattern(first_beat, main_color=coral, second_color=indigo, standing_elem=sti
     elements(standing_elem.stand(5))
     color.uniform(main_color)
 
-    pattern_inner(4)
+    pattern_inner(4, standing_elem)
 
     cycle_beats(7, 8)
     elements(standing_elem.stand(4))
     color.uniform(main_color)
-pattern(2, sticks8)
-pattern(10, sticks7)
+
+pattern(2, standing_elem=sticks8, main_color=light_indigo)
+pattern(10, standing_elem=sticks7, main_color=light_indigo)
 
 
 beats(2, 18)
