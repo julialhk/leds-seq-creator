@@ -5,9 +5,9 @@ from infra.stored_animations import save, beat, load
 from led_objects.groups import group1, group2, group3, group4, group5, group6, group7, group8
 from led_objects.meduza import meduza
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, cabbages, brains, donut1, donut3, twists, donuts
-from led_objects.flood import floods, cup_cakes
+from led_objects.flood import floods, cup_cakes, cup_cake3, rug4, cup_cake4, rug6
 from led_objects.led_object import all
-from led_objects.flowers import flower6, flowers, paper5, strings, flower1, bottles, papers
+from led_objects.flowers import flower6, flowers, paper5, strings, flower1, bottles, papers, paper2, bottle4, bottle5
 from led_objects.objects_selector import elements
 from led_objects.sheep import sheep
 from led_objects.stands import sticks8, single_sticks, sticks7, sticks3, lifas5, lifas1, lifas4, lifas, single_lifas, \
@@ -55,7 +55,7 @@ effect.blink(edge=hard)
 # twists and strings hold the main beat
 episodes(1, 3)
 elements(twists)
-cycle(beats=2/3)
+cycle(2/3)
 color.uniform(pink_strip)
 effect.breath(edge=soft)
 
@@ -91,7 +91,7 @@ color.gradient(0.6, 1.0)
 effect.snake(tail=1)
 cycle_beats(24, 32)
 color.gradient(0.8, 1.2)
-effect.snake_down_up(tail=1)
+effect.snake_up_down(tail=1)
 
 # light crash at end of episode 5
 beats(190, 192)
@@ -116,7 +116,7 @@ beats(254, 256)
 cycle(2/3)
 elements(floods)
 color.uniform(turquoise_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 # along episode 8 increasing tempo
 episodes(8, 9)
@@ -207,16 +207,16 @@ elements(stands)
 cycle(32)
 cycle_beats(0, 8)
 color.gradient(0.2, 0.3)
-effect.snake(tail=1)
+effect.fill()
 cycle_beats(8, 16)
 color.gradient(0.3, 0.4)
-effect.snake(tail=1)
+effect.fill()
 cycle_beats(16, 24)
 color.gradient(0.2, 0.3)
-effect.snake(tail=1)
+effect.fill()
 cycle_beats(24, 32)
 color.gradient(0.1, 0.2)
-effect.snake_down_up(tail=1)
+effect.fill_in_out()
 cycle(None)
 effect.saw_tooth(reverse=True)
 
@@ -273,16 +273,16 @@ elements(stands)
 cycle(32)
 cycle_beats(0, 8)
 color.gradient(0, 1)
-effect.snake(tail=1)
+effect.segment_breath()
 cycle_beats(8, 16)
 color.gradient(0, 1)
-effect.snake(tail=1)
+effect.segment_breath()
 cycle_beats(16, 24)
 color.gradient(0, 1)
-effect.snake(tail=1)
+effect.segment_breath()
 cycle_beats(24, 32)
 color.gradient(0, 1)
-effect.snake_down_up(tail=1)
+effect.segment_saw_tooth()
 
 # episodes 17,18 stay like 15,16
 # light crash at end of 17
@@ -351,11 +351,11 @@ elements(group1, group2)
 color.gradient(0, 1)
 effect.fade_out()
 beats(734.66, 735.33)
-elements(group3, group4, group5)
+elements(group3, group8, group6)
 color.gradient(0, 1)
 effect.fade_out()
 beats(735.33, 736)
-elements(group6, group7, group8)
+elements(group4, group5, group7)
 color.gradient(0, 1)
 effect.fade_out()
 
@@ -399,7 +399,7 @@ effect.saw_tooth(edge=total)
 cycle(16)
 effect.hue_blink(edge=0.5)
 
-episodes(25, 27)
+episodes(25, 26.8)
 elements(twists, donuts)
 cycle(8)
 cycle_beats(0, 2)
@@ -432,16 +432,39 @@ elements(group1, group2)
 color.gradient(0, 1)
 effect.fade_out()
 beats(862.66, 863.33)
-elements(group3, group4, group5)
+elements(group3, group6, group8)
 color.gradient(0, 1)
 effect.fade_out()
 beats(863.33, 864)
-elements(group6, group7, group8)
+elements(group4, group5, group7)
 color.gradient(0, 1)
 effect.fade_out()
+#
+# flower1.random
+# donut1.random
+# lifas1.random
+# cabbage1.random
+# paper2.random
+# cup_cake3.random
+# donut3.random
+# sticks3.random
+# lifas4.random
+# rug4.random
+# bottle4.random
+# cup_cake4.random
+# paper5.random
+# lifas5.random
+# bottle5.random
+# cabbage5.random
+# flower6.random
+# cabbage6.random
+# rug6.random
+# sticks7.random
+# brain7.random
+# sticks8.random
 
 # episodes 27, 28, 29, 30 full beat with music
-episodes(27, 31)
+episodes(27, 29)
 elements(floods, twists)
 cycle(2/3)
 color.gradient(0, 1)
@@ -477,9 +500,9 @@ effect.snake_down_up(tail=1)
 # episode 29 second half has downwards music
 
 # episodes 31, 32 fade down music all through 2 episodes to soft crash at end
-episodes(31, 33)
+episodes(31, 32.75)
 elements(floods)
-cycle(2/3)
+cycle(2)
 color.gradient(0, 1)
 effect.breath(edge=soft)
 cycle(16)
@@ -500,19 +523,42 @@ effect.snake(tail=1)
 cycle_beats(24, 32)
 color.gradient(0, 1)
 effect.snake_down_up(tail=1)
+#
+# flower1.straight
+# donut1.straight
+# lifas1.straight
+# cabbage1.straight
+# paper2.straight
+# cup_cake3.straight
+# donut3.straight
+# sticks3.straight
+# lifas4.straight
+# rug4.straight
+# bottle4.straight
+# cup_cake4.straight
+# paper5.straight
+# lifas5.straight
+# bottle5.straight
+# cabbage5.straight
+# flower6.straight
+# cabbage6.straight
+# rug6.straight
+# sticks7.straight
+# brain7.straight
+# sticks8.straight
 
 # some drum sounds at end of 31
 beats(1022, 1024)
 cycle(2/3)
 elements(donuts)
 color.gradient(0, 1)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 # some drum sounds at end of 32
 beats(1054, 1058)
 elements(floods, donuts)
 color.gradient(0, 1)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 # episodes 33, 34 fade
 episodes(33, 34)
@@ -532,7 +578,7 @@ beats(1086, 1088)
 cycle(2/3)
 elements(floods)
 color.uniform(pink_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 episodes(34, 35)
 elements(flowers)
@@ -553,13 +599,13 @@ beats(1118, 1120)
 cycle(2/3)
 elements(floods)
 color.uniform(purple_strip)
-effect.breath(edge=soft,reverse=True)
+effect.breath(edge=soft, reverse=True)
 
 # episode 35 final fade, no beat, elements fade to dark
 episodes(35, 35.5)
 elements(sheep)
 color.uniform((1.0, 0.0, 1.0))
-effect.saw_tooth(reverse=True)
+effect.fade_out()
 elements(meduza)
 color.uniform(indigo)
 effect.fade_out()
