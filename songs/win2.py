@@ -23,12 +23,28 @@ from infra.colors import *
 
 song_settings(bpm=60, beats_per_episode=1, start_offset=0)
 
-beats(0, 5)
-elements(all, meduza, sheep)
-color.gradient(0, 1)
+beats(0, 8)
+cycle(2)
+elements(all)
+color.uniform(red)
 effect.breath(edge=0.5)
 
-send_to_mqtt("game_audio/win")
-start_song("game_audio/win", 0)
+beats(0, 8)
+cycle(2)
+elements(meduza)
+color.uniform(indigo)
+effect.breath(edge=0.5)
+
+beats(0, 8)
+cycle(2)
+elements(sheep)
+color.uniform((1.0, 0, 1.0))
+effect.breath(edge=0.5)
+
+beats(0, 0.5)
+effect.fade_in()
+
+send_to_mqtt("game_audio/win2")
+start_song("game_audio/win2", 0)
 
 
