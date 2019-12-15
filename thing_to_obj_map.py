@@ -1,4 +1,5 @@
 from led_objects.meduza import meduza
+from led_objects.she import she
 from led_objects.sheep import sheep
 from led_objects.cabbages import cabbage1, cabbage6, brain7, cabbage5, cup_cake4, donut1, donut3
 from led_objects.flood import cup_cake3, rug6, rug4
@@ -29,8 +30,8 @@ obj_to_thing = {
     rug6: "rug6",
     rug4: "rug4",
     sheep: "sheep",
-    meduza: "meduza"
-
+    meduza: "meduza",
+    she: "she"
 }
 
 all_objects = obj_to_thing.keys()
