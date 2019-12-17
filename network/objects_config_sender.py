@@ -5,6 +5,7 @@ import paho.mqtt.client as mqtt
 import json
 
 from led_objects.she import she
+from led_objects.they import they
 from thing_to_obj_map import obj_to_thing
 
 mqtt_host_name = "192.168.1.29"
@@ -42,7 +43,7 @@ def send_to_all_things():
         led_object = obj_with_thing[0]
         send_to_single_thing(thing_name, led_object)
 
-send_to_single_thing("she", she)
+send_to_all_things()
 
 time.sleep(3)
 
