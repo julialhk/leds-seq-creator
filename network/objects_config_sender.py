@@ -8,7 +8,7 @@ from led_objects.she import she
 from led_objects.they import they
 from thing_to_obj_map import obj_to_thing
 
-mqtt_host_name = "192.168.1.29"
+mqtt_host_name = "192.168.1.32"
 mqtt_client_id = "objects_map_sender"
 
 def ledObjectToJson(led_object):

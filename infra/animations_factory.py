@@ -56,6 +56,9 @@ class EffectFactory:
         else:
             SnakeAnimation(LinearFloatFunc(0.0, 1.0 + tail), ConstFloatFunc(tail), ConstBooleanFunc(not switch_direction)).apply()
 
+    def snake_out(self, tail=4.0):
+        SnakeAnimation(LinearFloatFunc(1.0, 1.0 + tail), LinearFloatFunc(5.0, tail), ConstBooleanFunc(True)).apply()
+
     def snake_up_down(self, tail=1.0):
         if isinstance(tail, str):
             tail = {short: 0.25, medium: 1.0, long: 4.0}[tail]
