@@ -5,7 +5,7 @@ import paho.mqtt.client as mqtt
 
 from thing_to_obj_map import obj_to_thing
 
-host_name = "192.168.1.32"
+host_name = "192.168.1.29"
 sender_mqtt_client_id = "leds-seq-creator"
 
 
